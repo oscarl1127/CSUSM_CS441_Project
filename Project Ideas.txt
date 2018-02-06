@@ -1,6 +1,15 @@
-Hey these are our project ideas so far. Maybe we can do a tally or something on what we might want to do
+Decision: General Scheduler
+Features:
+-Will look like a calendar
+-Can add events
+-Will have reminders and ways to remind
+-Someway to schedule classes?
 
-Class Scheduler
-Focus Modes
-Movie Date
-Nanny App
+Possible extra features:
+- driving time to events
+- Create 'Modes' on computer pertaining to what is scheduled
+- Small desktop widget 
+- Nanny AI (jk idk)
+
+
+
