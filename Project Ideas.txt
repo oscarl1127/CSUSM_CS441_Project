@@ -10,6 +10,7 @@ Possible extra features:
 - Create 'Modes' on computer pertaining to what is scheduled
 - Small desktop widget 
 - Nanny AI (jk idk)
+- Map directions
 
 
 
