@@ -27,14 +27,17 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     addeventbutton.cpp \
-    todolist.cpp
+    todolist.cpp \
+    mainwindowtabbed.cpp
 
 HEADERS += \
         mainwindow.h \
     addeventbutton.h \
-    todolist.h
+    todolist.h \
+    mainwindowtabbed.h
 
 FORMS += \
         mainwindow.ui \
     addeventbutton.ui \
-    todolist.ui
+    todolist.ui \
+    mainwindowtabbed.ui
