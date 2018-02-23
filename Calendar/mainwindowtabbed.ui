@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>785</width>
-    <height>646</height>
+    <width>662</width>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>10</y>
      <width>641</width>
      <height>491</height>
@@ -32,7 +32,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <property name="iconSize">
     <size>
@@ -58,7 +58,7 @@
    <property name="tabBarAutoHide">
     <bool>true</bool>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="OverViewTab">
     <attribute name="title">
      <string>Overview</string>
     </attribute>
@@ -68,20 +68,20 @@
        <x>0</x>
        <y>0</y>
        <width>631</width>
-       <height>411</height>
+       <height>461</height>
       </rect>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_3">
+   <widget class="QWidget" name="TodoListsTab">
     <attribute name="title">
      <string>Todo Lists</string>
     </attribute>
-    <widget class="QLabel" name="label_27">
+    <widget class="QLabel" name="TodoList_PageTitile">
      <property name="geometry">
       <rect>
-       <x>76</x>
-       <y>-3</y>
+       <x>90</x>
+       <y>0</y>
        <width>437</width>
        <height>22</height>
       </rect>
@@ -90,7 +90,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Todo Lists&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QTabWidget" name="tabWidget_2">
+    <widget class="QTabWidget" name="SelectTodoListTab">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -100,13 +100,13 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
-     <widget class="QWidget" name="tab_11">
+     <widget class="QWidget" name="DayTodoList">
       <attribute name="title">
        <string>Day</string>
       </attribute>
-      <widget class="QListWidget" name="listWidget">
+      <widget class="QListWidget" name="Day_TodoListViewWindow">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -116,7 +116,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="Day_DeleteTaskButton">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -129,7 +129,7 @@
         <string>Delete selected task</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="Day_AddTaskButton">
        <property name="geometry">
         <rect>
          <x>320</x>
@@ -142,7 +142,7 @@
         <string>Add task</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="Day_UpdateTaskButton">
        <property name="geometry">
         <rect>
          <x>170</x>
@@ -156,15 +156,15 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_12">
+     <widget class="QWidget" name="WeekTodoList">
       <attribute name="title">
        <string>Week</string>
       </attribute>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="Week_UpdateTask">
        <property name="geometry">
         <rect>
          <x>170</x>
-         <y>260</y>
+         <y>350</y>
          <width>161</width>
          <height>32</height>
         </rect>
@@ -173,21 +173,21 @@
         <string>Update selected task</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_2">
+      <widget class="QListWidget" name="Week_TodoListViewWindow">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>12</y>
          <width>391</width>
-         <height>241</height>
+         <height>331</height>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="Week_AddTask">
        <property name="geometry">
         <rect>
          <x>320</x>
-         <y>260</y>
+         <y>350</y>
          <width>91</width>
          <height>32</height>
         </rect>
@@ -196,11 +196,11 @@
         <string>Add task</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="Week_DeleteTask">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>260</y>
+         <y>350</y>
          <width>161</width>
          <height>32</height>
         </rect>
@@ -210,15 +210,15 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_13">
+     <widget class="QWidget" name="MonthTodoList">
       <attribute name="title">
        <string>Month</string>
       </attribute>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="Month_UpdateTask">
        <property name="geometry">
         <rect>
          <x>170</x>
-         <y>260</y>
+         <y>350</y>
          <width>161</width>
          <height>32</height>
         </rect>
@@ -227,21 +227,21 @@
         <string>Update selected task</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_3">
+      <widget class="QListWidget" name="Month_TodoListViewWindow">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>12</y>
          <width>391</width>
-         <height>241</height>
+         <height>331</height>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="Month_AddTask">
        <property name="geometry">
         <rect>
          <x>320</x>
-         <y>260</y>
+         <y>350</y>
          <width>91</width>
          <height>32</height>
         </rect>
@@ -250,11 +250,11 @@
         <string>Add task</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="Month_DeleteTask">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>260</y>
+         <y>350</y>
          <width>161</width>
          <height>32</height>
         </rect>
@@ -265,7 +265,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QDialogButtonBox" name="buttonBox_3">
+    <widget class="QDialogButtonBox" name="TodoListAcceptDeclineButtons">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -278,7 +278,7 @@
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_28">
+    <widget class="QLabel" name="TodoListJumpToDateLabel">
      <property name="geometry">
       <rect>
        <x>450</x>
@@ -291,7 +291,7 @@
       <string>Jump to :</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit_5">
+    <widget class="QDateEdit" name="TodoListJumpToDateSelector">
      <property name="geometry">
       <rect>
        <x>510</x>
@@ -302,16 +302,16 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_4">
+   <widget class="QWidget" name="TimeStatsTab">
     <attribute name="title">
      <string>Time Stats</string>
     </attribute>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="AddEventTab">
     <attribute name="title">
      <string>Add Event</string>
     </attribute>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="AddEvent_SelectorNotifyMeTime">
      <property name="geometry">
       <rect>
        <x>400</x>
@@ -321,7 +321,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit_2">
+    <widget class="QDateEdit" name="AddEvent_FromDateSelector">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -331,7 +331,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="AddEvent_CategoryLabel">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -344,7 +344,7 @@
       <string>Category :</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="AddEvent_CategorySelector">
      <property name="geometry">
       <rect>
        <x>400</x>
@@ -354,7 +354,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QTimeEdit" name="timeEdit">
+    <widget class="QTimeEdit" name="AddEvent_ToTimeSelector">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -364,7 +364,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="AddEvent_CityLabel">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -377,7 +377,7 @@
       <string>City :</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QTextEdit" name="AddEvent_NoteTextSection">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -387,7 +387,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="AddEvent_NotifyMeLabelPt2">
      <property name="geometry">
       <rect>
        <x>450</x>
@@ -400,7 +400,7 @@
       <string>minutes before i have to leave</string>
      </property>
     </widget>
-    <widget class="QTimeEdit" name="timeEdit_2">
+    <widget class="QTimeEdit" name="AddEvent_FromTimeSelector">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -419,16 +419,16 @@
        <height>51</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="AddEvent_FromToDateLabels">
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="AddEvent_FromDateTimeLabel">
         <property name="text">
          <string>From :</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="AddEvent_ToDateTimeLabel">
         <property name="text">
          <string>    To :</string>
         </property>
@@ -436,7 +436,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDialogButtonBox" name="AddEvent_AcceptDeclineButton">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -449,7 +449,7 @@
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_5">
+    <widget class="QTextEdit" name="AddEvent_StateTextSection">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -459,7 +459,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_3">
+    <widget class="QTextEdit" name="AddEvent_StreetNameTextSection">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -469,7 +469,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="AddEvent_Title">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -482,7 +482,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Add Event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="AddEvent_TitleLabel">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -495,7 +495,7 @@
       <string> Title :</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="AddEvent_TravelTimeNotification">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -508,7 +508,7 @@
       <string>Travel time notification</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_7">
+    <widget class="QTextEdit" name="AddEvent_LocationNameTextSection">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -518,7 +518,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="AddEvent_LocationNameLabel">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -531,7 +531,7 @@
       <string>Location Name :</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="AddEvent_NotifyMeLabelPt1">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -544,7 +544,7 @@
       <string>Notify me </string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_2">
+    <widget class="QTextEdit" name="AddEvent_TitleTextSection">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -554,7 +554,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_6">
+    <widget class="QTextEdit" name="AddEvent_ZipCodeTextSection">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -564,7 +564,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="AddEvent_ZipCodeLabel">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -577,7 +577,7 @@
       <string>Zip :</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="AddEvent_ToDateSelector">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -587,7 +587,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_4">
+    <widget class="QTextEdit" name="AddEvent_CityTextSection">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -597,7 +597,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="AddEvent_StreetNameLabel">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -610,7 +610,7 @@
       <string>Street :</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="AddEvent_StateLabel">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -623,7 +623,7 @@
       <string>State :</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="AddEvent_NotesLabel">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -637,7 +637,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_5">
+   <widget class="QWidget" name="AppSettingsTab">
     <attribute name="title">
      <string>Settings</string>
     </attribute>
@@ -667,7 +667,7 @@
       <string>Display Theme :</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
+    <widget class="QComboBox" name="Settings_">
      <property name="geometry">
       <rect>
        <x>120</x>

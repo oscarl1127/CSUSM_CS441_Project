@@ -34,7 +34,7 @@ void MainWindow::on_pushButton_2_clicked() // Todo List
 
 void MainWindow::on_pushButton_7_clicked() // Switch to tabbed view button
 {
-    mainWindowTabbed mainWindowTabbed;
-    mainWindowTabbed.setModal(true);
-    mainWindowTabbed.exec();
+    mainWindowTabbed m; // makes the instance
+    m.setModal(true);
+    m.exec();
 }
