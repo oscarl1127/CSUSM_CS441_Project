@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::mainWindowTabbed *ui;
+    void centerAndResize(double width_perc, double height_perc);
 };
 
 #endif // MAINWINDOWTABBED_H
