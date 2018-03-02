@@ -1,5 +1,6 @@
 #include "mainwindowtabbed.h"
 #include "ui_mainwindowtabbed.h"
+#include "dayview.h"
 #include "QDesktopWidget"
 #include "QDebug"
 
@@ -32,4 +33,11 @@ void mainWindowTabbed::centerAndResize(double width_perc, double height_perc)
                                     Qt::AlignCenter,
                                     newSize,
                                     qApp->desktop()->availableGeometry()));
+}
+
+void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
+{
+    DayView _dayView; // makes the instance
+    _dayView.setModal(true);
+    _dayView.exec();
 }

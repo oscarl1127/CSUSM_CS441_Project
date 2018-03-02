@@ -15,6 +15,9 @@ public:
     explicit mainWindowTabbed(QWidget *parent = 0);
     ~mainWindowTabbed();
 
+private slots:
+    void on_calendarWidget_clicked(const QDate &date);
+
 private:
     Ui::mainWindowTabbed *ui;
     void centerAndResize(double width_perc, double height_perc);
