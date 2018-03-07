@@ -18,6 +18,7 @@ mainWindowTabbed::~mainWindowTabbed()
 }
 
 ///Used to resize the window depending on the screen size
+
 void mainWindowTabbed::centerAndResize(double width_perc, double height_perc)
 {
     QSize availableSize = qApp->desktop()->availableGeometry().size();
