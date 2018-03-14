@@ -19,7 +19,7 @@
      <x>70</x>
      <y>0</y>
      <width>461</width>
-     <height>651</height>
+     <height>741</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -28,14 +28,29 @@
    <property name="frameShadow">
     <enum>QFrame::Sunken</enum>
    </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="dragEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>false</bool>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectItems</enum>
+   </property>
    <property name="showGrid">
     <bool>true</bool>
    </property>
    <property name="rowCount">
-    <number>45</number>
+    <number>24</number>
    </property>
    <property name="columnCount">
-    <number>8</number>
+    <number>4</number>
    </property>
    <attribute name="horizontalHeaderVisible">
     <bool>true</bool>
@@ -125,12 +140,22 @@
    </row>
    <row>
     <property name="text">
+     <string>4:00 PM</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
      <string>5:00 PM</string>
     </property>
    </row>
    <row>
     <property name="text">
      <string>6:00 PM</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>7:00 PM</string>
     </property>
    </row>
    <row>
@@ -145,33 +170,14 @@
    </row>
    <row>
     <property name="text">
+     <string>10:00 PM</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
      <string>11:00 PM</string>
     </property>
    </row>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
    <column>
     <property name="text">
      <string>:15</string>
@@ -198,13 +204,9 @@
    </column>
    <column>
     <property name="text">
-     <string/>
+     <string> </string>
     </property>
    </column>
-   <column/>
-   <column/>
-   <column/>
-   <column/>
   </widget>
  </widget>
  <resources/>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>461</width>
-    <height>565</height>
+    <height>418</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,6 @@
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QDial" name="dial"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QSlider" name="horizontalSlider">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -216,24 +206,7 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>dial</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>horizontalSlider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>226</x>
-     <y>446</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>237</x>
-     <y>553</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <buttongroups>
   <buttongroup name="buttonGroup"/>
  </buttongroups>

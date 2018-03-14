@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>507</height>
+    <width>687</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -320,8 +320,8 @@
     <widget class="QSpinBox" name="AddEvent_SelectorNotifyMeTime">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>183</y>
+       <x>390</x>
+       <y>323</y>
        <width>48</width>
        <height>31</height>
       </rect>
@@ -336,28 +336,8 @@
        <height>24</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_CategoryLabel">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>30</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Category :</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="AddEvent_CategorySelector">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>30</y>
-       <width>221</width>
-       <height>26</height>
-      </rect>
+     <property name="displayFormat">
+      <string> M/d/yy</string>
      </property>
     </widget>
     <widget class="QTimeEdit" name="AddEvent_ToTimeSelector">
@@ -369,35 +349,25 @@
        <height>24</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_CityLabel">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>330</y>
-       <width>60</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>City :</string>
+     <property name="displayFormat">
+      <string> h:mm AP</string>
      </property>
     </widget>
     <widget class="QTextEdit" name="AddEvent_NoteTextSection">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>60</y>
-       <width>281</width>
-       <height>91</height>
+       <x>380</x>
+       <y>70</y>
+       <width>241</width>
+       <height>191</height>
       </rect>
      </property>
     </widget>
     <widget class="QLabel" name="AddEvent_NotifyMeLabelPt2">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>190</y>
+       <x>440</x>
+       <y>330</y>
        <width>191</width>
        <height>16</height>
       </rect>
@@ -414,6 +384,9 @@
        <width>91</width>
        <height>24</height>
       </rect>
+     </property>
+     <property name="displayFormat">
+      <string> h:mm AP</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -455,26 +428,6 @@
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
-    <widget class="QTextEdit" name="AddEvent_StateTextSection">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>350</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="AddEvent_StreetNameTextSection">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>300</y>
-       <width>321</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="AddEvent_Title">
      <property name="geometry">
       <rect>
@@ -488,24 +441,11 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Add Event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="AddEvent_TitleLabel">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>30</y>
-       <width>60</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string> Title :</string>
-     </property>
-    </widget>
     <widget class="QCheckBox" name="AddEvent_TravelTimeNotification">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>160</y>
+       <x>330</x>
+       <y>263</y>
        <width>161</width>
        <height>20</height>
       </rect>
@@ -514,73 +454,17 @@
       <string>Travel time notification</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="AddEvent_LocationNameTextSection">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>250</y>
-       <width>321</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_LocationNameLabel">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>230</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Location Name :</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="AddEvent_NotifyMeLabelPt1">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>190</y>
-       <width>60</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Notify me </string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="AddEvent_TitleTextSection">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>30</y>
-       <width>271</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="AddEvent_ZipCodeTextSection">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>350</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_ZipCodeLabel">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
+       <x>330</x>
        <y>330</y>
        <width>60</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Zip :</string>
+      <string>Notify me </string>
      </property>
     </widget>
     <widget class="QDateEdit" name="AddEvent_ToDateSelector">
@@ -592,48 +476,15 @@
        <height>24</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QTextEdit" name="AddEvent_CityTextSection">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>350</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_StreetNameLabel">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>280</y>
-       <width>60</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Street :</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="AddEvent_StateLabel">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>330</y>
-       <width>60</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>State :</string>
+     <property name="displayFormat">
+      <string> M/d/yy</string>
      </property>
     </widget>
     <widget class="QLabel" name="AddEvent_NotesLabel">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>60</y>
+       <x>330</x>
+       <y>70</y>
        <width>60</width>
        <height>16</height>
       </rect>
@@ -646,7 +497,7 @@
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>380</y>
+       <y>360</y>
        <width>151</width>
        <height>32</height>
       </rect>
@@ -659,9 +510,9 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>200</y>
+       <y>140</y>
        <width>191</width>
-       <height>32</height>
+       <height>41</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -678,6 +529,157 @@
          <string>Saved Locations</string>
         </property>
        </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>286</y>
+       <width>196</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="AddEvent_DriveTimeLabel">
+        <property name="text">
+         <string>Drive Time :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="AddEvent_DriveTimeHourSelecter">
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::UpDownArrows</enum>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="singleStep">
+         <double>0.250000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="AddEvent_DriveTimeHourLabel">
+        <property name="text">
+         <string>Hours</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>321</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <property name="topMargin">
+       <number>3</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
+      <property name="bottomMargin">
+       <number>3</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="AddEvent_LocationNameLabel">
+        <property name="text">
+         <string>Location Name :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QTextEdit" name="AddEvent_LocationNameTextSection"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="AddEvent_StreetNameLabel">
+        <property name="text">
+         <string>Street :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QTextEdit" name="AddEvent_StreetNameTextSection"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="AddEvent_CityLabel">
+        <property name="text">
+         <string>City :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="AddEvent_StateLabel">
+        <property name="text">
+         <string>State :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="AddEvent_ZipCodeLabel">
+        <property name="text">
+         <string>Zip :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QTextEdit" name="AddEvent_CityTextSection"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QTextEdit" name="AddEvent_StateTextSection"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QTextEdit" name="AddEvent_ZipCodeTextSection"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>621</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="AddEvent_TitleLabel">
+        <property name="text">
+         <string> Title :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="AddEvent_TitleTextSection"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="AddEvent_CategoryLabel">
+        <property name="text">
+         <string>Category :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="AddEvent_CategorySelector"/>
       </item>
      </layout>
     </widget>
