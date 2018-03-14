@@ -723,7 +723,6 @@
       </layout>
      </widget>
     </widget>
-<<<<<<< HEAD
     <widget class="QDialogButtonBox" name="TodoListAcceptDeclineButtons">
      <property name="geometry">
       <rect>
