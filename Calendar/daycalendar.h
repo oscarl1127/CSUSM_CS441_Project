@@ -4,13 +4,19 @@
 #include <list>
 #include <event.h>
 
+using namespace std;
+
 class DayCalendar
 {
 private:
-    list<Event> userEvents;
+    map<QTime, Event> userEvents;
 
 public:
     DayCalendar();
+    Event FindEvent(QTime startTime);
+    void AddEvent(Event event);
+
+
 
 };
 

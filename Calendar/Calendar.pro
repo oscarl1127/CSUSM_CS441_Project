@@ -29,14 +29,18 @@ SOURCES += \
     addeventbutton.cpp \
     todolist.cpp \
     mainwindowtabbed.cpp \
-    dayview.cpp
+    dayview.cpp \
+    event.cpp \
+    daycalendar.cpp
 
 HEADERS += \
         mainwindow.h \
     addeventbutton.h \
     todolist.h \
     mainwindowtabbed.h \
-    dayview.h
+    dayview.h \
+    daycalendar.h \
+    event.h
 
 FORMS += \
         mainwindow.ui \
