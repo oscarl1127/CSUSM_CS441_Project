@@ -17,7 +17,8 @@ private:
     QString driveTime;
     QString notifyDriveTime;
 
-    QDate date;
+    QDate startDate;
+    QDate endDate;
     QTime timeStart;
     QTime timeEnd;
 
@@ -32,9 +33,10 @@ public:
     void setZipCode(QString zip){this->zipCode = zip;}
     void setNote(QString note){this->note = note;}
     void seDriveTime(QString dTime){this->driveTime = dTime;}
-    void setNote(QString notifyDriveT){this->notifyDriveTime = notifyDriveT;}
+    void setNotifyDriveTime(QString notifyDriveT){this->notifyDriveTime = notifyDriveT;}
 
-    void setDate(QDate date){this->date = date;}
+    void setStartDate(QDate date){this->startDate = date;}
+    void setEndDate(QDate d){this->endDate = d;}
     void setTimeStart(QTime tStart){this->timeStart = tStart;}
     void setTimeEnd(QTime tEnd){this->timeEnd;}
 
@@ -46,9 +48,10 @@ public:
     QString getZipCode(){return this->zipCode;}
     QString getNote(){return this->note;}
     QString geDriveTime(){return this->driveTime;}
-    QString getNote(){return this->notifyDriveTime;}
+    QString getNotifyDriveTime(){return this->notifyDriveTime;}
 
-    QDate getDate(){return this->date;}
+    QDate getStartDate(){return this->startDate;}
+    QDate getEndDate(){return this->endDate;}
 
     QTime getTimeStart(){return this->timeStart;}
     QTime getTimeEnd(){return this->timeEnd;}

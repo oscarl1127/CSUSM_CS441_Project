@@ -29,6 +29,8 @@ SOURCES += \
     addeventbutton.cpp \
     todolist.cpp \
     mainwindowtabbed.cpp \
+    event.cpp \
+    daycalendar.cpp \
     dayview.cpp
 
 HEADERS += \
@@ -36,6 +38,8 @@ HEADERS += \
     addeventbutton.h \
     todolist.h \
     mainwindowtabbed.h \
+    event.h \
+    daycalendar.h \
     dayview.h
 
 FORMS += \

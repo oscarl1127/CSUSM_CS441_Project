@@ -1,16 +1,19 @@
 #ifndef DAYCALENDAR_H
 #define DAYCALENDAR_H
 
-#include <list>
+#include <vector>
 #include <event.h>
+
+using namespace std;
 
 class DayCalendar
 {
 private:
-    list<Event> userEvents;
+    vector<Event> userEvents;
 
 public:
     DayCalendar();
+    void addToList(Event e);
 
 };
 

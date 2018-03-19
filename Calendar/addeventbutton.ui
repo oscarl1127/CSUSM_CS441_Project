@@ -26,20 +26,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Add Event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>467</y>
-     <width>164</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="Note_Box">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -49,7 +36,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_2">
+  <widget class="QTextEdit" name="Title_Box">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -85,7 +72,7 @@
     <string>Location Name :</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_3">
+  <widget class="QTextEdit" name="Street_Box">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -95,7 +82,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit">
+  <widget class="QTimeEdit" name="EndTime_Box">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -105,7 +92,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit">
+  <widget class="QDateEdit" name="EndDate_Box">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -180,7 +167,7 @@
     <string>Zip :</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_4">
+  <widget class="QTextEdit" name="City_Box">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -190,7 +177,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_5">
+  <widget class="QTextEdit" name="Stste_Box">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -200,7 +187,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_6">
+  <widget class="QTextEdit" name="Zip_Box">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -210,7 +197,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_7">
+  <widget class="QTextEdit" name="Location_Box">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -302,7 +289,7 @@
     <string>Category :</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="Category_Box">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -311,8 +298,33 @@
      <height>26</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Work</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>School</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Study</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Fitness</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Free Time</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QDateEdit" name="dateEdit_2">
+  <widget class="QDateEdit" name="StartDate_Box">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -322,7 +334,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit_2">
+  <widget class="QTimeEdit" name="StartTime_Box">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -330,6 +342,19 @@
      <width>91</width>
      <height>24</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="AddEventButton_2">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>470</y>
+     <width>113</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Event</string>
    </property>
   </widget>
  </widget>
