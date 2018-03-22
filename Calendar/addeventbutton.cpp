@@ -2,6 +2,9 @@
 #include "ui_addeventbutton.h"
 #include "event.h"
 #include "daycalendar.h"
+#include <QDebug>
+
+using namespace std;
 
 AddEventButton::AddEventButton(QWidget *parent) :
     QDialog(parent),
@@ -36,5 +39,7 @@ void AddEventButton::on_AddEventButton_2_clicked()
     newEvent.setTimeEnd( ui->EndTime_Box ->time() );
 
     userEvents.addToList(newEvent);
+
+    qDebug() << "Event Name"<< QString(newEvent.getName() );
 
 }

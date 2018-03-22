@@ -32,7 +32,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <property name="iconSize">
       <size>
@@ -316,7 +316,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QDateEdit" name="AddEvent_FromDateSelector">
+      <widget class="QDateEdit" name="DateStart_Box">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -339,7 +339,7 @@
         <string>Category :</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="AddEvent_CategorySelector">
+      <widget class="QComboBox" name="Category_Box">
        <property name="geometry">
         <rect>
          <x>400</x>
@@ -349,7 +349,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QTimeEdit" name="AddEvent_ToTimeSelector">
+      <widget class="QTimeEdit" name="TimeEnd_Box">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -372,7 +372,7 @@
         <string>City :</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_NoteTextSection">
+      <widget class="QTextEdit" name="Note_Box">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -395,7 +395,7 @@
         <string>minutes before i have to leave</string>
        </property>
       </widget>
-      <widget class="QTimeEdit" name="AddEvent_FromTimeSelector">
+      <widget class="QTimeEdit" name="TimeStart_Box">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -444,7 +444,7 @@
         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_StateTextSection">
+      <widget class="QTextEdit" name="State_Box">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -454,7 +454,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_StreetNameTextSection">
+      <widget class="QTextEdit" name="Street_Box">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -503,7 +503,7 @@
         <string>Travel time notification</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_LocationNameTextSection">
+      <widget class="QTextEdit" name="Lcation_Box">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -539,7 +539,7 @@
         <string>Notify me </string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_TitleTextSection">
+      <widget class="QTextEdit" name="Title_Box">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -549,7 +549,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_ZipCodeTextSection">
+      <widget class="QTextEdit" name="Zip_Box">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -572,7 +572,7 @@
         <string>Zip :</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="AddEvent_ToDateSelector">
+      <widget class="QDateEdit" name="DateEnd_Box">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -582,7 +582,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QTextEdit" name="AddEvent_CityTextSection">
+      <widget class="QTextEdit" name="City_Box">
        <property name="geometry">
         <rect>
          <x>0</x>

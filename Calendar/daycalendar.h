@@ -14,6 +14,7 @@ private:
 public:
     DayCalendar();
     void addToList(Event e);
+    QString getEventName(int index);
 
 };
 

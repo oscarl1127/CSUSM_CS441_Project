@@ -1,3 +1,4 @@
+QMAKE_MAC_SDK.macosx.--show-sdk-path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
 QMAKE_MAC_SDK.macosx.--show-sdk-platform-path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform
 QMAKE_MAC_SDK.macosx.--show-sdk-version = 10.12
 QMAKE_MAC_SDK.macx-clang.macosx.QMAKE_CC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang

@@ -2,6 +2,7 @@
 #define MAINWINDOWTABBED_H
 
 #include <QDialog>
+#include "daycalendar.h"
 
 namespace Ui {
 class mainWindowTabbed;
@@ -13,10 +14,13 @@ class mainWindowTabbed : public QDialog
 
 public:
     explicit mainWindowTabbed(QWidget *parent = 0);
+    DayCalendar userEvents;
     ~mainWindowTabbed();
 
 private slots:
     void on_calendarWidget_clicked(const QDate &date);
+
+    void on_AddEvent_AcceptDeclineButton_accepted();
 
 private:
     Ui::mainWindowTabbed *ui;

@@ -749,6 +749,12 @@ moc_mainwindow.cpp: ../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/
 
 moc_addeventbutton.cpp: ../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Calendar/daycalendar.h \
+		../Calendar/event.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		../Calendar/addeventbutton.h \
 		moc_predefs.h \
 		../../../Qt/5.10.0/clang_64/bin/moc
@@ -831,6 +837,12 @@ mainwindow.o: ../Calendar/mainwindow.cpp ../Calendar/mainwindow.h \
 		../Calendar/addeventbutton.h \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Calendar/daycalendar.h \
+		../Calendar/event.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		../Calendar/todolist.h \
 		../Calendar/mainwindowtabbed.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Calendar/mainwindow.cpp
@@ -838,7 +850,15 @@ mainwindow.o: ../Calendar/mainwindow.cpp ../Calendar/mainwindow.h \
 addeventbutton.o: ../Calendar/addeventbutton.cpp ../Calendar/addeventbutton.h \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_addeventbutton.h
+		../Calendar/daycalendar.h \
+		../Calendar/event.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		ui_addeventbutton.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addeventbutton.o ../Calendar/addeventbutton.cpp
 
 todolist.o: ../Calendar/todolist.cpp ../Calendar/todolist.h \
