@@ -5,6 +5,7 @@
 #include "QDebug"
 #include "event.h"
 #include "daycalendar.h"
+#include "thedb.h"
 
 
 mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
@@ -48,6 +49,11 @@ void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
 
 void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 {
+    //Once Event OK is given, check constraints of data (will do later), for now assumes data that can be put into database
+
+    //Event is ready to be entered into db so first create a db varuble and connect
+
+
     Event newEvent = Event();
 
     newEvent.setName( ui->Title_Box->toPlainText() );
@@ -57,17 +63,23 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
-
     newEvent.setStartDate( ui->DateStart_Box->date() );
     newEvent.setEndDate( ui->DateEnd_Box->date() );
-
     newEvent.setTimeStart( ui->TimeStart_Box->time() );
     newEvent.setTimeEnd( ui->TimeEnd_Box->time() );
+
+
+    //Send query to calenderDB variable
+    calenderdb.addEventInDb(); //will need to pass
+
 
     userEvents.addToList(newEvent);
 
     qDebug() << "Event Name"<< QString(newEvent.getName() );
-    qDebug() << "Location Name"<< QString(userEvents.getEventName(0) );
+    qDebug() << "Location Name"<< QString(newEvent.getLocation() );
     qDebug() << "Note Name"<< QString(newEvent.getNote() );
     qDebug() << "Date Name"<<  QDate( newEvent.getStartDate() );
+
+
+    //Save E
 }

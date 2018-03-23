@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     bool ok = db.open();
 
      QSqlQuery query;
-     query.prepare("CREATE TABLE testFromQt(ProductID int, theDescription text)");
+     query.prepare("CREATE TABLE martinTEST(ProductID int, theDescription text)");
      query.exec();
 
 

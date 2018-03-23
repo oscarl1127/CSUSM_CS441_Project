@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDateTime>
 
+
 class Event
 {
 private:
