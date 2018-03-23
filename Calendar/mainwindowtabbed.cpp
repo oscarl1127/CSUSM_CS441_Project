@@ -73,7 +73,7 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     calenderdb.addEventInDb(); //will need to pass
 
 
-    userEvents.addToList(newEvent);
+    userEvents.AddEvent(newEvent);
 
     qDebug() << "Event Name"<< QString(newEvent.getName() );
     qDebug() << "Location Name"<< QString(newEvent.getLocation() );

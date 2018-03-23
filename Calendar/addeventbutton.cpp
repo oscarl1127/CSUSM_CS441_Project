@@ -38,7 +38,7 @@ void AddEventButton::on_AddEventButton_2_clicked()
     newEvent.setTimeStart( ui->StartTime_Box ->time() );
     newEvent.setTimeEnd( ui->EndTime_Box ->time() );
 
-    userEvents.addToList(newEvent);
+    userEvents.AddEvent(newEvent);
 
     qDebug() << "Event Name"<< QString(newEvent.getName() );
 

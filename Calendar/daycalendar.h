@@ -2,19 +2,24 @@
 #define DAYCALENDAR_H
 
 #include <vector>
+#include <map>
 #include <event.h>
+#include <QDateTime>
 
 using namespace std;
 
 class DayCalendar
 {
 private:
-    vector<Event> userEvents;
+    map<QDateTime, Event> userEvents;
 
 public:
     DayCalendar();
-    void addToList(Event e);
-    QString getEventName(int index);
+    void AddEvent(Event e);
+    Event GetEvent(QDateTime q);
+    void RemoveEvent(QDateTime q, Event &removedEvent);
+    //bool Exists(QDateTime q);
+    //QString getEventName(int index);
 
 };
 
