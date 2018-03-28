@@ -348,6 +348,51 @@
          <height>26</height>
         </rect>
        </property>
+       <item>
+        <property name="text">
+         <string>Work</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>School</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Exercise</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Free Time</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Appointment</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Meetings</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Study</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Vacation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>New Item</string>
+        </property>
+       </item>
       </widget>
       <widget class="QTimeEdit" name="TimeEnd_Box">
        <property name="geometry">
