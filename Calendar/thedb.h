@@ -16,7 +16,7 @@ public:
     theDB();
     bool connectToDb();
     int username;
-    bool addEventInDb();
+    bool addEventInDb(QString eventName, QString eventLocation);
 };
 
 #endif // THEDB_H

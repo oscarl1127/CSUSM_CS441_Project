@@ -70,15 +70,15 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 
 
     //Send query to calenderDB variable
-    calenderdb.addEventInDb(); //will need to pass
+    calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass
 
 
     userEvents.AddEvent(newEvent);
 
-    qDebug() << "Event Name"<< QString(newEvent.getName() );
-    qDebug() << "Location Name"<< QString(newEvent.getLocation() );
-    qDebug() << "Note Name"<< QString(newEvent.getNote() );
-    qDebug() << "Date Name"<<  QDate( newEvent.getStartDate() );
+    //qDebug() << "Event Name"<< QString(newEvent.getName() );
+    //qDebug() << "Location Name"<< QString(newEvent.getLocation() );
+    //qDebug() << "Note Name"<< QString(newEvent.getNote() );
+    //qDebug() << "Date Name"<<  QDate( newEvent.getStartDate() );
 
 
     //Save E

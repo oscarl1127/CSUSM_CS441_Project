@@ -1875,10 +1875,9 @@ debug\dayview.obj: ..\Calendar\dayview.cpp ../Calendar/dayview.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qtableview.h
 
 debug\thedb.obj: ..\Calendar\thedb.cpp ../Calendar/thedb.h \
-		../Calendar/event.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QString \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstring.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qchar.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlDatabase \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qtsqlglobal.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qglobal.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qconfig.h \
@@ -1900,6 +1899,8 @@ debug\thedb.obj: ..\Calendar\thedb.cpp ../Calendar/thedb.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qmutex.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qnumeric.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstring.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qchar.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qbytearray.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qrefcount.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qnamespace.h \
@@ -1908,24 +1909,18 @@ debug\thedb.obj: ..\Calendar\thedb.cpp ../Calendar/thedb.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstringalgorithms.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstringview.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDateTime \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qdatetime.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qshareddata.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDebug \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qdebug.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qhash.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qiterator.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qlist.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qalgorithms.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qhashfunctions.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qpair.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstringlist.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qregexp.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qstringmatcher.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlDatabase \
-		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qtsqlglobal.h \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDebug \
-		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qdebug.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qmap.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qtextstream.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qiodevice.h \
@@ -1940,6 +1935,7 @@ debug\thedb.obj: ..\Calendar\thedb.cpp ../Calendar/thedb.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qobject_impl.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qlocale.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qvariant.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qshareddata.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qvector.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qpoint.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qset.h \

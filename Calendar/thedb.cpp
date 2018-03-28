@@ -26,8 +26,19 @@ bool theDB::connectToDb()
     return retvalue;
 }
 
-bool theDB::addEventInDb()
-{
+bool theDB::addEventInDb(QString eventName, QString eventLocation)
+{   
+    /*\
+     * INSERT INTO jcookTEST VALUES ('EventName', 'LocationName');
+     * */
+
+    QString theQuery;
+    theQuery= "INSERT INTO jcookTest VALUES ('"+eventName+"', '"+eventLocation+"');";
+     qDebug() << theQuery;
+     QSqlQuery query;
+    query.prepare(theQuery);
+    query.exec();
+
     return false;
 }
 
