@@ -27,9 +27,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    addeventbutton.cpp \
-    todolist.cpp \
     mainwindowtabbed.cpp \
     event.cpp \
     daycalendar.cpp \
@@ -37,9 +34,6 @@ SOURCES += \
     thedb.cpp
 
 HEADERS += \
-        mainwindow.h \
-    addeventbutton.h \
-    todolist.h \
     mainwindowtabbed.h \
     event.h \
     daycalendar.h \
@@ -47,8 +41,5 @@ HEADERS += \
     thedb.h
 
 FORMS += \
-        mainwindow.ui \
-    addeventbutton.ui \
-    todolist.ui \
     mainwindowtabbed.ui \
     dayview.ui
