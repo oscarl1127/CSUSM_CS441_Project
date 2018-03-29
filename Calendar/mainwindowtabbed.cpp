@@ -70,7 +70,19 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 
 
     //Send query to calenderDB variable
-    calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass
+    calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass all relevant info
+
+
+    //Testing database to see if validation is sucessful of test credentials
+    bool xx=calenderdb.validateCredentials("jcook","P@SS");
+
+    if(xx==true)
+        qDebug() << "True!";
+    else
+        qDebug() << "False...";
+
+    //Testing the changing of a user's password
+    calenderdb.changePassword("jcook", "******");
 
 
     userEvents.AddEvent(newEvent);

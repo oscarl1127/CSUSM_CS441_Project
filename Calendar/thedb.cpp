@@ -42,6 +42,53 @@ bool theDB::addEventInDb(QString eventName, QString eventLocation)
     return false;
 }
 
+bool theDB::validateCredentials(QString uName, QString password)
+{
+    QString theName;
+    QString thePass;
+
+    QSqlQuery query("SELECT userName, userPassword FROM theUser");
+    while(query.next())
+    {
+        theName=query.value(0).toString();
+        thePass=query.value(1).toString();
+
+        if((uName==theName)&&(password==thePass))
+            return true;
+    }
+    return false;
+}
+
+bool theDB::changePassword(QString userName, QString password)
+{
+    bool userExist = false;
+
+    QString theName;
+    QString thePass;
+
+    QSqlQuery query("SELECT userName FROM theUser");
+    QString updatePass;
+
+    //Traverse database to see if this user exists
+    while(query.next())
+    {
+        //Grab the name and current password for the location in the database
+        theName=query.value(0).toString();
+
+        if((userName==theName))
+        {
+            //The user exists in the databse
+            userExist=true;
+        }
+    }
+
+    updatePass= "UPDATE theUser SET userPassword='" + password + "' WHERE userName='" + userName + "';";
+
+    query.prepare(updatePass);
+    query.exec();
+
+    return userExist;
+}
 
 
 
