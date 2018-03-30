@@ -2,6 +2,7 @@
 #define MAINWINDOWTABBED_H
 
 #include <QDialog>
+#include <QListWidgetItem>
 #include "daycalendar.h"
 #include "thedb.h"
 
@@ -22,8 +23,13 @@ public:
 
 private slots:
     void on_calendarWidget_clicked(const QDate &date);
-
     void on_AddEvent_AcceptDeclineButton_accepted();
+    void on_SelectTodoListTab_tabBarClicked(int index);
+
+   // void on_listView_activated(const QModelIndex &index);
+   // void on_listWidget_itemActivated(QListWidgetItem *item);
+
+    //void on_listWidget_itemActivated(QListWidgetItem *item);
 
 private:
     Ui::mainWindowTabbed *ui;

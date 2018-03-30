@@ -11,10 +11,11 @@ using namespace std;
 class DayCalendar
 {
 private:
-    map<QDateTime, Event> userEvents;
+    //map<QDateTime, Event> userEvents;
 
 public:
     DayCalendar();
+    map<QDateTime, Event> userEvents;
     void AddEvent(Event e);
     Event GetEvent(QDateTime q);
     void RemoveEvent(QDateTime q, Event &removedEvent);

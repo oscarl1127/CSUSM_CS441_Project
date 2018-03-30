@@ -1,5 +1,7 @@
 #include "mainwindowtabbed.h"
 #include "ui_mainwindowtabbed.h"
+#include <QListWidgetItem>
+#include <QDate>
 #include "dayview.h"
 #include "QDesktopWidget"
 #include "QDebug"
@@ -14,6 +16,8 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
 {
     ui->setupUi(this);
     centerAndResize(0.9, 0.9);
+
+    ui->List_Text_Box->addItem("Date-Time-Name");
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -87,11 +91,39 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 
     userEvents.AddEvent(newEvent);
 
-    //qDebug() << "Event Name"<< QString(newEvent.getName() );
-    //qDebug() << "Location Name"<< QString(newEvent.getLocation() );
-    //qDebug() << "Note Name"<< QString(newEvent.getNote() );
-    //qDebug() << "Date Name"<<  QDate( newEvent.getStartDate() );
-
 
     //Save E
 }
+// for Todo list
+void mainWindowTabbed::on_SelectTodoListTab_tabBarClicked(int index)
+{
+
+
+}
+
+/*
+void mainWindowTabbed::on_listWidget_itemActivated(QListWidgetItem *item)
+{
+    QDate projectedDate = QDate::currentDate();
+
+    projectedDate = projectedDate.addDays(30);
+
+    ui->List_Text_Box->addItem( "Date - time - event" );
+
+    if(userEvents.userEvents.size() > 0)
+    {
+        for(int i = 0 ; i < userEvents.userEvents.size(); i++)
+        {
+            //if( userEvents.userEvents.at(i).getStartDate() <= projectedDate)
+            //{
+                //QString toDisplay = userEvents.userEvents.at(i).getStartDate().toString() +"-" +
+                  //      userEvents.userEvents.at(i).getTimeStart().toString() +"-"+ userEvents.userEvents.at(i).getName();
+
+                //ui->List_Text_Box->addItem( toDisplay );
+                //ui->List_Text_Box->addItem( "Date - time - event" );
+
+            //}
+        }
+    }
+}
+*/
