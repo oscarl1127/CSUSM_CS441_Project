@@ -31,15 +31,18 @@ SOURCES += \
     event.cpp \
     daycalendar.cpp \
     dayview.cpp \
-    thedb.cpp
+    thedb.cpp \
+    login.cpp
 
 HEADERS += \
     mainwindowtabbed.h \
     event.h \
     daycalendar.h \
     dayview.h \
-    thedb.h
+    thedb.h \
+    login.h
 
 FORMS += \
     mainwindowtabbed.ui \
-    dayview.ui
+    dayview.ui \
+    login.ui
