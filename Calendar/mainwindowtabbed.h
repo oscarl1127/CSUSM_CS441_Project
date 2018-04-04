@@ -31,6 +31,8 @@ private slots:
 
     //void on_listWidget_itemActivated(QListWidgetItem *item);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::mainWindowTabbed *ui;
     void centerAndResize(double width_perc, double height_perc);

@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-//#include "mainwindow.h"
-=======
->>>>>>> Stashed changes
+
 #include "mainwindowtabbed.h"
 #include <QApplication>
 

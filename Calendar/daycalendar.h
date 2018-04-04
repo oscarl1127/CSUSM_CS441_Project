@@ -19,6 +19,7 @@ public:
     void AddEvent(Event e);
     Event GetEvent(QDateTime q);
     void RemoveEvent(QDateTime q, Event &removedEvent);
+    vector<Event> GetUpcomingEvents(int numberOfDays, QDate inital_day);
     //bool Exists(QDateTime q);
     //QString getEventName(int index);
 

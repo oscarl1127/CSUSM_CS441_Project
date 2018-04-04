@@ -127,3 +127,9 @@ void mainWindowTabbed::on_listWidget_itemActivated(QListWidgetItem *item)
     }
 }
 */
+//when changing month or pressing day, fill list of upcoming 30 day events
+void mainWindowTabbed::on_pushButton_clicked()
+{
+    userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate());
+
+}
