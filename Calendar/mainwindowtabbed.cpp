@@ -17,7 +17,7 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     ui->setupUi(this);
     centerAndResize(0.9, 0.9);
 
-    ui->List_Text_Box->addItem("Date-Time-Name");
+    ui->List_Text_Box->addItem("Name-Category-Date");
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -88,9 +88,12 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     //Testing the changing of a user's password
     calenderdb.changePassword("jcook", "******");
 
-
+    //adding event to daycalendar object map
     userEvents.AddEvent(newEvent);
 
+    qDebug() << "test adding to vector" << userEvents.GetEvents(0).getName();
+
+    //qDebug() << "Event added " << userEvents.GetUpcomingEvents(30,current)[0].getName();
 
     //Save E
 }
@@ -101,35 +104,60 @@ void mainWindowTabbed::on_SelectTodoListTab_tabBarClicked(int index)
 
 }
 
-/*
-void mainWindowTabbed::on_listWidget_itemActivated(QListWidgetItem *item)
-{
-    QDate projectedDate = QDate::currentDate();
-
-    projectedDate = projectedDate.addDays(30);
-
-    ui->List_Text_Box->addItem( "Date - time - event" );
-
-    if(userEvents.userEvents.size() > 0)
-    {
-        for(int i = 0 ; i < userEvents.userEvents.size(); i++)
-        {
-            //if( userEvents.userEvents.at(i).getStartDate() <= projectedDate)
-            //{
-                //QString toDisplay = userEvents.userEvents.at(i).getStartDate().toString() +"-" +
-                  //      userEvents.userEvents.at(i).getTimeStart().toString() +"-"+ userEvents.userEvents.at(i).getName();
-
-                //ui->List_Text_Box->addItem( toDisplay );
-                //ui->List_Text_Box->addItem( "Date - time - event" );
-
-            //}
-        }
-    }
-}
-*/
 //when changing month or pressing day, fill list of upcoming 30 day events
+/*
 void mainWindowTabbed::on_pushButton_clicked()
 {
-    userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate());
+    //userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate());
 
+    //ui->List_Text_Box->addItem("Testing click");
+    /*
+
+    for(int i = 0; i< userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate()).size(); i++)
+    {
+        QString toAdd = userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getName()
+                + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getStartDate().toString()
+                + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getLocation();
+
+        //qDebug() << "upcoming toAdd " << toAdd;
+        ui->List_Text_Box->addItem(toAdd);
+
+    }
+
+}
+*/
+void mainWindowTabbed::on_pushButton_released()
+{
+    QDate proposed = QDate::currentDate();
+    proposed = proposed.addDays(30);
+
+    qDebug() << "Proposed " << proposed.toString();
+
+    for(int i = 0; i < userEvents.events.size() ; i++)
+    {
+        QString toAdd = userEvents.events[i].getName() + "-"+userEvents.events[i].getCategory()
+                +"-"+ userEvents.events[i].getStartDate().toString();
+
+        if( userEvents.events[i].getStartDate() <= proposed)
+        {
+            qDebug() << "upcoming toAdd " << toAdd;
+            ui->List_Text_Box->addItem(toAdd);
+        }
+
+    }
+
+    //ui->List_Text_Box->addItem("Testing click");
+
+    /*
+
+    for(int i = 0; i< userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate()).size(); i++)
+    {
+        QString toAdd = userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getName()
+                + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getStartDate().toString()
+                + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getLocation();
+
+        qDebug() << "upcoming toAdd " << toAdd;
+        ui->List_Text_Box->addItem(toAdd);
+    }
+    */
 }

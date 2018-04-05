@@ -25,13 +25,9 @@ private slots:
     void on_calendarWidget_clicked(const QDate &date);
     void on_AddEvent_AcceptDeclineButton_accepted();
     void on_SelectTodoListTab_tabBarClicked(int index);
+    //void on_pushButton_clicked();
 
-   // void on_listView_activated(const QModelIndex &index);
-   // void on_listWidget_itemActivated(QListWidgetItem *item);
-
-    //void on_listWidget_itemActivated(QListWidgetItem *item);
-
-    void on_pushButton_clicked();
+    void on_pushButton_released();
 
 private:
     Ui::mainWindowTabbed *ui;

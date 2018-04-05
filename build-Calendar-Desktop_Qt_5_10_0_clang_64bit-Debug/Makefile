@@ -55,16 +55,20 @@ SOURCES       = ../Calendar/main.cpp \
 		../Calendar/event.cpp \
 		../Calendar/daycalendar.cpp \
 		../Calendar/dayview.cpp \
-		../Calendar/thedb.cpp moc_mainwindowtabbed.cpp \
-		moc_dayview.cpp
+		../Calendar/thedb.cpp \
+		../Calendar/login.cpp moc_mainwindowtabbed.cpp \
+		moc_dayview.cpp \
+		moc_login.cpp
 OBJECTS       = main.o \
 		mainwindowtabbed.o \
 		event.o \
 		daycalendar.o \
 		dayview.o \
 		thedb.o \
+		login.o \
 		moc_mainwindowtabbed.o \
-		moc_dayview.o
+		moc_dayview.o \
+		moc_login.o
 DIST          = ../../../Qt/5.10.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.10.0/clang_64/mkspecs/features/device_config.prf \
@@ -255,12 +259,14 @@ DIST          = ../../../Qt/5.10.0/clang_64/mkspecs/features/spec_pre.prf \
 		../Calendar/event.h \
 		../Calendar/daycalendar.h \
 		../Calendar/dayview.h \
-		../Calendar/thedb.h ../Calendar/main.cpp \
+		../Calendar/thedb.h \
+		../Calendar/login.h ../Calendar/main.cpp \
 		../Calendar/mainwindowtabbed.cpp \
 		../Calendar/event.cpp \
 		../Calendar/daycalendar.cpp \
 		../Calendar/dayview.cpp \
-		../Calendar/thedb.cpp
+		../Calendar/thedb.cpp \
+		../Calendar/login.cpp
 QMAKE_TARGET  = Calendar
 DESTDIR       = 
 TARGET        = Calendar.app/Contents/MacOS/Calendar
@@ -274,7 +280,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindowtabbed.h ui_dayview.h $(OBJECTS)  
+$(TARGET): ui_mainwindowtabbed.h ui_dayview.h ui_login.h $(OBJECTS)  
 	@test -d Calendar.app/Contents/MacOS/ || mkdir -p Calendar.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -691,9 +697,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.10.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.ui ../Calendar/dayview.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h ../Calendar/login.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp ../Calendar/login.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.ui ../Calendar/dayview.ui ../Calendar/login.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -725,11 +731,13 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.10.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.10.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindowtabbed.cpp moc_dayview.cpp
+compiler_moc_header_make_all: moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindowtabbed.cpp moc_dayview.cpp
+	-$(DEL_FILE) moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp
 moc_mainwindowtabbed.cpp: ../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../Calendar/daycalendar.h \
 		../Calendar/event.h \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
@@ -757,13 +765,20 @@ moc_dayview.cpp: ../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDi
 		../../../Qt/5.10.0/clang_64/bin/moc
 	/Users/oscarlugo/Qt/5.10.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/oscarlugo/Qt/5.10.0/clang_64/mkspecs/macx-clang -I/Users/oscarlugo/Desktop/CSUSM_CS441_Project/Calendar -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtGui.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtSql.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/oscarlugo/Qt/5.10.0/clang_64/lib ../Calendar/dayview.h -o moc_dayview.cpp
 
+moc_login.cpp: ../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Calendar/login.h \
+		moc_predefs.h \
+		../../../Qt/5.10.0/clang_64/bin/moc
+	/Users/oscarlugo/Qt/5.10.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/oscarlugo/Qt/5.10.0/clang_64/mkspecs/macx-clang -I/Users/oscarlugo/Desktop/CSUSM_CS441_Project/Calendar -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtGui.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtSql.framework/Headers -I/Users/oscarlugo/Qt/5.10.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/oscarlugo/Qt/5.10.0/clang_64/lib ../Calendar/login.h -o moc_login.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindowtabbed.h ui_dayview.h
+compiler_uic_make_all: ui_mainwindowtabbed.h ui_dayview.h ui_login.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindowtabbed.h ui_dayview.h
+	-$(DEL_FILE) ui_mainwindowtabbed.h ui_dayview.h ui_login.h
 ui_mainwindowtabbed.h: ../Calendar/mainwindowtabbed.ui \
 		../../../Qt/5.10.0/clang_64/bin/uic
 	/Users/oscarlugo/Qt/5.10.0/clang_64/bin/uic ../Calendar/mainwindowtabbed.ui -o ui_mainwindowtabbed.h
@@ -771,6 +786,10 @@ ui_mainwindowtabbed.h: ../Calendar/mainwindowtabbed.ui \
 ui_dayview.h: ../Calendar/dayview.ui \
 		../../../Qt/5.10.0/clang_64/bin/uic
 	/Users/oscarlugo/Qt/5.10.0/clang_64/bin/uic ../Calendar/dayview.ui -o ui_dayview.h
+
+ui_login.h: ../Calendar/login.ui \
+		../../../Qt/5.10.0/clang_64/bin/uic
+	/Users/oscarlugo/Qt/5.10.0/clang_64/bin/uic ../Calendar/login.ui -o ui_login.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -787,6 +806,8 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../Calendar/main.cpp ../Calendar/mainwindowtabbed.h \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../Calendar/daycalendar.h \
 		../Calendar/event.h \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
@@ -809,6 +830,8 @@ main.o: ../Calendar/main.cpp ../Calendar/mainwindowtabbed.h \
 mainwindowtabbed.o: ../Calendar/mainwindowtabbed.cpp ../Calendar/mainwindowtabbed.h \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../Calendar/daycalendar.h \
 		../Calendar/event.h \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
@@ -825,6 +848,7 @@ mainwindowtabbed.o: ../Calendar/mainwindowtabbed.cpp ../Calendar/mainwindowtabbe
 		../../../Qt/5.10.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../Qt/5.10.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		ui_mainwindowtabbed.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDate \
 		../Calendar/dayview.h \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
 		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h
@@ -842,7 +866,8 @@ daycalendar.o: ../Calendar/daycalendar.cpp ../Calendar/daycalendar.h \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
-		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/5.10.0/clang_64/lib/QtCore.framework/Headers/QDate
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daycalendar.o ../Calendar/daycalendar.cpp
 
 dayview.o: ../Calendar/dayview.cpp ../Calendar/dayview.h \
@@ -862,11 +887,20 @@ thedb.o: ../Calendar/thedb.cpp ../Calendar/thedb.h \
 		../../../Qt/5.10.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thedb.o ../Calendar/thedb.cpp
 
+login.o: ../Calendar/login.cpp ../Calendar/login.h \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.10.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_login.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Calendar/login.cpp
+
 moc_mainwindowtabbed.o: moc_mainwindowtabbed.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindowtabbed.o moc_mainwindowtabbed.cpp
 
 moc_dayview.o: moc_dayview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dayview.o moc_dayview.cpp
+
+moc_login.o: moc_login.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
 
 ####### Install
 
