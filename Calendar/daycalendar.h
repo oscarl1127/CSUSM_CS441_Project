@@ -16,8 +16,10 @@ private:
 public:
     DayCalendar();
     map<QDateTime, Event> userEvents;
+    vector<Event> events;
     void AddEvent(Event e);
-    Event GetEvent(QDateTime q);
+    //Event GetEvent(QDateTime q);
+    Event GetEvents(QDateTime q);
     void RemoveEvent(QDateTime q, Event &removedEvent);
     vector<Event> GetUpcomingEvents(int numberOfDays, QDate inital_day);
     //bool Exists(QDateTime q);

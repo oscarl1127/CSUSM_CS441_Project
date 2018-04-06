@@ -24,12 +24,15 @@ DayCalendar::DayCalendar()
 //Adding Event to userEvent Map
 void DayCalendar::AddEvent(Event e)
 {
+    //events.push_back(e);
+
     //Retrieve Vector list of events for specific datetime
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
     //Event event = this->userEvents[dateTime];
     //insert new pair
     qDebug() << "Inserting into Dictionary";
     this->userEvents.insert(pair<QDateTime, Event>
+
                             (dateTime, e));
     qDebug() << "sucessfully inserted " << e.getName();
     qDebug() << dateTime;
@@ -37,8 +40,9 @@ void DayCalendar::AddEvent(Event e)
 
 }
 
-Event DayCalendar::GetEvent(QDateTime q)
+Event DayCalendar::GetEvents(QDateTime q)
 {
+    //Event event = this->events[index];
     Event event = this->userEvents[q];
     return event;
 }
