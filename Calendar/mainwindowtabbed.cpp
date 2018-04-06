@@ -17,7 +17,7 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     ui->setupUi(this);
     centerAndResize(0.9, 0.9);
 
-    ui->List_Text_Box->addItem("Name-Category-Date");
+    ui->List_Text_Box->addItem("Name-Category-Date-Time");
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -136,7 +136,8 @@ void mainWindowTabbed::on_pushButton_released()
     for(int i = 0; i < userEvents.events.size() ; i++)
     {
         QString toAdd = userEvents.events[i].getName() + "-"+userEvents.events[i].getCategory()
-                +"-"+ userEvents.events[i].getStartDate().toString();
+                +" on "+ userEvents.events[i].getStartDate().toString()
+                +" @ "+ userEvents.events[i].getTimeStart().toString();
 
         if( userEvents.events[i].getStartDate() <= proposed)
         {

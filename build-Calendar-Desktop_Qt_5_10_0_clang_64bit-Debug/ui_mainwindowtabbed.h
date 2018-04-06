@@ -44,6 +44,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QCalendarWidget *calendarWidget;
     QVBoxLayout *verticalLayout;
+    QLabel *label;
     QListWidget *List_Text_Box;
     QPushButton *pushButton;
     QWidget *TodoListsTab;
@@ -152,6 +153,17 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label = new QLabel(OverViewTab);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font;
+        font.setFamily(QStringLiteral("Apple Chancery"));
+        font.setPointSize(18);
+        font.setItalic(true);
+        font.setUnderline(true);
+        label->setFont(font);
+
+        verticalLayout->addWidget(label);
+
         List_Text_Box = new QListWidget(OverViewTab);
         List_Text_Box->setObjectName(QStringLiteral("List_Text_Box"));
 
@@ -244,6 +256,8 @@ public:
         DateStart_Box = new QDateEdit(AddEventTab);
         DateStart_Box->setObjectName(QStringLiteral("DateStart_Box"));
         DateStart_Box->setGeometry(QRect(50, 73, 81, 24));
+        DateStart_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
+        DateStart_Box->setCalendarPopup(true);
         AddEvent_CategoryLabel = new QLabel(AddEventTab);
         AddEvent_CategoryLabel->setObjectName(QStringLiteral("AddEvent_CategoryLabel"));
         AddEvent_CategoryLabel->setGeometry(QRect(330, 30, 71, 16));
@@ -330,6 +344,8 @@ public:
         DateEnd_Box = new QDateEdit(AddEventTab);
         DateEnd_Box->setObjectName(QStringLiteral("DateEnd_Box"));
         DateEnd_Box->setGeometry(QRect(50, 100, 81, 24));
+        DateEnd_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
+        DateEnd_Box->setCalendarPopup(true);
         City_Box = new QTextEdit(AddEventTab);
         City_Box->setObjectName(QStringLiteral("City_Box"));
         City_Box->setGeometry(QRect(0, 350, 101, 21));
@@ -423,7 +439,8 @@ public:
     void retranslateUi(QDialog *mainWindowTabbed)
     {
         mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "Dialog", nullptr));
-        pushButton->setText(QApplication::translate("mainWindowTabbed", "PushButton", nullptr));
+        label->setText(QApplication::translate("mainWindowTabbed", "Upcoming Events ", nullptr));
+        pushButton->setText(QApplication::translate("mainWindowTabbed", "Get Upcoming Events", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(OverViewTab), QApplication::translate("mainWindowTabbed", "Overview", nullptr));
         TodoList_PageTitile->setText(QApplication::translate("mainWindowTabbed", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Todo Lists</span></p></body></html>", nullptr));
         Day_DeleteTaskButton->setText(QApplication::translate("mainWindowTabbed", "Delete selected task", nullptr));

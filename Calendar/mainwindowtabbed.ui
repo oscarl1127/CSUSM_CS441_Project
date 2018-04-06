@@ -81,12 +81,27 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
+            <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <family>Apple Chancery</family>
+               <pointsize>18</pointsize>
+               <italic>true</italic>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="text">
+              <string>Upcoming Events </string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QListWidget" name="List_Text_Box"/>
            </item>
            <item>
             <widget class="QPushButton" name="pushButton">
              <property name="text">
-              <string>PushButton</string>
+              <string>Get Upcoming Events</string>
              </property>
             </widget>
            </item>
@@ -352,6 +367,19 @@
          <width>81</width>
          <height>24</height>
         </rect>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2018</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="AddEvent_CategoryLabel">
@@ -653,6 +681,19 @@
          <width>81</width>
          <height>24</height>
         </rect>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2018</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QTextEdit" name="City_Box">
