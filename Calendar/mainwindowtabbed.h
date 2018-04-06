@@ -33,6 +33,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_released();
+
+    void on_pushButton_pressed();
+
 private:
     Ui::mainWindowTabbed *ui;
     void centerAndResize(double width_perc, double height_perc);

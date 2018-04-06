@@ -88,6 +88,8 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     //Testing the changing of a user's password
     calenderdb.changePassword("jcook", "******");
 
+    qDebug() <<"Changed Password";
+
 
     userEvents.AddEvent(newEvent);
 
@@ -130,6 +132,23 @@ void mainWindowTabbed::on_listWidget_itemActivated(QListWidgetItem *item)
 //when changing month or pressing day, fill list of upcoming 30 day events
 void mainWindowTabbed::on_pushButton_clicked()
 {
-    userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate());
 
+
+}
+
+void mainWindowTabbed::on_pushButton_released()
+{
+
+}
+
+void mainWindowTabbed::on_pushButton_pressed()
+{
+    qDebug() << "button clicked";
+   vector<Event> events = userEvents.GetUpcomingEvents(5, ui->calendarWidget->selectedDate());
+   qDebug() << "got dates";
+   for(int i = 0; i < events.size(); i++)
+   {
+        qDebug() << "adding event to list" << events[i].getName();
+        ui->List_Text_Box->addItem(events[i].getName());
+   }
 }
