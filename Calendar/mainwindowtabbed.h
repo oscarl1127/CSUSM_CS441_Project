@@ -25,6 +25,7 @@ private slots:
     void on_calendarWidget_clicked(const QDate &date);
     void on_AddEvent_AcceptDeclineButton_accepted();
     void on_SelectTodoListTab_tabBarClicked(int index);
+    void RefreshUpcomingEventList(int days);
     //void on_pushButton_clicked();
 
     void on_pushButton_pressed();

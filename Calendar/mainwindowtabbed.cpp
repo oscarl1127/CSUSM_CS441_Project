@@ -17,11 +17,9 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
 {
     ui->setupUi(this);
     centerAndResize(0.9, 0.9);
-
-    ui->List_Text_Box->addItem("Name-Category-Date-Time");
-
     ui->DateStart_Box->setDate( QDate::currentDate() );
     ui->DateEnd_Box->setDate( QDate::currentDate() );
+    RefreshUpcomingEventList(30);
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -50,9 +48,9 @@ void mainWindowTabbed::centerAndResize(double width_perc, double height_perc)
 
 void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
 {
-    DayView _dayView; // makes the instance
-    _dayView.setModal(true);
-    _dayView.exec();
+//    DayView _dayView; // makes the instance
+//    _dayView.setModal(true);
+//    _dayView.exec();
 }
 
 void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
@@ -119,6 +117,7 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     //qDebug() << "Event added " << userEvents.GetUpcomingEvents(30,current)[0].getName();
 
     //Save E
+    RefreshUpcomingEventList(30);
 }
 // for Todo list
 void mainWindowTabbed::on_SelectTodoListTab_tabBarClicked(int index)
@@ -153,9 +152,15 @@ void mainWindowTabbed::on_pushButton_clicked()
 
 void mainWindowTabbed::on_pushButton_pressed()
 {
+    RefreshUpcomingEventList(30);
+}
+
+void mainWindowTabbed::RefreshUpcomingEventList(int days)
+{
     ui->List_Text_Box->clear();
+    ui->List_Text_Box->addItem("Name-Category-Date-Time");
     qDebug() << "button clicked";
-   vector<Event> events = userEvents.GetUpcomingEvents(5, ui->calendarWidget->selectedDate());
+   vector<Event> events = userEvents.GetUpcomingEvents(30, QDate::currentDate());
    qDebug() << "got dates";
    for(int i = 0; i < events.size(); i++)
    {
@@ -166,6 +171,7 @@ void mainWindowTabbed::on_pushButton_pressed()
         ui->List_Text_Box->addItem(toAdd);
    }
 }
+
 //=======
 //void mainWindowTabbed::on_pushButton_released()
 //{
