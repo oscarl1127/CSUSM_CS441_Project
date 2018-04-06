@@ -79,6 +79,7 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 
 
     //adding event to daycalendar object map
+    //if there is an Event with the same date and time, show message box to ask user if they want to replace it with new event
     QMessageBox::StandardButton reply;
     if(!userEvents.AddEvent(newEvent))
     {

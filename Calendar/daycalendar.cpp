@@ -10,6 +10,7 @@ using namespace std;
 
 DayCalendar::DayCalendar()
 {
+    ///Inital Values for Testing, feel free to delete these if they are annoying.
     Event a, b, c;
     a.setName("Poop");
     b.setName("Toilet");
@@ -23,7 +24,8 @@ DayCalendar::DayCalendar()
 }
 
 
-//Adding Event to userEvent Map
+///Purpose: Adding Event to userEvent Map
+/// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
 bool DayCalendar::AddEvent(Event e)
 {
     //events.push_back(e);
@@ -65,6 +67,9 @@ void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
     this->userEvents.erase(it);
 }
 
+///Purpose: Get the upcoming events given the number of upcoming days you would like to see ahead
+///First matches the first day with a key in map, then adds a day and checks again, do this for number of upcoming days
+/// If match found, add to vector of events.
 vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
 {
     qDebug() << "Get UpcomingEvents called";
@@ -91,6 +96,7 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
     return Events;
 }
 
+///Purpose: If Event exists in map, return true, else false
 bool DayCalendar::EventExists(Event e)
 {
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
