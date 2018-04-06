@@ -19,6 +19,7 @@ public:
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
     theDB calenderdb;
+    bool eventExist(Event e);
     ~mainWindowTabbed();
 
 private slots:

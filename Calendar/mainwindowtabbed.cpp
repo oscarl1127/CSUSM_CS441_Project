@@ -1,6 +1,7 @@
 #include "mainwindowtabbed.h"
 #include "ui_mainwindowtabbed.h"
 #include <QListWidgetItem>
+#include <QMessageBox>
 #include <QDate>
 #include "dayview.h"
 #include "QDesktopWidget"
@@ -18,6 +19,9 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     centerAndResize(0.9, 0.9);
 
     ui->List_Text_Box->addItem("Name-Category-Date-Time");
+
+    ui->DateStart_Box->setDate( QDate::currentDate() );
+    ui->DateEnd_Box->setDate( QDate::currentDate() );
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -89,9 +93,11 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     calenderdb.changePassword("jcook", "******");
 
     //adding event to daycalendar object map
-    userEvents.AddEvent(newEvent);
-
-    qDebug() << "test adding to vector" << userEvents.GetEvents(0).getName();
+    if(!eventExist(newEvent))
+    {
+        userEvents.AddEvent(newEvent);
+        qDebug() << "test adding to vector" << userEvents.GetEvents(0).getName();
+    }
 
     //qDebug() << "Event added " << userEvents.GetUpcomingEvents(30,current)[0].getName();
 
@@ -104,6 +110,26 @@ void mainWindowTabbed::on_SelectTodoListTab_tabBarClicked(int index)
 
 }
 
+bool mainWindowTabbed::eventExist(Event e)
+{
+    for(int i = 0; userEvents.events.size() ; i++)
+    {
+        QString name = userEvents.events[i].getName();
+        QDate date = userEvents.events[i].getStartDate();
+        QTime time = userEvents.events[i].getTimeStart();
+
+        if(name == e.getName() && date == e.getStartDate() && time == e.getTimeStart()  )
+        {
+            QMessageBox messagebox;
+            messagebox.critical(0,"Error","Event already exist");
+            messagebox.setFixedSize(500,200);
+
+            return true;
+        }
+    }
+
+    return false;
+}
 //when changing month or pressing day, fill list of upcoming 30 day events
 /*
 void mainWindowTabbed::on_pushButton_clicked()
@@ -128,6 +154,8 @@ void mainWindowTabbed::on_pushButton_clicked()
 */
 void mainWindowTabbed::on_pushButton_released()
 {
+    ui->List_Text_Box->clear();
+
     QDate proposed = QDate::currentDate();
     proposed = proposed.addDays(30);
 
@@ -139,12 +167,11 @@ void mainWindowTabbed::on_pushButton_released()
                 +" on "+ userEvents.events[i].getStartDate().toString()
                 +" @ "+ userEvents.events[i].getTimeStart().toString();
 
-        if( userEvents.events[i].getStartDate() <= proposed)
+        if( userEvents.events[i].getStartDate() <= proposed && userEvents.events[i].getStartDate() > QDate::currentDate() )
         {
             qDebug() << "upcoming toAdd " << toAdd;
             ui->List_Text_Box->addItem(toAdd);
         }
-
     }
 
     //ui->List_Text_Box->addItem("Testing click");

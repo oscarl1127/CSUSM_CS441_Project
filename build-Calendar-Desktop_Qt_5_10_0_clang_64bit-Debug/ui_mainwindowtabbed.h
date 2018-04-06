@@ -429,7 +429,7 @@ public:
 
         retranslateUi(mainWindowTabbed);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
         SelectTodoListTab->setCurrentIndex(2);
 
 
