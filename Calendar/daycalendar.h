@@ -5,7 +5,7 @@
 #include <map>
 #include <event.h>
 #include <QDateTime>
-
+#include <QWidget>
 using namespace std;
 
 class DayCalendar
@@ -17,11 +17,12 @@ public:
     DayCalendar();
     map<QDateTime, Event> userEvents;
     vector<Event> events;
-    void AddEvent(Event e);
-    //Event GetEvent(QDateTime q);
+    bool AddEvent(Event e);
+    void ReplaceEvent(Event e);
     Event GetEvents(QDateTime q);
     void RemoveEvent(QDateTime q, Event &removedEvent);
     vector<Event> GetUpcomingEvents(int numberOfDays, QDate inital_day);
+    bool EventExists(Event e);
     //bool Exists(QDateTime q);
     //QString getEventName(int index);
 

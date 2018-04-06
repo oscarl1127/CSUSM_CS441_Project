@@ -1,6 +1,7 @@
 #include "mainwindowtabbed.h"
 #include "ui_mainwindowtabbed.h"
 #include <QListWidgetItem>
+#include <QMessageBox>
 #include <QDate>
 #include "dayview.h"
 #include "QDesktopWidget"
@@ -18,6 +19,9 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     centerAndResize(0.9, 0.9);
 
     ui->List_Text_Box->addItem("Name-Category-Date-Time");
+
+    ui->DateStart_Box->setDate( QDate::currentDate() );
+    ui->DateEnd_Box->setDate( QDate::currentDate() );
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -73,6 +77,17 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     newEvent.setTimeEnd( ui->TimeEnd_Box->time() );
 
 
+
+    //adding event to daycalendar object map
+    QMessageBox::StandardButton reply;
+    if(!userEvents.AddEvent(newEvent))
+    {
+        reply = QMessageBox::question(this, "Same Date Collision", "Event with same Date and Time found! Replace?",
+                                   QMessageBox::Yes|QMessageBox::No);
+        if(reply == QMessageBox::Yes)
+            userEvents.ReplaceEvent(newEvent);
+        else return;
+    }
     //Send query to calenderDB variable
     calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass all relevant info
 
@@ -91,9 +106,13 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     qDebug() <<"Changed Password";
 
 
-    //adding event to daycalendar object map
-    userEvents.AddEvent(newEvent);
 
+
+//    if(!eventExist(newEvent))
+//    {
+//        userEvents.AddEvent(newEvent);
+//        qDebug() << "test adding to vector" << userEvents.GetEvents(0).getName();
+//    }
 
 
     //qDebug() << "Event added " << userEvents.GetUpcomingEvents(30,current)[0].getName();
@@ -130,18 +149,45 @@ void mainWindowTabbed::on_pushButton_clicked()
 }
 */
 
+
 void mainWindowTabbed::on_pushButton_pressed()
 {
+    ui->List_Text_Box->clear();
     qDebug() << "button clicked";
    vector<Event> events = userEvents.GetUpcomingEvents(5, ui->calendarWidget->selectedDate());
    qDebug() << "got dates";
    for(int i = 0; i < events.size(); i++)
    {
-        qDebug() << "adding event to list" << events[i].getName();
-        ui->List_Text_Box->addItem(events[i].getName()
-                                   + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getStartDate().toString()
-                                   + "-"+userEvents.GetUpcomingEvents(30, ui->calendarWidget->selectedDate())[i].getLocation());
+       QString toAdd = events[i].getName() + "-" + events[i].getCategory()
+                     + " on "+ events[i].getStartDate().toString()
+                     + " @ "+ events[i].getTimeStart().toString();
+       qDebug() << "upcoming toAdd " << toAdd;
+        ui->List_Text_Box->addItem(toAdd);
    }
+}
+//=======
+//void mainWindowTabbed::on_pushButton_released()
+//{
+//    ui->List_Text_Box->clear();
+
+//    QDate proposed = QDate::currentDate();
+//    proposed = proposed.addDays(30);
+
+//    qDebug() << "Proposed " << proposed.toString();
+
+//    for(int i = 0; i < userEvents.events.size() ; i++)
+//    {
+//        QString toAdd = userEvents.events[i].getName() + "-"+userEvents.events[i].getCategory()
+//                +" on "+ userEvents.events[i].getStartDate().toString()
+//                +" @ "+ userEvents.events[i].getTimeStart().toString();
+
+//        if( userEvents.events[i].getStartDate() <= proposed && userEvents.events[i].getStartDate() > QDate::currentDate() )
+//        {
+//            qDebug() << "upcoming toAdd " << toAdd;
+//            ui->List_Text_Box->addItem(toAdd);
+//        }
+//    }
+//>>>>>>> a34c35f224fcd0dd112f7be978d85fa07e89a789
 
     //ui->List_Text_Box->addItem("Testing click");
 
@@ -157,4 +203,3 @@ void mainWindowTabbed::on_pushButton_pressed()
         ui->List_Text_Box->addItem(toAdd);
     }
     */
-}

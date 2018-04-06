@@ -3,8 +3,10 @@
 #include <iterator>
 #include <QDate>
 #include "QDebug"
+#include <QMessageBox>
 
 using namespace std;
+
 
 DayCalendar::DayCalendar()
 {
@@ -22,22 +24,30 @@ DayCalendar::DayCalendar()
 
 
 //Adding Event to userEvent Map
-void DayCalendar::AddEvent(Event e)
+bool DayCalendar::AddEvent(Event e)
 {
     //events.push_back(e);
-
     //Retrieve Vector list of events for specific datetime
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
     //Event event = this->userEvents[dateTime];
     //insert new pair
     qDebug() << "Inserting into Dictionary";
-    this->userEvents.insert(pair<QDateTime, Event>
-
-                            (dateTime, e));
+    if(EventExists(e))
+        return false;
+    else
+        this->userEvents.insert(pair<QDateTime, Event>(dateTime, e));
     qDebug() << "sucessfully inserted " << e.getName();
     qDebug() << dateTime;
     qDebug() << userEvents.size();
+    qDebug() << userEvents[dateTime].getName();
+    return true;
 
+}
+
+void DayCalendar::ReplaceEvent(Event e)
+{
+    QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
+    userEvents[dateTime] = e;
 }
 
 Event DayCalendar::GetEvents(QDateTime q)
@@ -81,6 +91,12 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
     return Events;
 }
 
+bool DayCalendar::EventExists(Event e)
+{
+    QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
+    map<QDateTime,Event>::const_iterator it = userEvents.find(dateTime);
+    return it!=userEvents.end();
+}
 
 
 
