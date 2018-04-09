@@ -4,9 +4,9 @@
 #include <QDate>
 #include "QDebug"
 #include <QMessageBox>
+#include "thedb.h"
 
 using namespace std;
-
 
 DayCalendar::DayCalendar()
 {
@@ -42,6 +42,7 @@ bool DayCalendar::AddEvent(Event e)
     qDebug() << dateTime;
     qDebug() << userEvents.size();
     qDebug() << userEvents[dateTime].getName();
+    AddToDatabase(e);
     return true;
 
 }
@@ -102,6 +103,26 @@ bool DayCalendar::EventExists(Event e)
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
     map<QDateTime,Event>::const_iterator it = userEvents.find(dateTime);
     return it!=userEvents.end();
+}
+
+bool DayCalendar::AddToDatabase(Event newEvent)
+{
+    //Send query to calenderDB variable
+    calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass all relevant info
+
+
+    //Testing database to see if validation is sucessful of test credentials
+    bool xx=calenderdb.validateCredentials("jcook","P@SS");
+
+    qDebug() << xx;
+
+    //Testing the changing of a user's password
+    calenderdb.changePassword("jcook", "******");
+
+    qDebug() <<"Changed Password";
+
+    return xx;
+
 }
 
 

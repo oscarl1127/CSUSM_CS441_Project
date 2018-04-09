@@ -18,7 +18,7 @@ public:
     explicit mainWindowTabbed(QWidget *parent = 0);
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
-    theDB calenderdb;
+
     ~mainWindowTabbed();
 
 private slots:

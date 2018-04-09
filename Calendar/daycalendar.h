@@ -6,12 +6,17 @@
 #include <event.h>
 #include <QDateTime>
 #include <QWidget>
+#include "thedb.h"
 using namespace std;
 
 class DayCalendar
 {
 private:
     map<QDateTime, Event> userEvents;
+
+    theDB calenderdb;
+
+    bool AddToDatabase(Event e);
 
 public:
     //vector<Event> events;
@@ -37,7 +42,6 @@ public:
 
     ///Purpose: If Event exists in map, return true, else false
     bool EventExists(Event e);
-
 
 
 };
