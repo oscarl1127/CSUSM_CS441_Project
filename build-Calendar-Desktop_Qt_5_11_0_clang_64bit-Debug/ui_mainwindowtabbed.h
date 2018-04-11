@@ -34,11 +34,16 @@ QT_BEGIN_NAMESPACE
 class Ui_mainWindowTabbed
 {
 public:
-    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_4;
     QTabWidget *tabWidget;
     QWidget *OverViewTab;
-    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_3;
     QCalendarWidget *calendarWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    QListWidget *List_Text_Box;
+    QPushButton *pushButton;
     QWidget *TodoListsTab;
     QLabel *TodoList_PageTitile;
     QTabWidget *SelectTodoListTab;
@@ -115,10 +120,11 @@ public:
         mainWindowTabbed->resize(687, 502);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
         mainWindowTabbed->setModal(false);
-        verticalLayout_3 = new QVBoxLayout(mainWindowTabbed);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_4 = new QHBoxLayout(mainWindowTabbed);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         tabWidget = new QTabWidget(mainWindowTabbed);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setMouseTracking(true);
         tabWidget->setAutoFillBackground(false);
         tabWidget->setTabPosition(QTabWidget::South);
         tabWidget->setTabShape(QTabWidget::Rounded);
@@ -131,12 +137,45 @@ public:
         tabWidget->setTabBarAutoHide(true);
         OverViewTab = new QWidget();
         OverViewTab->setObjectName(QStringLiteral("OverViewTab"));
-        horizontalLayout_2 = new QHBoxLayout(OverViewTab);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        verticalLayout_3 = new QVBoxLayout(OverViewTab);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         calendarWidget = new QCalendarWidget(OverViewTab);
         calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setMouseTracking(true);
+        calendarWidget->setGridVisible(true);
 
-        horizontalLayout_2->addWidget(calendarWidget);
+        horizontalLayout_3->addWidget(calendarWidget);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label = new QLabel(OverViewTab);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font;
+        font.setFamily(QStringLiteral("Apple Chancery"));
+        font.setPointSize(18);
+        font.setItalic(true);
+        font.setUnderline(true);
+        label->setFont(font);
+
+        verticalLayout->addWidget(label);
+
+        List_Text_Box = new QListWidget(OverViewTab);
+        List_Text_Box->setObjectName(QStringLiteral("List_Text_Box"));
+
+        verticalLayout->addWidget(List_Text_Box);
+
+        pushButton = new QPushButton(OverViewTab);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout->addWidget(pushButton);
+
+
+        horizontalLayout_3->addLayout(verticalLayout);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
 
         tabWidget->addTab(OverViewTab, QString());
         TodoListsTab = new QWidget();
@@ -146,7 +185,7 @@ public:
         TodoList_PageTitile->setGeometry(QRect(90, 0, 437, 22));
         SelectTodoListTab = new QTabWidget(TodoListsTab);
         SelectTodoListTab->setObjectName(QStringLiteral("SelectTodoListTab"));
-        SelectTodoListTab->setGeometry(QRect(0, 20, 431, 411));
+        SelectTodoListTab->setGeometry(QRect(0, 30, 431, 401));
         DayTodoList = new QWidget();
         DayTodoList->setObjectName(QStringLiteral("DayTodoList"));
         Day_TodoListViewWindow = new QListWidget(DayTodoList);
@@ -214,10 +253,21 @@ public:
         DateStart_Box = new QDateEdit(AddEventTab);
         DateStart_Box->setObjectName(QStringLiteral("DateStart_Box"));
         DateStart_Box->setGeometry(QRect(50, 73, 81, 24));
+        DateStart_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
+        DateStart_Box->setCalendarPopup(true);
         AddEvent_CategoryLabel = new QLabel(AddEventTab);
         AddEvent_CategoryLabel->setObjectName(QStringLiteral("AddEvent_CategoryLabel"));
         AddEvent_CategoryLabel->setGeometry(QRect(330, 30, 71, 16));
         Category_Box = new QComboBox(AddEventTab);
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
+        Category_Box->addItem(QString());
         Category_Box->setObjectName(QStringLiteral("Category_Box"));
         Category_Box->setGeometry(QRect(400, 30, 221, 26));
         TimeEnd_Box = new QTimeEdit(AddEventTab);
@@ -291,6 +341,8 @@ public:
         DateEnd_Box = new QDateEdit(AddEventTab);
         DateEnd_Box->setObjectName(QStringLiteral("DateEnd_Box"));
         DateEnd_Box->setGeometry(QRect(50, 100, 81, 24));
+        DateEnd_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
+        DateEnd_Box->setCalendarPopup(true);
         City_Box = new QTextEdit(AddEventTab);
         City_Box->setObjectName(QStringLiteral("City_Box"));
         City_Box->setGeometry(QRect(0, 350, 101, 21));
@@ -369,13 +421,13 @@ public:
 
         tabWidget->addTab(AppSettingsTab, QString());
 
-        verticalLayout_3->addWidget(tabWidget);
+        horizontalLayout_4->addWidget(tabWidget);
 
 
         retranslateUi(mainWindowTabbed);
 
         tabWidget->setCurrentIndex(3);
-        SelectTodoListTab->setCurrentIndex(0);
+        SelectTodoListTab->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(mainWindowTabbed);
@@ -384,6 +436,8 @@ public:
     void retranslateUi(QDialog *mainWindowTabbed)
     {
         mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "Dialog", nullptr));
+        label->setText(QApplication::translate("mainWindowTabbed", "Upcoming Events ", nullptr));
+        pushButton->setText(QApplication::translate("mainWindowTabbed", "Get Upcoming Events", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(OverViewTab), QApplication::translate("mainWindowTabbed", "Overview", nullptr));
         TodoList_PageTitile->setText(QApplication::translate("mainWindowTabbed", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Todo Lists</span></p></body></html>", nullptr));
         Day_DeleteTaskButton->setText(QApplication::translate("mainWindowTabbed", "Delete selected task", nullptr));
@@ -402,6 +456,16 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(TodoListsTab), QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TimeStatsTab), QApplication::translate("mainWindowTabbed", "Time Stats", nullptr));
         AddEvent_CategoryLabel->setText(QApplication::translate("mainWindowTabbed", "Category :", nullptr));
+        Category_Box->setItemText(0, QApplication::translate("mainWindowTabbed", "Work", nullptr));
+        Category_Box->setItemText(1, QApplication::translate("mainWindowTabbed", "School", nullptr));
+        Category_Box->setItemText(2, QApplication::translate("mainWindowTabbed", "Exercise", nullptr));
+        Category_Box->setItemText(3, QApplication::translate("mainWindowTabbed", "Free Time", nullptr));
+        Category_Box->setItemText(4, QApplication::translate("mainWindowTabbed", "Appointment", nullptr));
+        Category_Box->setItemText(5, QApplication::translate("mainWindowTabbed", "Meetings", nullptr));
+        Category_Box->setItemText(6, QApplication::translate("mainWindowTabbed", "Study", nullptr));
+        Category_Box->setItemText(7, QApplication::translate("mainWindowTabbed", "Vacation", nullptr));
+        Category_Box->setItemText(8, QApplication::translate("mainWindowTabbed", "New Item", nullptr));
+
         AddEvent_CityLabel->setText(QApplication::translate("mainWindowTabbed", "City :", nullptr));
         AddEvent_NotifyMeLabelPt2->setText(QApplication::translate("mainWindowTabbed", "minutes before i have to leave", nullptr));
         AddEvent_FromDateTimeLabel->setText(QApplication::translate("mainWindowTabbed", "From :", nullptr));

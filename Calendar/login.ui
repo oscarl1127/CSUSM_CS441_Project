@@ -64,7 +64,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Name of our app</string>
+    <string>My Time</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
