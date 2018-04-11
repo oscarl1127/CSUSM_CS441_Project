@@ -11,7 +11,6 @@
 #include "thedb.h"
 
 
-
 mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mainWindowTabbed)
@@ -124,6 +123,6 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
        ui->UpcomingEventsTable->setItem(i, k++, startTime);
    }
    ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "End Date");
-
+   ui->UpcomingEventsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 }
