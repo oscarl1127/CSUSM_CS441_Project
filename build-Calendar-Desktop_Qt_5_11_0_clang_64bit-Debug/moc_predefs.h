@@ -14,6 +14,16 @@
 #define __CHAR16_TYPE__ unsigned short
 #define __CHAR32_TYPE__ unsigned int
 #define __CHAR_BIT__ 8
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __CONSTANT_CFSTRINGS__ 1
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_DENORM_MIN__ 4.9406564584124654e-324
@@ -307,7 +317,7 @@
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ _
-#define __VERSION__ "4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)"
+#define __VERSION__ "4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)"
 #define __WCHAR_MAX__ 2147483647
 #define __WCHAR_TYPE__ int
 #define __WCHAR_WIDTH__ 32
@@ -315,13 +325,13 @@
 #define __WINT_WIDTH__ 32
 #define __amd64 1
 #define __amd64__ 1
-#define __apple_build_version__ 9000039
+#define __apple_build_version__ 9020039
 #define __block __attribute__((__blocks__(byref)))
 #define __clang__ 1
 #define __clang_major__ 9
-#define __clang_minor__ 0
+#define __clang_minor__ 1
 #define __clang_patchlevel__ 0
-#define __clang_version__ "9.0.0 (clang-900.0.39.2)"
+#define __clang_version__ "9.1.0 (clang-902.0.39.1)"
 #define __core2 1
 #define __core2__ 1
 #define __cplusplus 201103L
@@ -341,6 +351,7 @@
 #define __cpp_rtti 199711
 #define __cpp_rvalue_references 200610
 #define __cpp_static_assert 200410
+#define __cpp_threadsafe_static_init 200806
 #define __cpp_unicode_characters 200704
 #define __cpp_unicode_literals 200710
 #define __cpp_user_defined_literals 200809
