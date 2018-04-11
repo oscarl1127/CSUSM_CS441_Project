@@ -57,8 +57,6 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 {
     //Once Event OK is given, check constraints of data (will do later), for now assumes data that can be put into database
 
-    //Event is ready to be entered into db so first create a db varuble and connect
-
 
     Event newEvent = Event();
 
@@ -70,9 +68,8 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
     newEvent.setStartDate( ui->DateStart_Box->date() );
-    newEvent.setEndDate( ui->DateEnd_Box->date() );
-    newEvent.setTimeStart( ui->TimeStart_Box->time() );
-    newEvent.setTimeEnd( ui->TimeEnd_Box->time() );
+
+
 
     //adding event to daycalendar object map
     //if there is an Event with the same date and time, show message box to ask user if they want to replace it with new event
@@ -115,4 +112,13 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
        qDebug() << "upcoming toAdd " << toAdd;
         ui->List_Text_Box->addItem(toAdd);
    }
+}
+
+void mainWindowTabbed::on_AddEvent_SaveThisLocationButton_clicked()
+{
+    QString locationName=ui->Lcation_Box->toPlainText();
+    QString street= ui->Street_Box ->toPlainText();
+    QString city=ui->City_Box->toPlainText();
+    QString state=ui->State_Box->toPlainText();
+    QString zipcode=ui->Zip_Box->toPlainText();
 }

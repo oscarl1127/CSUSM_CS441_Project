@@ -1,6 +1,7 @@
 #include "login.h"
 #include "mainwindowtabbed.h"
 #include "ui_login.h"
+#include "thedb.h"
 #include <QMessageBox>
 
 login::login(QWidget *parent) :
@@ -17,16 +18,15 @@ login::~login()
 
 void login::on_pushButton_clicked()
 {
-    QString username = ui->username_lineEdit->text();
-    QString password = ui->password_lineEdit->text();
+        QString username = ui->username_lineEdit->text();
+        QString password = ui->password_lineEdit->text();
 
-        if(username ==  "username" && password == "password")
+        if((username ==  "username" && password == "password")||(calenderdb.validateCredentials(username,password)))
         {
             mainWindowTabbed m;
             m.setModal(true);
             m.exec();
         }
-
         else
         {
             QMessageBox::warning(this,"Login", "Username and/or password is not correct");

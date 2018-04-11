@@ -7,6 +7,14 @@ theDB::theDB()
     connectToDb();
 }
 
+/*
+ * LOTSOF TESTING WITH A USER
+ * 4
+ * jcook
+ * P@SS
+ * */
+
+
 bool theDB::connectToDb()
 {
     bool retvalue = false;
@@ -14,7 +22,7 @@ bool theDB::connectToDb()
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
 
     db.setHostName("13.58.23.131");
-    db.setDatabaseName("DRIVER={SQL Server};SERVER=13.58.23.131;DATABASE=TestWithQT");
+    db.setDatabaseName("DRIVER={SQL Server};SERVER=13.58.23.131;DATABASE=Main");
     db.setUserName("sa");
     db.setPassword("S!mpl3P@ss");
     db.setPort(1433);
@@ -28,6 +36,15 @@ bool theDB::connectToDb()
 
 bool theDB::addEventInDb(QString eventName, QString eventLocation)
 {   
+    /*
+    QString eventName;
+    QString eventLocation;
+    QString eventStart;
+    QString eventEnd; //YYY-MM-DD HH:MI:SS
+    QString eventNote;
+    int locationNum;
+    int CategoryId;
+    int userId;
     /*\
      * INSERT INTO jcookTEST VALUES ('EventName', 'LocationName');
      * */
@@ -47,7 +64,7 @@ bool theDB::validateCredentials(QString uName, QString password)
     QString theName;
     QString thePass;
 
-    QSqlQuery query("SELECT userName, userPassword FROM theUser");
+    QSqlQuery query("SELECT userName, userPass FROM users");
     while(query.next())
     {
         theName=query.value(0).toString();

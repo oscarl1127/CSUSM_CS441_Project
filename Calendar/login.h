@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QWidget>
+#include "thedb.h"
 
 namespace Ui {
 class login;
@@ -12,6 +13,7 @@ class login : public QWidget
     Q_OBJECT
 
 public:
+    theDB calenderdb;
     explicit login(QWidget *parent = 0);
     ~login();
 
@@ -20,6 +22,7 @@ private slots:
 
 private:
     Ui::login *ui;
+
 };
 
 #endif // LOGIN_H
