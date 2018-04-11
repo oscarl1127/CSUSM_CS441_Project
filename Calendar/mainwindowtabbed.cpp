@@ -11,6 +11,7 @@
 #include "thedb.h"
 
 
+
 mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mainWindowTabbed)
@@ -19,6 +20,7 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     centerAndResize(0.9, 0.9);
     ui->DateStart_Box->setDate( QDate::currentDate() );
     ui->DateEnd_Box->setDate( QDate::currentDate() );
+
     RefreshUpcomingEventList(30);
 }
 
@@ -102,17 +104,26 @@ void mainWindowTabbed::on_pushButton_pressed()
 
 void mainWindowTabbed::RefreshUpcomingEventList(int days)
 {
-    ui->List_Text_Box->clear();
-    ui->List_Text_Box->addItem("Name-Category-Date-Time");
-    qDebug() << "button clicked";
+   int k = 0;
+   ui->UpcomingEventsTable->clear();
+   qDebug() << "button clicked";
    vector<Event> events = userEvents.GetUpcomingEvents(30, QDate::currentDate());
+
    qDebug() << "got dates";
    for(int i = 0; i < events.size(); i++)
    {
-       QString toAdd = events[i].getName() + "-" + events[i].getCategory()
-                     + " on "+ events[i].getStartDate().toString()
-                     + " @ "+ events[i].getTimeStart().toString();
-       qDebug() << "upcoming toAdd " << toAdd;
-        ui->List_Text_Box->addItem(toAdd);
+       k = 0;
+       QTableWidgetItem *name =new QTableWidgetItem (events[i].getName()),
+               *category = new QTableWidgetItem(events[i].getCategory()),
+               *startDate = new QTableWidgetItem(events[i].getStartDate().toString()),
+               *startTime = new QTableWidgetItem(events[i].getTimeStart().toString());
+       ui->UpcomingEventsTable->insertRow(i);
+       ui->UpcomingEventsTable->setItem(i, k++, name);
+       ui->UpcomingEventsTable->setItem(i, k++, category);
+       ui->UpcomingEventsTable->setItem(i, k++, startDate);
+       ui->UpcomingEventsTable->setItem(i, k++, startTime);
    }
+   ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "End Date");
+
+
 }
