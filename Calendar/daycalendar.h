@@ -7,6 +7,8 @@
 #include <QDateTime>
 #include <QWidget>
 #include "thedb.h"
+#include "login.h"
+
 using namespace std;
 
 class DayCalendar
@@ -14,11 +16,12 @@ class DayCalendar
 private:
     map<QDateTime, Event> userEvents;
 
-    theDB calenderdb;
+
 
     bool AddToDatabase(Event e);
 
 public:
+    theDB calenderdb;
     //vector<Event> events;
 
     ///Constructor

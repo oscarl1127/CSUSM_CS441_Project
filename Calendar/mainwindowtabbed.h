@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_pressed();
 
+    void on_AddEvent_SaveThisLocationButton_clicked();
+
 private:
     Ui::mainWindowTabbed *ui;
     void centerAndResize(double width_perc, double height_perc);

@@ -42,7 +42,7 @@ bool DayCalendar::AddEvent(Event e)
     qDebug() << dateTime;
     qDebug() << userEvents.size();
     qDebug() << userEvents[dateTime].getName();
-    AddToDatabase(e);
+    //AddToDatabase(e);
     return true;
 
 }
@@ -58,6 +58,7 @@ Event DayCalendar::GetEvents(QDateTime q)
     //Event event = this->events[index];
     Event event = this->userEvents[q];
     return event;
+
 }
 
 void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
@@ -103,8 +104,11 @@ bool DayCalendar::EventExists(Event e)
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
     map<QDateTime,Event>::const_iterator it = userEvents.find(dateTime);
     return it!=userEvents.end();
+
+
 }
 
+/*
 bool DayCalendar::AddToDatabase(Event newEvent)
 {
     //Send query to calenderDB variable
@@ -124,6 +128,7 @@ bool DayCalendar::AddToDatabase(Event newEvent)
     return xx;
 
 }
+*/
 
 
 
