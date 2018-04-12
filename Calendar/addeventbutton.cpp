@@ -5,7 +5,11 @@
 #include <QDebug>
 
 using namespace std;
-
+enum Mode
+{
+    Edit,
+    Read
+};
 AddEventButton::AddEventButton(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
@@ -25,10 +29,13 @@ void AddEventButton::on_AddEventButton_2_clicked()
     Event newEvent = Event();
 
     newEvent.setName( ui->Title_Box->toPlainText() );
-    newEvent.setLocation( ui->Location_Box->toPlainText() );
-    newEvent.setStreet( ui->Street_Box ->toPlainText() );
-    newEvent.setCity( ui->City_Box->toPlainText() );
-    newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
+    if(ui->HaveLocationCheckBox->isChecked())
+    {
+        newEvent.setLocation( ui->Location_Box->toPlainText() );
+        newEvent.setStreet( ui->Street_Box ->toPlainText() );
+        newEvent.setCity( ui->City_Box->toPlainText() );
+        newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
+    }
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
 

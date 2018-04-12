@@ -183,7 +183,7 @@
     <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QGroupBox" name="HaveLocationCheckBox">
    <property name="geometry">
     <rect>
      <x>10</x>
