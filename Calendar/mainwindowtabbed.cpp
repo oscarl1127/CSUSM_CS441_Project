@@ -16,16 +16,23 @@ mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
     ui(new Ui::mainWindowTabbed)
 {
     ui->setupUi(this);
+
     centerAndResize(0.9, 0.9);
     ui->DateStart_Box->setDate( QDate::currentDate() );
     ui->DateEnd_Box->setDate( QDate::currentDate() );
-
     RefreshUpcomingEventList(30);
 }
 
 mainWindowTabbed::~mainWindowTabbed()
 {
     delete ui;
+}
+
+void mainWindowTabbed::setUserID(int theUserID)
+{
+    userID=theUserID;
+    userEvents.setUserID(theUserID);
+    //Pass the userID to daycalender
 }
 
 ///Used to resize the window depending on the screen size
@@ -62,15 +69,26 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
     Event newEvent = Event();
 
     newEvent.setName( ui->Title_Box->toPlainText() );
-    newEvent.setLocation( ui->Lcation_Box->toPlainText() );
-    newEvent.setStreet( ui->Street_Box ->toPlainText() );
-    newEvent.setCity( ui->City_Box->toPlainText() );
-    newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
+   // newEvent.setLocation( ui->Lcation_Box->toPlainText() );
+    //newEvent.setStreet( ui->Street_Box ->toPlainText() );
+    //newEvent.setCity( ui->City_Box->toPlainText() );
+    //newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
+
+    //Date & times
     newEvent.setStartDate( ui->DateStart_Box->date() );
+    newEvent.setEndDate(ui->DateEnd_Box->date());
+    newEvent.setTimeStart(ui->TimeStart_Box->time());
+    newEvent.setTimeEnd(ui->TimeEnd_Box->time());
 
-
+    //Location Information
+    newEvent.eventLoc.setState(ui->State_Box->toPlainText());
+    newEvent.eventLoc.setLocationName(ui->Lcation_Box->toPlainText());
+    newEvent.eventLoc.setStreet( ui->Street_Box ->toPlainText());
+    newEvent.eventLoc.setCity(ui->City_Box->toPlainText() );
+    newEvent.eventLoc.setZipCode(ui->Zip_Box->toPlainText());
+    newEvent.eventLoc.setSavedLocation(0);
 
     //adding event to daycalendar object map
     //if there is an Event with the same date and time, show message box to ask user if they want to replace it with new event

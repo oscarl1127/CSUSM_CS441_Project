@@ -16,12 +16,12 @@ class DayCalendar
 private:
     map<QDateTime, Event> userEvents;
 
-
-
-    bool AddToDatabase(Event e);
+    bool AddToDatabase(Event e, int theID);
 
 public:
     theDB calenderdb;
+    int userID;
+    void setUserID(int id);
     //vector<Event> events;
 
     ///Constructor

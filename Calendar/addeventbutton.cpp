@@ -31,10 +31,17 @@ void AddEventButton::on_AddEventButton_2_clicked()
     newEvent.setName( ui->Title_Box->toPlainText() );
     if(ui->HaveLocationCheckBox->isChecked())
     {
-        newEvent.setLocation( ui->Location_Box->toPlainText() );
-        newEvent.setStreet( ui->Street_Box ->toPlainText() );
-        newEvent.setCity( ui->City_Box->toPlainText() );
-        newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
+        newEvent.eventLoc.setLocationName(ui->Location_Box->toPlainText());
+        newEvent.eventLoc.setStreet( ui->Street_Box ->toPlainText());
+        newEvent.eventLoc.setCity(ui->City_Box->toPlainText() );
+        newEvent.eventLoc.setZipCode(ui->Zip_Box->toPlainText());
+        newEvent.eventLoc.setState(ui->Stste_Box->toPlainText());
+        newEvent.eventLoc.setSavedLocation(0);
+
+        //newEvent.setLocation( ui->Location_Box->toPlainText() );
+        //newEvent.setStreet( ui->Street_Box ->toPlainText() );
+       // newEvent.setCity( ui->City_Box->toPlainText() );
+       // newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
     }
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
@@ -43,7 +50,7 @@ void AddEventButton::on_AddEventButton_2_clicked()
     newEvent.setEndDate( ui->EndDate_Box->date() );
 
     newEvent.setTimeStart( ui->StartTime_Box ->time() );
-    newEvent.setTimeEnd( ui->EndTime_Box ->time() );
+    newEvent.setTimeEnd( ui->EndTime_Box->time());
 
     userEvents.AddEvent(newEvent);
 

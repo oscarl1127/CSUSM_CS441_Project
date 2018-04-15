@@ -23,6 +23,10 @@ DayCalendar::DayCalendar()
                             ((QDateTime)QDate::currentDate().addDays(2), c));
 }
 
+void DayCalendar::setUserID(int id)
+{
+    userID=id;
+}
 
 ///Purpose: Adding Event to userEvent Map
 /// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
@@ -31,6 +35,10 @@ bool DayCalendar::AddEvent(Event e)
     //events.push_back(e);
     //Retrieve Vector list of events for specific datetime
     QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
+    QDate orig=e.getStartDate();
+    QString fStrg=orig.toString();
+    QDate newDate=QDate::fromString(fStrg);
+    qDebug() << "Original Date: " <<orig<<endl<<"String Version "<<fStrg<<endl <<"New Date "<<newDate<<endl;
     //Event event = this->userEvents[dateTime];
     //insert new pair
     qDebug() << "Inserting into Dictionary";
@@ -42,7 +50,7 @@ bool DayCalendar::AddEvent(Event e)
     qDebug() << dateTime;
     qDebug() << userEvents.size();
     qDebug() << userEvents[dateTime].getName();
-    //AddToDatabase(e);
+    AddToDatabase(e,userID);
     return true;
 
 }
@@ -74,6 +82,7 @@ void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
 /// If match found, add to vector of events.
 vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
 {
+    qDebug() << "ID for current user is: " << userID<<endl;
     qDebug() << "Get UpcomingEvents called";
     QDate proposed = inital_day;
     qDebug() << "proposed is initally " << proposed;
@@ -108,27 +117,11 @@ bool DayCalendar::EventExists(Event e)
 
 }
 
-/*
-bool DayCalendar::AddToDatabase(Event newEvent)
+//Passes the user's id and the event to add.
+bool DayCalendar::AddToDatabase(Event newEvent,int theID)
 {
-    //Send query to calenderDB variable
-    calenderdb.addEventInDb(newEvent.getName(),newEvent.getLocation()); //will need to pass all relevant info
-
-
-    //Testing database to see if validation is sucessful of test credentials
-    bool xx=calenderdb.validateCredentials("jcook","P@SS");
-
-    qDebug() << xx;
-
-    //Testing the changing of a user's password
-    calenderdb.changePassword("jcook", "******");
-
-    qDebug() <<"Changed Password";
-
-    return xx;
-
+    return calenderdb.addEventInDb(newEvent,userID);
 }
-*/
 
 
 
