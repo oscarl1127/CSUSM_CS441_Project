@@ -16,6 +16,8 @@ class mainWindowTabbed : public QDialog
 
 public:
     explicit mainWindowTabbed(QWidget *parent = 0);
+    void setUserID(int theUserID);
+    int userID;
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
 

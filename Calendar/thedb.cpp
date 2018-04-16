@@ -14,6 +14,23 @@ theDB::theDB()
  * P@SS
  * */
 
+int theDB::getUserID(QString username)
+{
+    int actualID;
+    QString actualName;
+
+    QSqlQuery query("SELECT userID, userName FROM users");
+    while(query.next())
+    {
+        actualID=query.value(0).toInt();
+        actualName=query.value(1).toString();
+
+        if(username==actualName)
+            return actualID;
+    }
+    //should never happen
+    return -1;
+}
 
 bool theDB::connectToDb()
 {
@@ -28,36 +45,96 @@ bool theDB::connectToDb()
     db.setPort(1433);
 
     retvalue = db.open();
-
-    cout << "**************" << retvalue << "*************"<<endl;
+    if(retvalue==1)
+        cout <<  "Connected to database."<<endl;
+    else
+        cout << "Connection to database failed."<<endl;
 
     return retvalue;
 }
 
-bool theDB::addEventInDb(QString eventName, QString eventLocation)
+bool theDB::addEventInDb(Event theEvent, int userId)
 {   
-    /*
-    QString eventName;
-    QString eventLocation;
-    QString eventStart;
-    QString eventEnd; //YYY-MM-DD HH:MI:SS
-    QString eventNote;
-    int locationNum;
-    int CategoryId;
-    int userId;
-    /*\
-     * INSERT INTO jcookTEST VALUES ('EventName', 'LocationName');
-     * */
+    QString eventName=theEvent.getName();
+    QString eventNote=theEvent.getNote();
+
+    //All dates/times stored as strings.
+    QString startTime=theEvent.getTimeStart().toString();
+    QString endTime =theEvent.getTimeEnd().toString();
+    QString startDate=theEvent.getStartDate().toString();
+    QString endDate = theEvent.getEndDate().toString();
+
+
+    //To do later, for now assumes the WORK category
+    int categoryID = 1;
+
+    //Assume all locations are saved
+    int saveLocation=1;
+
+    //Location infortmaion
+    QString locationName = theEvent.eventLoc.getLocationName();
+    QString locationStreet=theEvent.eventLoc.getStreet();
+    QString locationCity = theEvent.eventLoc.getCity();
+    QString locationState = theEvent.eventLoc.getState();
+    QString locationZip = theEvent.eventLoc.getZipcode();
+
+    //FIRST: Check if the location already exists for the user, if not create it in the database
 
     QString theQuery;
-    theQuery= "INSERT INTO jcookTest VALUES ('"+eventName+"', '"+eventLocation+"');";
-     qDebug() << theQuery;
-     QSqlQuery query;
+    theQuery="INSERT INTO Location VALUES('"+locationName+"','"+locationStreet+"','"+locationCity+"','"+locationState+"',"+QString::number(saveLocation)+",'"
+            +locationZip+"',"+QString::number(userId)+");";
+
+    //Run the query
+    QSqlQuery query;
     query.prepare(theQuery);
     query.exec();
 
-    return false;
+    //Now that the location is added in the database, we need to retrive it's location number.
+    int locationNumber= getLocationNumber(locationName,userId);
+
+    //Now we must add this event to the database, and use the location Number as a foreign key
+    theQuery="INSERT INTO Event VALUES('"+eventName+"','"+startTime+"','"+endTime+"','"+startDate+"','"+endDate+"','"
+            +eventNote+"',"+QString::number(locationNumber)+","+QString::number(categoryID)+","+QString::number(userId)+");";
+
+    //Run the query
+    QSqlQuery query2;
+    query2.prepare(theQuery);
+    query2.exec();
+
+
+
+
+/*
+
+    //theQuery= "INSERT INTO jcookTest VALUES ('"+eventName+"', '"+eventLocation+"');";
+     //
+    //Create a query using the string and run it.
+
+*/
+    //Sucesful add of event
+    return true;
 }
+
+int theDB::getLocationNumber(QString locationName, int userID)
+{
+    int locNum;
+    QString locName;
+    int locUser;
+
+    QSqlQuery query("Select locationNum, locationName, userID FROM Location;");
+    while(query.next())
+    {
+        locNum=query.value(0).toInt();
+        locName=query.value(1).toString();
+        locUser=query.value(2).toInt();
+
+        if(locationName==locName && userID==locUser)
+            return locNum;
+    }
+
+    return -1; //No match
+}
+
 
 bool theDB::validateCredentials(QString uName, QString password)
 {

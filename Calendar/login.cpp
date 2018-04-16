@@ -21,11 +21,19 @@ void login::on_pushButton_clicked()
         QString username = ui->username_lineEdit->text();
         QString password = ui->password_lineEdit->text();
 
+           //Allows default loging of 'Username' and 'Password' to be logged in aswell as properly validated credentials
         if((username ==  "username" && password == "password")||(calenderdb.validateCredentials(username,password)))
         {
+            int theUserID= calenderdb.getUserID(username);
+            qDebug()<<"id-----"<<theUserID;
+            hide();
             mainWindowTabbed m;
+            m.setUserID(theUserID);
             m.setModal(true);
             m.exec();
+            show();
+            this -> hide(); // removes login window once loged in
+
         }
         else
         {

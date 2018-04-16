@@ -33,7 +33,8 @@ SOURCES += \
     dayview.cpp \
     thedb.cpp \
     login.cpp \
-    addeventbutton.cpp
+    addeventbutton.cpp \
+    location.cpp
 
 HEADERS += \
     mainwindowtabbed.h \
@@ -42,7 +43,8 @@ HEADERS += \
     dayview.h \
     thedb.h \
     login.h \
-    addeventbutton.h
+    addeventbutton.h \
+    location.h
 
 FORMS += \
     mainwindowtabbed.ui \
