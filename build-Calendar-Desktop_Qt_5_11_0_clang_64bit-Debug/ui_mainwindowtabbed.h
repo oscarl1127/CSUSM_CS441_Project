@@ -18,12 +18,15 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFontComboBox>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -34,16 +37,13 @@ QT_BEGIN_NAMESPACE
 class Ui_mainWindowTabbed
 {
 public:
-    QHBoxLayout *horizontalLayout_4;
+    QGridLayout *gridLayout;
     QTabWidget *tabWidget;
     QWidget *OverViewTab;
-    QVBoxLayout *verticalLayout_3;
-    QHBoxLayout *horizontalLayout_3;
+    QGridLayout *gridLayout_2;
     QCalendarWidget *calendarWidget;
-    QVBoxLayout *verticalLayout;
     QLabel *label;
-    QListWidget *List_Text_Box;
-    QPushButton *pushButton;
+    QTableWidget *UpcomingEventsTable;
     QWidget *TodoListsTab;
     QLabel *TodoList_PageTitile;
     QTabWidget *SelectTodoListTab;
@@ -120,8 +120,8 @@ public:
         mainWindowTabbed->resize(687, 502);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
         mainWindowTabbed->setModal(false);
-        horizontalLayout_4 = new QHBoxLayout(mainWindowTabbed);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        gridLayout = new QGridLayout(mainWindowTabbed);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         tabWidget = new QTabWidget(mainWindowTabbed);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setMouseTracking(true);
@@ -137,19 +137,15 @@ public:
         tabWidget->setTabBarAutoHide(true);
         OverViewTab = new QWidget();
         OverViewTab->setObjectName(QStringLiteral("OverViewTab"));
-        verticalLayout_3 = new QVBoxLayout(OverViewTab);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        gridLayout_2 = new QGridLayout(OverViewTab);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         calendarWidget = new QCalendarWidget(OverViewTab);
         calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
         calendarWidget->setMouseTracking(true);
         calendarWidget->setGridVisible(true);
 
-        horizontalLayout_3->addWidget(calendarWidget);
+        gridLayout_2->addWidget(calendarWidget, 0, 0, 2, 1);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(OverViewTab);
         label->setObjectName(QStringLiteral("label"));
         QFont font;
@@ -159,23 +155,41 @@ public:
         font.setUnderline(true);
         label->setFont(font);
 
-        verticalLayout->addWidget(label);
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
 
-        List_Text_Box = new QListWidget(OverViewTab);
-        List_Text_Box->setObjectName(QStringLiteral("List_Text_Box"));
+        UpcomingEventsTable = new QTableWidget(OverViewTab);
+        if (UpcomingEventsTable->columnCount() < 4)
+            UpcomingEventsTable->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        UpcomingEventsTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        UpcomingEventsTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        UpcomingEventsTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        UpcomingEventsTable->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        UpcomingEventsTable->setObjectName(QStringLiteral("UpcomingEventsTable"));
+        UpcomingEventsTable->setAutoFillBackground(true);
+        UpcomingEventsTable->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        UpcomingEventsTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        UpcomingEventsTable->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        UpcomingEventsTable->setAutoScroll(false);
+        UpcomingEventsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        UpcomingEventsTable->setProperty("showDropIndicator", QVariant(false));
+        UpcomingEventsTable->setDragEnabled(false);
+        UpcomingEventsTable->setSelectionMode(QAbstractItemView::NoSelection);
+        UpcomingEventsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+        UpcomingEventsTable->setShowGrid(true);
+        UpcomingEventsTable->setSortingEnabled(true);
+        UpcomingEventsTable->setCornerButtonEnabled(true);
+        UpcomingEventsTable->horizontalHeader()->setCascadingSectionResizes(false);
+        UpcomingEventsTable->horizontalHeader()->setDefaultSectionSize(78);
+        UpcomingEventsTable->horizontalHeader()->setStretchLastSection(false);
+        UpcomingEventsTable->verticalHeader()->setVisible(false);
+        UpcomingEventsTable->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
+        UpcomingEventsTable->verticalHeader()->setStretchLastSection(false);
 
-        verticalLayout->addWidget(List_Text_Box);
-
-        pushButton = new QPushButton(OverViewTab);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        verticalLayout->addWidget(pushButton);
-
-
-        horizontalLayout_3->addLayout(verticalLayout);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_3);
+        gridLayout_2->addWidget(UpcomingEventsTable, 1, 1, 1, 1);
 
         tabWidget->addTab(OverViewTab, QString());
         TodoListsTab = new QWidget();
@@ -421,7 +435,7 @@ public:
 
         tabWidget->addTab(AppSettingsTab, QString());
 
-        horizontalLayout_4->addWidget(tabWidget);
+        gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
 
 
         retranslateUi(mainWindowTabbed);
@@ -437,7 +451,14 @@ public:
     {
         mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "Dialog", nullptr));
         label->setText(QApplication::translate("mainWindowTabbed", "Upcoming Events ", nullptr));
-        pushButton->setText(QApplication::translate("mainWindowTabbed", "Get Upcoming Events", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = UpcomingEventsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("mainWindowTabbed", "Title", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = UpcomingEventsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("mainWindowTabbed", "Category", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = UpcomingEventsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("mainWindowTabbed", "Start Time", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = UpcomingEventsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("mainWindowTabbed", "End Time", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(OverViewTab), QApplication::translate("mainWindowTabbed", "Overview", nullptr));
         TodoList_PageTitile->setText(QApplication::translate("mainWindowTabbed", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Todo Lists</span></p></body></html>", nullptr));
         Day_DeleteTaskButton->setText(QApplication::translate("mainWindowTabbed", "Delete selected task", nullptr));

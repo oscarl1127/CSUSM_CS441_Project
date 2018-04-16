@@ -57,7 +57,8 @@ SOURCES       = ../Calendar/main.cpp \
 		../Calendar/dayview.cpp \
 		../Calendar/thedb.cpp \
 		../Calendar/login.cpp \
-		../Calendar/addeventbutton.cpp moc_mainwindowtabbed.cpp \
+		../Calendar/addeventbutton.cpp \
+		../Calendar/location.cpp moc_mainwindowtabbed.cpp \
 		moc_dayview.cpp \
 		moc_login.cpp \
 		moc_addeventbutton.cpp
@@ -69,6 +70,7 @@ OBJECTS       = main.o \
 		thedb.o \
 		login.o \
 		addeventbutton.o \
+		location.o \
 		moc_mainwindowtabbed.o \
 		moc_dayview.o \
 		moc_login.o \
@@ -269,14 +271,16 @@ DIST          = ../../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../Calendar/dayview.h \
 		../Calendar/thedb.h \
 		../Calendar/login.h \
-		../Calendar/addeventbutton.h ../Calendar/main.cpp \
+		../Calendar/addeventbutton.h \
+		../Calendar/location.h ../Calendar/main.cpp \
 		../Calendar/mainwindowtabbed.cpp \
 		../Calendar/event.cpp \
 		../Calendar/daycalendar.cpp \
 		../Calendar/dayview.cpp \
 		../Calendar/thedb.cpp \
 		../Calendar/login.cpp \
-		../Calendar/addeventbutton.cpp
+		../Calendar/addeventbutton.cpp \
+		../Calendar/location.cpp
 QMAKE_TARGET  = Calendar
 DESTDIR       = 
 TARGET        = Calendar.app/Contents/MacOS/Calendar
@@ -715,8 +719,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h ../Calendar/login.h ../Calendar/addeventbutton.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp ../Calendar/login.cpp ../Calendar/addeventbutton.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h ../Calendar/login.h ../Calendar/addeventbutton.h ../Calendar/location.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp ../Calendar/login.cpp ../Calendar/addeventbutton.cpp ../Calendar/location.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.ui ../Calendar/dayview.ui ../Calendar/login.ui ../Calendar/addeventbutton.ui $(DISTDIR)/
 
 
@@ -762,6 +766,7 @@ moc_mainwindowtabbed.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Calendar/thedb.h \
@@ -773,6 +778,7 @@ moc_mainwindowtabbed.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/login.h \
 		../Calendar/mainwindowtabbed.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
@@ -787,6 +793,21 @@ moc_dayview.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/
 
 moc_login.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Calendar/thedb.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/event.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../Calendar/login.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
@@ -800,6 +821,7 @@ moc_addeventbutton.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/H
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Calendar/thedb.h \
@@ -811,6 +833,7 @@ moc_addeventbutton.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/H
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/login.h \
 		../Calendar/addeventbutton.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
@@ -854,6 +877,21 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../Calendar/main.cpp ../Calendar/login.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Calendar/thedb.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/event.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Calendar/main.cpp
@@ -869,6 +907,7 @@ mainwindowtabbed.o: ../Calendar/mainwindowtabbed.cpp ../Calendar/mainwindowtabbe
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Calendar/thedb.h \
@@ -880,6 +919,7 @@ mainwindowtabbed.o: ../Calendar/mainwindowtabbed.cpp ../Calendar/mainwindowtabbe
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/login.h \
 		ui_mainwindowtabbed.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
@@ -893,7 +933,8 @@ event.o: ../Calendar/event.cpp ../Calendar/event.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
-		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o event.o ../Calendar/event.cpp
 
 daycalendar.o: ../Calendar/daycalendar.cpp ../Calendar/daycalendar.h \
@@ -902,6 +943,7 @@ daycalendar.o: ../Calendar/daycalendar.cpp ../Calendar/daycalendar.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Calendar/thedb.h \
@@ -913,6 +955,7 @@ daycalendar.o: ../Calendar/daycalendar.cpp ../Calendar/daycalendar.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/login.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDate \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
@@ -932,24 +975,16 @@ thedb.o: ../Calendar/thedb.cpp ../Calendar/thedb.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
-		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thedb.o ../Calendar/thedb.cpp
-
-login.o: ../Calendar/login.cpp ../Calendar/login.h \
-		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_login.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Calendar/login.cpp
-
-addeventbutton.o: ../Calendar/addeventbutton.cpp ../Calendar/addeventbutton.h \
-		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
-		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		../Calendar/daycalendar.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../Calendar/event.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thedb.o ../Calendar/thedb.cpp
+
+login.o: ../Calendar/login.cpp ../Calendar/login.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Calendar/thedb.h \
@@ -961,8 +996,52 @@ addeventbutton.o: ../Calendar/addeventbutton.cpp ../Calendar/addeventbutton.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/event.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
+		../Calendar/mainwindowtabbed.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../Calendar/daycalendar.h \
+		ui_login.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Calendar/login.cpp
+
+addeventbutton.o: ../Calendar/addeventbutton.cpp ../Calendar/addeventbutton.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Calendar/daycalendar.h \
+		../Calendar/event.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../Calendar/location.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Calendar/thedb.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Calendar/login.h \
 		ui_addeventbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addeventbutton.o ../Calendar/addeventbutton.cpp
+
+location.o: ../Calendar/location.cpp ../Calendar/location.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o location.o ../Calendar/location.cpp
 
 moc_mainwindowtabbed.o: moc_mainwindowtabbed.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindowtabbed.o moc_mainwindowtabbed.cpp

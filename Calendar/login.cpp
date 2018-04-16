@@ -32,6 +32,8 @@ void login::on_pushButton_clicked()
             m.setModal(true);
             m.exec();
             show();
+            this -> hide(); // removes login window once loged in
+
         }
         else
         {
