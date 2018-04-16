@@ -117,8 +117,11 @@
          <property name="dragEnabled">
           <bool>false</bool>
          </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
          <property name="selectionMode">
-          <enum>QAbstractItemView::NoSelection</enum>
+          <enum>QAbstractItemView::SingleSelection</enum>
          </property>
          <property name="selectionBehavior">
           <enum>QAbstractItemView::SelectRows</enum>
@@ -139,13 +142,13 @@
           <number>78</number>
          </attribute>
          <attribute name="horizontalHeaderStretchLastSection">
-          <bool>false</bool>
+          <bool>true</bool>
          </attribute>
          <attribute name="verticalHeaderVisible">
           <bool>false</bool>
          </attribute>
          <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-          <bool>false</bool>
+          <bool>true</bool>
          </attribute>
          <attribute name="verticalHeaderStretchLastSection">
           <bool>false</bool>
