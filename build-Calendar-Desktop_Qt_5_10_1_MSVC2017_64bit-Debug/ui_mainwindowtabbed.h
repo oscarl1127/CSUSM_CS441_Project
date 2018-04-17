@@ -43,11 +43,10 @@ public:
     QTabWidget *tabWidget;
     QWidget *OverViewTab;
     QGridLayout *gridLayout_2;
+    QTableWidget *UpcomingEventsTable;
     QCalendarWidget *calendarWidget;
     QLabel *label;
-    QTableWidget *UpcomingEventsTable;
     QWidget *TodoListsTab;
-    QLabel *TodoList_PageTitile;
     QTabWidget *SelectTodoListTab;
     QWidget *DayTodoList;
     QListWidget *Day_TodoListViewWindow;
@@ -67,6 +66,7 @@ public:
     QDialogButtonBox *TodoListAcceptDeclineButtons;
     QLabel *TodoListJumpToDateLabel;
     QDateEdit *TodoListJumpToDateSelector;
+    QLabel *label_2;
     QWidget *TimeStatsTab;
     QWidget *AddEventTab;
     QSpinBox *AddEvent_SelectorNotifyMeTime;
@@ -85,7 +85,6 @@ public:
     QDialogButtonBox *AddEvent_AcceptDeclineButton;
     QTextEdit *State_Box;
     QTextEdit *Street_Box;
-    QLabel *AddEvent_Title;
     QLabel *AddEvent_TitleLabel;
     QCheckBox *AddEvent_TravelTimeNotification;
     QTextEdit *Lcation_Box;
@@ -103,12 +102,13 @@ public:
     QWidget *layoutWidget_2;
     QHBoxLayout *horizontalLayout;
     QLabel *AddEvent_LoadSavedLabel;
-    QPushButton *AddEvent_LoadSavedLocationButton;
+    QComboBox *AddEvent_LoadSavedLocationComboBox;
+    QLabel *label_3;
     QWidget *AppSettingsTab;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_29;
-    QComboBox *Settings_;
     QLabel *label_30;
+    QComboBox *Settings_;
     QLabel *label_31;
     QFontComboBox *fontComboBox;
     QLabel *label_32;
@@ -119,15 +119,21 @@ public:
     {
         if (mainWindowTabbed->objectName().isEmpty())
             mainWindowTabbed->setObjectName(QStringLiteral("mainWindowTabbed"));
-        mainWindowTabbed->resize(687, 502);
+        mainWindowTabbed->resize(687, 559);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
+        mainWindowTabbed->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 124));"));
         mainWindowTabbed->setModal(false);
         gridLayout = new QGridLayout(mainWindowTabbed);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         tabWidget = new QTabWidget(mainWindowTabbed);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        QFont font;
+        font.setPointSize(15);
+        font.setItalic(false);
+        tabWidget->setFont(font);
         tabWidget->setMouseTracking(true);
         tabWidget->setAutoFillBackground(false);
+        tabWidget->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 124));"));
         tabWidget->setTabPosition(QTabWidget::South);
         tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setIconSize(QSize(16, 16));
@@ -141,24 +147,6 @@ public:
         OverViewTab->setObjectName(QStringLiteral("OverViewTab"));
         gridLayout_2 = new QGridLayout(OverViewTab);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        calendarWidget = new QCalendarWidget(OverViewTab);
-        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
-        calendarWidget->setMouseTracking(true);
-        calendarWidget->setGridVisible(true);
-
-        gridLayout_2->addWidget(calendarWidget, 0, 0, 2, 1);
-
-        label = new QLabel(OverViewTab);
-        label->setObjectName(QStringLiteral("label"));
-        QFont font;
-        font.setFamily(QStringLiteral("Apple Chancery"));
-        font.setPointSize(18);
-        font.setItalic(true);
-        font.setUnderline(true);
-        label->setFont(font);
-
-        gridLayout_2->addWidget(label, 0, 1, 1, 1);
-
         UpcomingEventsTable = new QTableWidget(OverViewTab);
         if (UpcomingEventsTable->columnCount() < 4)
             UpcomingEventsTable->setColumnCount(4);
@@ -172,6 +160,7 @@ public:
         UpcomingEventsTable->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         UpcomingEventsTable->setObjectName(QStringLiteral("UpcomingEventsTable"));
         UpcomingEventsTable->setAutoFillBackground(true);
+        UpcomingEventsTable->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(202, 202, 202, 255), stop:1 rgba(255, 255, 255, 255));"));
         UpcomingEventsTable->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         UpcomingEventsTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         UpcomingEventsTable->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
@@ -179,84 +168,130 @@ public:
         UpcomingEventsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
         UpcomingEventsTable->setProperty("showDropIndicator", QVariant(false));
         UpcomingEventsTable->setDragEnabled(false);
-        UpcomingEventsTable->setSelectionMode(QAbstractItemView::NoSelection);
+        UpcomingEventsTable->setAlternatingRowColors(true);
+        UpcomingEventsTable->setSelectionMode(QAbstractItemView::SingleSelection);
         UpcomingEventsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
         UpcomingEventsTable->setShowGrid(true);
         UpcomingEventsTable->setSortingEnabled(true);
         UpcomingEventsTable->setCornerButtonEnabled(true);
         UpcomingEventsTable->horizontalHeader()->setCascadingSectionResizes(false);
         UpcomingEventsTable->horizontalHeader()->setDefaultSectionSize(78);
-        UpcomingEventsTable->horizontalHeader()->setStretchLastSection(false);
+        UpcomingEventsTable->horizontalHeader()->setStretchLastSection(true);
         UpcomingEventsTable->verticalHeader()->setVisible(false);
-        UpcomingEventsTable->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
+        UpcomingEventsTable->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         UpcomingEventsTable->verticalHeader()->setStretchLastSection(false);
 
         gridLayout_2->addWidget(UpcomingEventsTable, 1, 1, 1, 1);
 
+        calendarWidget = new QCalendarWidget(OverViewTab);
+        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setMouseTracking(true);
+        calendarWidget->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: black;\n"
+"background-color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(52, 141, 180);\n"
+"alternate-background-color: rgb(102, 102, 102);\n"
+""));
+        calendarWidget->setGridVisible(true);
+        calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+
+        gridLayout_2->addWidget(calendarWidget, 0, 0, 2, 1);
+
+        label = new QLabel(OverViewTab);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Papyrus"));
+        font1.setPointSize(21);
+        font1.setItalic(true);
+        font1.setUnderline(true);
+        label->setFont(font1);
+        label->setAutoFillBackground(false);
+        label->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
+
         tabWidget->addTab(OverViewTab, QString());
         TodoListsTab = new QWidget();
         TodoListsTab->setObjectName(QStringLiteral("TodoListsTab"));
-        TodoList_PageTitile = new QLabel(TodoListsTab);
-        TodoList_PageTitile->setObjectName(QStringLiteral("TodoList_PageTitile"));
-        TodoList_PageTitile->setGeometry(QRect(90, 0, 437, 22));
         SelectTodoListTab = new QTabWidget(TodoListsTab);
         SelectTodoListTab->setObjectName(QStringLiteral("SelectTodoListTab"));
-        SelectTodoListTab->setGeometry(QRect(0, 30, 431, 401));
+        SelectTodoListTab->setGeometry(QRect(0, 30, 451, 391));
+        SelectTodoListTab->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         DayTodoList = new QWidget();
         DayTodoList->setObjectName(QStringLiteral("DayTodoList"));
         Day_TodoListViewWindow = new QListWidget(DayTodoList);
         Day_TodoListViewWindow->setObjectName(QStringLiteral("Day_TodoListViewWindow"));
-        Day_TodoListViewWindow->setGeometry(QRect(20, 12, 391, 331));
+        Day_TodoListViewWindow->setGeometry(QRect(20, 12, 411, 311));
         Day_DeleteTaskButton = new QPushButton(DayTodoList);
         Day_DeleteTaskButton->setObjectName(QStringLiteral("Day_DeleteTaskButton"));
-        Day_DeleteTaskButton->setGeometry(QRect(20, 350, 161, 32));
+        Day_DeleteTaskButton->setGeometry(QRect(20, 320, 161, 32));
         Day_AddTaskButton = new QPushButton(DayTodoList);
         Day_AddTaskButton->setObjectName(QStringLiteral("Day_AddTaskButton"));
-        Day_AddTaskButton->setGeometry(QRect(320, 350, 91, 32));
+        Day_AddTaskButton->setGeometry(QRect(340, 320, 91, 32));
         Day_UpdateTaskButton = new QPushButton(DayTodoList);
         Day_UpdateTaskButton->setObjectName(QStringLiteral("Day_UpdateTaskButton"));
-        Day_UpdateTaskButton->setGeometry(QRect(170, 350, 161, 32));
+        Day_UpdateTaskButton->setGeometry(QRect(180, 320, 161, 32));
         SelectTodoListTab->addTab(DayTodoList, QString());
         WeekTodoList = new QWidget();
         WeekTodoList->setObjectName(QStringLiteral("WeekTodoList"));
         Week_UpdateTask = new QPushButton(WeekTodoList);
         Week_UpdateTask->setObjectName(QStringLiteral("Week_UpdateTask"));
-        Week_UpdateTask->setGeometry(QRect(170, 350, 161, 32));
+        Week_UpdateTask->setGeometry(QRect(180, 320, 161, 32));
         Week_TodoListViewWindow = new QListWidget(WeekTodoList);
         Week_TodoListViewWindow->setObjectName(QStringLiteral("Week_TodoListViewWindow"));
-        Week_TodoListViewWindow->setGeometry(QRect(20, 12, 391, 331));
+        Week_TodoListViewWindow->setGeometry(QRect(20, 12, 411, 311));
         Week_AddTask = new QPushButton(WeekTodoList);
         Week_AddTask->setObjectName(QStringLiteral("Week_AddTask"));
-        Week_AddTask->setGeometry(QRect(320, 350, 91, 32));
+        Week_AddTask->setGeometry(QRect(340, 320, 91, 32));
         Week_DeleteTask = new QPushButton(WeekTodoList);
         Week_DeleteTask->setObjectName(QStringLiteral("Week_DeleteTask"));
-        Week_DeleteTask->setGeometry(QRect(20, 350, 161, 32));
+        Week_DeleteTask->setGeometry(QRect(20, 320, 161, 32));
         SelectTodoListTab->addTab(WeekTodoList, QString());
+        Week_TodoListViewWindow->raise();
+        Week_DeleteTask->raise();
+        Week_UpdateTask->raise();
+        Week_AddTask->raise();
         MonthTodoList = new QWidget();
         MonthTodoList->setObjectName(QStringLiteral("MonthTodoList"));
         Month_UpdateTask = new QPushButton(MonthTodoList);
         Month_UpdateTask->setObjectName(QStringLiteral("Month_UpdateTask"));
-        Month_UpdateTask->setGeometry(QRect(170, 350, 161, 32));
+        Month_UpdateTask->setGeometry(QRect(180, 321, 171, 31));
         Month_TodoListViewWindow = new QListWidget(MonthTodoList);
         Month_TodoListViewWindow->setObjectName(QStringLiteral("Month_TodoListViewWindow"));
-        Month_TodoListViewWindow->setGeometry(QRect(20, 12, 391, 331));
+        Month_TodoListViewWindow->setGeometry(QRect(20, 12, 411, 311));
         Month_AddTask = new QPushButton(MonthTodoList);
         Month_AddTask->setObjectName(QStringLiteral("Month_AddTask"));
-        Month_AddTask->setGeometry(QRect(320, 350, 91, 32));
+        Month_AddTask->setGeometry(QRect(340, 321, 91, 31));
         Month_DeleteTask = new QPushButton(MonthTodoList);
         Month_DeleteTask->setObjectName(QStringLiteral("Month_DeleteTask"));
-        Month_DeleteTask->setGeometry(QRect(20, 350, 161, 32));
+        Month_DeleteTask->setGeometry(QRect(20, 321, 171, 31));
         SelectTodoListTab->addTab(MonthTodoList, QString());
+        Month_TodoListViewWindow->raise();
+        Month_DeleteTask->raise();
+        Month_UpdateTask->raise();
+        Month_AddTask->raise();
         TodoListAcceptDeclineButtons = new QDialogButtonBox(TodoListsTab);
         TodoListAcceptDeclineButtons->setObjectName(QStringLiteral("TodoListAcceptDeclineButtons"));
-        TodoListAcceptDeclineButtons->setGeometry(QRect(230, 430, 171, 32));
+        TodoListAcceptDeclineButtons->setGeometry(QRect(230, 420, 171, 32));
+        TodoListAcceptDeclineButtons->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         TodoListAcceptDeclineButtons->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         TodoListJumpToDateLabel = new QLabel(TodoListsTab);
         TodoListJumpToDateLabel->setObjectName(QStringLiteral("TodoListJumpToDateLabel"));
-        TodoListJumpToDateLabel->setGeometry(QRect(450, 30, 60, 16));
+        TodoListJumpToDateLabel->setGeometry(QRect(460, 30, 60, 16));
         TodoListJumpToDateSelector = new QDateEdit(TodoListsTab);
         TodoListJumpToDateSelector->setObjectName(QStringLiteral("TodoListJumpToDateSelector"));
-        TodoListJumpToDateSelector->setGeometry(QRect(510, 30, 110, 24));
+        TodoListJumpToDateSelector->setGeometry(QRect(520, 30, 110, 24));
+        TodoListJumpToDateSelector->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        label_2 = new QLabel(TodoListsTab);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(0, -10, 661, 61));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Papyrus"));
+        font2.setPointSize(25);
+        label_2->setFont(font2);
+        label_2->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        label_2->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(TodoListsTab, QString());
         TimeStatsTab = new QWidget();
         TimeStatsTab->setObjectName(QStringLiteral("TimeStatsTab"));
@@ -266,9 +301,11 @@ public:
         AddEvent_SelectorNotifyMeTime = new QSpinBox(AddEventTab);
         AddEvent_SelectorNotifyMeTime->setObjectName(QStringLiteral("AddEvent_SelectorNotifyMeTime"));
         AddEvent_SelectorNotifyMeTime->setGeometry(QRect(400, 183, 48, 31));
+        AddEvent_SelectorNotifyMeTime->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         DateStart_Box = new QDateEdit(AddEventTab);
         DateStart_Box->setObjectName(QStringLiteral("DateStart_Box"));
         DateStart_Box->setGeometry(QRect(50, 73, 81, 24));
+        DateStart_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         DateStart_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         DateStart_Box->setCalendarPopup(true);
         AddEvent_CategoryLabel = new QLabel(AddEventTab);
@@ -289,107 +326,141 @@ public:
         TimeEnd_Box = new QTimeEdit(AddEventTab);
         TimeEnd_Box->setObjectName(QStringLiteral("TimeEnd_Box"));
         TimeEnd_Box->setGeometry(QRect(140, 100, 91, 24));
+        TimeEnd_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_CityLabel = new QLabel(AddEventTab);
         AddEvent_CityLabel->setObjectName(QStringLiteral("AddEvent_CityLabel"));
         AddEvent_CityLabel->setGeometry(QRect(0, 330, 60, 16));
+        QFont font3;
+        font3.setPointSize(17);
+        AddEvent_CityLabel->setFont(font3);
         Note_Box = new QTextEdit(AddEventTab);
         Note_Box->setObjectName(QStringLiteral("Note_Box"));
         Note_Box->setGeometry(QRect(340, 60, 281, 91));
+        Note_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_NotifyMeLabelPt2 = new QLabel(AddEventTab);
         AddEvent_NotifyMeLabelPt2->setObjectName(QStringLiteral("AddEvent_NotifyMeLabelPt2"));
         AddEvent_NotifyMeLabelPt2->setGeometry(QRect(450, 190, 191, 16));
+        QFont font4;
+        font4.setPointSize(13);
+        AddEvent_NotifyMeLabelPt2->setFont(font4);
         TimeStart_Box = new QTimeEdit(AddEventTab);
         TimeStart_Box->setObjectName(QStringLiteral("TimeStart_Box"));
         TimeStart_Box->setGeometry(QRect(140, 73, 91, 24));
+        TimeStart_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget = new QWidget(AddEventTab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 70, 43, 51));
+        layoutWidget->setGeometry(QRect(0, 70, 70, 65));
         AddEvent_FromToDateLabels = new QVBoxLayout(layoutWidget);
         AddEvent_FromToDateLabels->setObjectName(QStringLiteral("AddEvent_FromToDateLabels"));
         AddEvent_FromToDateLabels->setContentsMargins(0, 0, 0, 0);
         AddEvent_FromDateTimeLabel = new QLabel(layoutWidget);
         AddEvent_FromDateTimeLabel->setObjectName(QStringLiteral("AddEvent_FromDateTimeLabel"));
+        AddEvent_FromDateTimeLabel->setFont(font3);
 
         AddEvent_FromToDateLabels->addWidget(AddEvent_FromDateTimeLabel);
 
         AddEvent_ToDateTimeLabel = new QLabel(layoutWidget);
         AddEvent_ToDateTimeLabel->setObjectName(QStringLiteral("AddEvent_ToDateTimeLabel"));
+        AddEvent_ToDateTimeLabel->setFont(font3);
 
         AddEvent_FromToDateLabels->addWidget(AddEvent_ToDateTimeLabel);
 
         AddEvent_AcceptDeclineButton = new QDialogButtonBox(AddEventTab);
         AddEvent_AcceptDeclineButton->setObjectName(QStringLiteral("AddEvent_AcceptDeclineButton"));
         AddEvent_AcceptDeclineButton->setGeometry(QRect(240, 420, 164, 32));
+        AddEvent_AcceptDeclineButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_AcceptDeclineButton->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         State_Box = new QTextEdit(AddEventTab);
         State_Box->setObjectName(QStringLiteral("State_Box"));
         State_Box->setGeometry(QRect(130, 350, 81, 21));
+        State_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         Street_Box = new QTextEdit(AddEventTab);
         Street_Box->setObjectName(QStringLiteral("Street_Box"));
         Street_Box->setGeometry(QRect(0, 300, 321, 21));
-        AddEvent_Title = new QLabel(AddEventTab);
-        AddEvent_Title->setObjectName(QStringLiteral("AddEvent_Title"));
-        AddEvent_Title->setGeometry(QRect(270, 0, 91, 21));
+        Street_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_TitleLabel = new QLabel(AddEventTab);
         AddEvent_TitleLabel->setObjectName(QStringLiteral("AddEvent_TitleLabel"));
         AddEvent_TitleLabel->setGeometry(QRect(0, 30, 60, 16));
+        AddEvent_TitleLabel->setFont(font3);
         AddEvent_TravelTimeNotification = new QCheckBox(AddEventTab);
         AddEvent_TravelTimeNotification->setObjectName(QStringLiteral("AddEvent_TravelTimeNotification"));
-        AddEvent_TravelTimeNotification->setGeometry(QRect(340, 160, 161, 20));
+        AddEvent_TravelTimeNotification->setGeometry(QRect(340, 160, 181, 20));
         Lcation_Box = new QTextEdit(AddEventTab);
         Lcation_Box->setObjectName(QStringLiteral("Lcation_Box"));
         Lcation_Box->setGeometry(QRect(0, 250, 321, 21));
+        Lcation_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_LocationNameLabel = new QLabel(AddEventTab);
         AddEvent_LocationNameLabel->setObjectName(QStringLiteral("AddEvent_LocationNameLabel"));
-        AddEvent_LocationNameLabel->setGeometry(QRect(0, 230, 101, 16));
+        AddEvent_LocationNameLabel->setGeometry(QRect(0, 230, 131, 16));
+        AddEvent_LocationNameLabel->setFont(font3);
         AddEvent_NotifyMeLabelPt1 = new QLabel(AddEventTab);
         AddEvent_NotifyMeLabelPt1->setObjectName(QStringLiteral("AddEvent_NotifyMeLabelPt1"));
         AddEvent_NotifyMeLabelPt1->setGeometry(QRect(340, 190, 60, 16));
+        AddEvent_NotifyMeLabelPt1->setFont(font4);
         Title_Box = new QTextEdit(AddEventTab);
         Title_Box->setObjectName(QStringLiteral("Title_Box"));
         Title_Box->setGeometry(QRect(50, 30, 271, 21));
+        Title_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         Zip_Box = new QTextEdit(AddEventTab);
         Zip_Box->setObjectName(QStringLiteral("Zip_Box"));
         Zip_Box->setGeometry(QRect(240, 350, 81, 21));
+        Zip_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_ZipCodeLabel = new QLabel(AddEventTab);
         AddEvent_ZipCodeLabel->setObjectName(QStringLiteral("AddEvent_ZipCodeLabel"));
         AddEvent_ZipCodeLabel->setGeometry(QRect(240, 330, 60, 16));
+        AddEvent_ZipCodeLabel->setFont(font3);
         DateEnd_Box = new QDateEdit(AddEventTab);
         DateEnd_Box->setObjectName(QStringLiteral("DateEnd_Box"));
         DateEnd_Box->setGeometry(QRect(50, 100, 81, 24));
+        DateEnd_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         DateEnd_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         DateEnd_Box->setCalendarPopup(true);
         City_Box = new QTextEdit(AddEventTab);
         City_Box->setObjectName(QStringLiteral("City_Box"));
         City_Box->setGeometry(QRect(0, 350, 101, 21));
+        City_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         AddEvent_StreetNameLabel = new QLabel(AddEventTab);
         AddEvent_StreetNameLabel->setObjectName(QStringLiteral("AddEvent_StreetNameLabel"));
         AddEvent_StreetNameLabel->setGeometry(QRect(0, 280, 60, 16));
+        AddEvent_StreetNameLabel->setFont(font3);
         AddEvent_StateLabel = new QLabel(AddEventTab);
         AddEvent_StateLabel->setObjectName(QStringLiteral("AddEvent_StateLabel"));
         AddEvent_StateLabel->setGeometry(QRect(130, 330, 60, 16));
+        AddEvent_StateLabel->setFont(font3);
         AddEvent_NotesLabel = new QLabel(AddEventTab);
         AddEvent_NotesLabel->setObjectName(QStringLiteral("AddEvent_NotesLabel"));
         AddEvent_NotesLabel->setGeometry(QRect(290, 60, 60, 16));
+        AddEvent_NotesLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         AddEvent_SaveThisLocationButton = new QPushButton(AddEventTab);
         AddEvent_SaveThisLocationButton->setObjectName(QStringLiteral("AddEvent_SaveThisLocationButton"));
         AddEvent_SaveThisLocationButton->setGeometry(QRect(70, 380, 151, 32));
+        AddEvent_SaveThisLocationButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget_2 = new QWidget(AddEventTab);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(0, 200, 191, 32));
+        layoutWidget_2->setGeometry(QRect(0, 200, 484, 53));
         horizontalLayout = new QHBoxLayout(layoutWidget_2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         AddEvent_LoadSavedLabel = new QLabel(layoutWidget_2);
         AddEvent_LoadSavedLabel->setObjectName(QStringLiteral("AddEvent_LoadSavedLabel"));
+        AddEvent_LoadSavedLabel->setFont(font3);
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLabel);
 
-        AddEvent_LoadSavedLocationButton = new QPushButton(layoutWidget_2);
-        AddEvent_LoadSavedLocationButton->setObjectName(QStringLiteral("AddEvent_LoadSavedLocationButton"));
+        AddEvent_LoadSavedLocationComboBox = new QComboBox(layoutWidget_2);
+        AddEvent_LoadSavedLocationComboBox->setObjectName(QStringLiteral("AddEvent_LoadSavedLocationComboBox"));
 
-        horizontalLayout->addWidget(AddEvent_LoadSavedLocationButton);
+        horizontalLayout->addWidget(AddEvent_LoadSavedLocationComboBox);
 
+        label_3 = new QLabel(AddEventTab);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(-1, -11, 661, 61));
+        QFont font5;
+        font5.setFamily(QStringLiteral("Papyrus"));
+        font5.setPointSize(24);
+        label_3->setFont(font5);
+        label_3->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        label_3->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(AddEventTab, QString());
         AppSettingsTab = new QWidget();
         AppSettingsTab->setObjectName(QStringLiteral("AppSettingsTab"));
@@ -397,21 +468,30 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label_29 = new QLabel(AppSettingsTab);
         label_29->setObjectName(QStringLiteral("label_29"));
+        QFont font6;
+        font6.setFamily(QStringLiteral("Papyrus"));
+        font6.setPointSize(20);
+        label_29->setFont(font6);
+        label_29->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_29);
+
+        label_30 = new QLabel(AppSettingsTab);
+        label_30->setObjectName(QStringLiteral("label_30"));
+        QFont font7;
+        font7.setPointSize(15);
+        label_30->setFont(font7);
+
+        verticalLayout_2->addWidget(label_30);
 
         Settings_ = new QComboBox(AppSettingsTab);
         Settings_->setObjectName(QStringLiteral("Settings_"));
 
         verticalLayout_2->addWidget(Settings_);
 
-        label_30 = new QLabel(AppSettingsTab);
-        label_30->setObjectName(QStringLiteral("label_30"));
-
-        verticalLayout_2->addWidget(label_30);
-
         label_31 = new QLabel(AppSettingsTab);
         label_31->setObjectName(QStringLiteral("label_31"));
+        label_31->setFont(font7);
 
         verticalLayout_2->addWidget(label_31);
 
@@ -422,16 +502,19 @@ public:
 
         label_32 = new QLabel(AppSettingsTab);
         label_32->setObjectName(QStringLiteral("label_32"));
+        label_32->setFont(font7);
 
         verticalLayout_2->addWidget(label_32);
 
         textEdit_15 = new QTextEdit(AppSettingsTab);
         textEdit_15->setObjectName(QStringLiteral("textEdit_15"));
+        textEdit_15->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(202, 202, 202, 255), stop:1 rgba(255, 255, 255, 255));"));
 
         verticalLayout_2->addWidget(textEdit_15);
 
         pushButton_10 = new QPushButton(AppSettingsTab);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+        pushButton_10->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
 
         verticalLayout_2->addWidget(pushButton_10);
 
@@ -442,7 +525,7 @@ public:
 
         retranslateUi(mainWindowTabbed);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
         SelectTodoListTab->setCurrentIndex(2);
 
 
@@ -452,7 +535,6 @@ public:
     void retranslateUi(QDialog *mainWindowTabbed)
     {
         mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "Dialog", nullptr));
-        label->setText(QApplication::translate("mainWindowTabbed", "Upcoming Events ", nullptr));
         QTableWidgetItem *___qtablewidgetitem = UpcomingEventsTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("mainWindowTabbed", "Title", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = UpcomingEventsTable->horizontalHeaderItem(1);
@@ -461,8 +543,8 @@ public:
         ___qtablewidgetitem2->setText(QApplication::translate("mainWindowTabbed", "Start Time", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = UpcomingEventsTable->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("mainWindowTabbed", "End Time", nullptr));
+        label->setText(QApplication::translate("mainWindowTabbed", "Upcoming Events ", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(OverViewTab), QApplication::translate("mainWindowTabbed", "Overview", nullptr));
-        TodoList_PageTitile->setText(QApplication::translate("mainWindowTabbed", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Todo Lists</span></p></body></html>", nullptr));
         Day_DeleteTaskButton->setText(QApplication::translate("mainWindowTabbed", "Delete selected task", nullptr));
         Day_AddTaskButton->setText(QApplication::translate("mainWindowTabbed", "Add task", nullptr));
         Day_UpdateTaskButton->setText(QApplication::translate("mainWindowTabbed", "Update selected task", nullptr));
@@ -476,6 +558,7 @@ public:
         Month_DeleteTask->setText(QApplication::translate("mainWindowTabbed", "Delete selected task", nullptr));
         SelectTodoListTab->setTabText(SelectTodoListTab->indexOf(MonthTodoList), QApplication::translate("mainWindowTabbed", "Month", nullptr));
         TodoListJumpToDateLabel->setText(QApplication::translate("mainWindowTabbed", "Jump to :", nullptr));
+        label_2->setText(QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TodoListsTab), QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TimeStatsTab), QApplication::translate("mainWindowTabbed", "Time Stats", nullptr));
         AddEvent_CategoryLabel->setText(QApplication::translate("mainWindowTabbed", "Category :", nullptr));
@@ -493,7 +576,6 @@ public:
         AddEvent_NotifyMeLabelPt2->setText(QApplication::translate("mainWindowTabbed", "minutes before i have to leave", nullptr));
         AddEvent_FromDateTimeLabel->setText(QApplication::translate("mainWindowTabbed", "From :", nullptr));
         AddEvent_ToDateTimeLabel->setText(QApplication::translate("mainWindowTabbed", "    To :", nullptr));
-        AddEvent_Title->setText(QApplication::translate("mainWindowTabbed", "<html><head/><body><p><span style=\" font-size:18pt;\">Add Event</span></p></body></html>", nullptr));
         AddEvent_TitleLabel->setText(QApplication::translate("mainWindowTabbed", " Title :", nullptr));
         AddEvent_TravelTimeNotification->setText(QApplication::translate("mainWindowTabbed", "Travel time notification", nullptr));
         AddEvent_LocationNameLabel->setText(QApplication::translate("mainWindowTabbed", "Location Name :", nullptr));
@@ -503,8 +585,8 @@ public:
         AddEvent_StateLabel->setText(QApplication::translate("mainWindowTabbed", "State :", nullptr));
         AddEvent_NotesLabel->setText(QApplication::translate("mainWindowTabbed", "Notes :", nullptr));
         AddEvent_SaveThisLocationButton->setText(QApplication::translate("mainWindowTabbed", "Save This Location", nullptr));
-        AddEvent_LoadSavedLabel->setText(QApplication::translate("mainWindowTabbed", "Load :", nullptr));
-        AddEvent_LoadSavedLocationButton->setText(QApplication::translate("mainWindowTabbed", "Saved Locations", nullptr));
+        AddEvent_LoadSavedLabel->setText(QApplication::translate("mainWindowTabbed", "Load a saved location :", nullptr));
+        label_3->setText(QApplication::translate("mainWindowTabbed", "Add Event", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(AddEventTab), QApplication::translate("mainWindowTabbed", "Add Event", nullptr));
         label_29->setText(QApplication::translate("mainWindowTabbed", "App Settings", nullptr));
         label_30->setText(QApplication::translate("mainWindowTabbed", "Display Theme :", nullptr));
