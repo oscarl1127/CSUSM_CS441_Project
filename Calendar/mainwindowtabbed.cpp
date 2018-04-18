@@ -9,6 +9,7 @@
 #include "event.h"
 #include "daycalendar.h"
 #include "thedb.h"
+#include "addeventbutton.h"
 
 
 mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
@@ -59,6 +60,9 @@ void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
 //    DayView _dayView; // makes the instance
 //    _dayView.setModal(true);
 //    _dayView.exec();
+    AddEventButton _event(date, userEvents, this);
+    _event.setModal(true);
+    _event.exec();
 }
 
 void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
