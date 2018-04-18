@@ -25,7 +25,7 @@ private:
 public:
     QChart *chart = new QChart();
     activitystats();
-    void buildPieSeries(int E, int W, int H, int F, int A, int S, int V, int M);
+    void buildPieSeries(int W, int E, int Sc, int F, int A, int M, int S, int V);
 
 };
 

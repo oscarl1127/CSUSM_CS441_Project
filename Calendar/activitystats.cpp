@@ -5,17 +5,17 @@ activitystats::activitystats()
 
 }
 
-void activitystats::buildPieSeries(int E, int W, int H, int F, int A, int S, int V, int M)
+void activitystats::buildPieSeries(int W, int E, int Sc, int F, int A, int M, int S, int V)
 {
 
-    series->append("Exercise", 2);
-    series->append("Work", 2);
-    series->append("Homework", 2);
-    series->append("Free Time", 2);
-    series->append("Appointment", 2);
-    series->append("Study", 2);
-    series->append("Vacation", 2);
-    series->append("Meeting", 2);
+    series->append("Exercise", E);
+    series->append("Work", W);
+    series->append("School", Sc);
+    series->append("Free Time", F);
+    series->append("Appointment", A);
+    series->append("Study", S);
+    series->append("Vacation", V);
+    series->append("Meeting", M);
 
     slice1 = series->slices().at(0);
     slice1->setLabelVisible(true);

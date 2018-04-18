@@ -47,7 +47,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>3</number>
      </property>
      <property name="iconSize">
       <size>
@@ -515,10 +515,10 @@ alternate-background-color: rgb(102, 102, 102);</string>
       <widget class="QWidget" name="gridLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>110</y>
-         <width>621</width>
-         <height>271</height>
+         <width>641</width>
+         <height>391</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_3"/>

@@ -42,6 +42,9 @@ public:
     /// If match found, add to vector of events.
     vector<Event> GetUpcomingEvents(int numberOfDays, QDate inital_day);
 
+    ///Need to have all Events in a Vector
+    vector<Event> GetAllEvents();
+
 
     ///Purpose: If Event exists in map, return true, else false
     bool EventExists(Event e);

@@ -159,7 +159,13 @@ void mainWindowTabbed::on_weeklyStats_clicked()
 {
         activitystats *stats = new activitystats();
 
-        stats->buildPieSeries(0,0,0,0,0,0,0,0);
+        //stats->buildPieSeries(0,0,0,0,0,0,0,0);
+
+        calculateWeekStatsByCategory();
+
+        stats->buildPieSeries(this->work,this->exercise,this->school,this->freeTime,this->appointment,
+                              this->meetings,this->study,this->vacation);
+
         stats->chart->setTitle("Weekly Activity Breakdown");
 
         stats->chart->setTheme(QChart::ChartThemeDark);
@@ -179,16 +185,120 @@ void mainWindowTabbed::on_monthlyStats_clicked()
 {
     activitystats *stats = new activitystats();
 
-        stats->buildPieSeries(0,0,0,0,0,0,0,0);
 
-        //stats->chart->setTheme(QChart::ChartThemeBlueCerulean);
+    stats->buildPieSeries(5,5,12,15,20,10,8,2);
+        calculateMonthStatsByCategory();
+
+        //stats->buildPieSeries(this->work,this->exercise,this->school,this->freeTime,this->appointment,
+          //                    this->meetings,this->study,this->vacation);
+
+        stats->chart->setTheme(QChart::ChartThemeBlueCerulean);
+
         stats->chart->setTitle("Monthly Activity Breakdown");
 
         QChartView *chartView = new QChartView(stats->chart);
 
         chartView->setRenderHint(QPainter::Antialiasing);
 
-        chartView->resize(600,300);
+        chartView->resize(800,500);
 
         ui->gridLayout_3->addWidget(chartView,1,1);
+}
+
+void mainWindowTabbed::calculateMonthStatsByCategory()
+{
+    int month = QDate::currentDate().month();
+    //int weekNumber = QDate::currentDate().weekNumber();
+    int year = QDate::currentDate().year();
+
+    QDate monthDate = QDate(year,month,1);
+
+    vector<Event> events = userEvents.GetUpcomingEvents(31, monthDate);
+
+    foreach (Event e, events)
+    {
+        if(e.getCategory() == "Work" )
+        {
+            this->work++;
+        }
+        else if (e.getCategory() == "Exercise" )
+        {
+            this->exercise++;
+        }
+        else if (e.getCategory() == "School" )
+        {
+            this->school++;
+        }
+        else if (e.getCategory() == "Free Time" )
+        {
+                this->freeTime++;
+        }
+        else if (e.getCategory() == "Appointment" )
+        {
+            this->appointment++;
+        }
+        else if (e.getCategory() == "Meetings" )
+        {
+            this->meetings++;
+        }
+        else if (e.getCategory() == "Study" )
+        {
+            this->study++;
+        }
+        else if (e.getCategory() == "Vacation" )
+        {
+            this->vacation++;
+        }
+
+    }
+}
+
+void mainWindowTabbed::calculateWeekStatsByCategory()
+{
+    int month = QDate::currentDate().month();
+    //int weekNumber = QDate::currentDate().weekNumber();
+    int day = QDate::currentDate().dayOfWeek();
+    day-= 7;
+    int year = QDate::currentDate().year();
+
+    QDate week = QDate(year,month,day);
+
+    vector<Event> events = userEvents.GetUpcomingEvents(31, week);
+
+    foreach (Event e, events)
+    {
+        if(e.getCategory() == "Work" )
+        {
+            this->work++;
+        }
+        else if (e.getCategory() == "Exercise" )
+        {
+            this->exercise++;
+        }
+        else if (e.getCategory() == "School" )
+        {
+            this->school++;
+        }
+        else if (e.getCategory() == "Free Time" )
+        {
+                this->freeTime++;
+        }
+        else if (e.getCategory() == "Appointment" )
+        {
+            this->appointment++;
+        }
+        else if (e.getCategory() == "Meetings" )
+        {
+            this->meetings++;
+        }
+        else if (e.getCategory() == "Study" )
+        {
+            this->study++;
+        }
+        else if (e.getCategory() == "Vacation" )
+        {
+            this->vacation++;
+        }
+
+    }
 }
