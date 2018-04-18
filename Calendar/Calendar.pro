@@ -4,9 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 
 QT += sql
+
+QT += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,6 +36,7 @@ SOURCES += \
     thedb.cpp \
     login.cpp \
     addeventbutton.cpp \
+    activitystats.cpp \
     location.cpp
 
 HEADERS += \
@@ -44,6 +47,7 @@ HEADERS += \
     thedb.h \
     login.h \
     addeventbutton.h \
+    activitystats.h \
     location.h
 
 FORMS += \

@@ -34,6 +34,10 @@ private slots:
 
     void on_AddEvent_SaveThisLocationButton_clicked();
 
+    void on_weeklyStats_clicked();
+
+    void on_monthlyStats_clicked();
+
 private:
     Ui::mainWindowTabbed *ui;
     void centerAndResize(double width_perc, double height_perc);

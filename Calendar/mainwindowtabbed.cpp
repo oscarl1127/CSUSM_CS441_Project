@@ -10,6 +10,7 @@
 #include "daycalendar.h"
 #include "thedb.h"
 #include "addeventbutton.h"
+#include "activitystats.h"
 
 
 mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
@@ -152,4 +153,42 @@ void mainWindowTabbed::on_AddEvent_SaveThisLocationButton_clicked()
     QString city=ui->City_Box->toPlainText();
     QString state=ui->State_Box->toPlainText();
     QString zipcode=ui->Zip_Box->toPlainText();
+}
+
+void mainWindowTabbed::on_weeklyStats_clicked()
+{
+        activitystats *stats = new activitystats();
+
+        stats->buildPieSeries(0,0,0,0,0,0,0,0);
+        stats->chart->setTitle("Weekly Activity Breakdown");
+
+        stats->chart->setTheme(QChart::ChartThemeDark);
+
+        QChartView *chartView = new QChartView(stats->chart);
+
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+        chartView->resize(571,281);
+
+
+        ui->gridLayout_3->addWidget(chartView,1,1);
+
+}
+
+void mainWindowTabbed::on_monthlyStats_clicked()
+{
+    activitystats *stats = new activitystats();
+
+        stats->buildPieSeries(0,0,0,0,0,0,0,0);
+
+        //stats->chart->setTheme(QChart::ChartThemeBlueCerulean);
+        stats->chart->setTitle("Monthly Activity Breakdown");
+
+        QChartView *chartView = new QChartView(stats->chart);
+
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+        chartView->resize(600,300);
+
+        ui->gridLayout_3->addWidget(chartView,1,1);
 }
