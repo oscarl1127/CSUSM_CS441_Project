@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AddEventButton_t {
-    QByteArrayData data[3];
-    char stringdata0[44];
+    QByteArrayData data[5];
+    char stringdata0[61];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,12 +32,14 @@ struct qt_meta_stringdata_AddEventButton_t {
 static const qt_meta_stringdata_AddEventButton_t qt_meta_stringdata_AddEventButton = {
     {
 QT_MOC_LITERAL(0, 0, 14), // "AddEventButton"
-QT_MOC_LITERAL(1, 15, 27), // "on_AddEventButton_2_clicked"
-QT_MOC_LITERAL(2, 43, 0) // ""
+QT_MOC_LITERAL(1, 15, 20), // "on_buttonBox_clicked"
+QT_MOC_LITERAL(2, 36, 0), // ""
+QT_MOC_LITERAL(3, 37, 16), // "QAbstractButton*"
+QT_MOC_LITERAL(4, 54, 6) // "button"
 
     },
-    "AddEventButton\0on_AddEventButton_2_clicked\0"
-    ""
+    "AddEventButton\0on_buttonBox_clicked\0"
+    "\0QAbstractButton*\0button"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,10 +57,10 @@ static const uint qt_meta_data_AddEventButton[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    1,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
        0        // eod
 };
@@ -69,11 +71,21 @@ void AddEventButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         AddEventButton *_t = static_cast<AddEventButton *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_AddEventButton_2_clicked(); break;
+        case 0: _t->on_buttonBox_clicked((*reinterpret_cast< QAbstractButton*(*)>(_a[1]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractButton* >(); break;
+            }
+            break;
+        }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject AddEventButton::staticMetaObject = {
@@ -106,7 +118,7 @@ int AddEventButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 1;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 1)
-            *reinterpret_cast<int*>(_a[0]) = -1;
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 1;
     }
     return _id;
