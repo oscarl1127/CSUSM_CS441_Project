@@ -89,20 +89,19 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
     vector<Event> Events;
     for(int i = 0; i < numberOfDays; i++)
     {
-        qDebug() << "Get Events for day " << i;
+        //qDebug() << "Get Events for day " << i;
         for(std::map<QDateTime, Event>::iterator it = userEvents.begin();
             it!=userEvents.end(); ++it)
         {
-            qDebug() << "entering for loop";
             if(it->first.date() == proposed)
             {
-                qDebug() << "pushing " << ((Event)it->second).getName();
+               // qDebug() << "pushing " << ((Event)it->second).getName();
                 Events.push_back(it->second);
             }
         }
-        qDebug() << "adding a day";
+        //qDebug() << "adding a day";
         proposed = proposed.addDays(1);
-        qDebug() << "Proposed is now " << proposed;
+        //qDebug() << "Proposed is now " << proposed;
     }
     return Events;
 }
