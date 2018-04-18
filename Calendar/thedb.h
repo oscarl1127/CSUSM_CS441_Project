@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <iostream>
 #include "event.h"
+#include <vector>
 
 using namespace std;
 
@@ -22,6 +23,8 @@ public:
     bool changePassword(QString userName, QString password);
     int getUserID(QString username);
     int getLocationNumber(QString locationName, int userID);
+    vector <Event> getEventsForUser(int userID);
+    Location getLocationForEvent(int userID, int locNum);
 };
 
 #endif // THEDB_H

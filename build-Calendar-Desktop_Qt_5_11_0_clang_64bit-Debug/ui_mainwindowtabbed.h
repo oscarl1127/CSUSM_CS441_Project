@@ -117,7 +117,7 @@ public:
     {
         if (mainWindowTabbed->objectName().isEmpty())
             mainWindowTabbed->setObjectName(QStringLiteral("mainWindowTabbed"));
-        mainWindowTabbed->resize(687, 502);
+        mainWindowTabbed->resize(687, 559);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
         mainWindowTabbed->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 124));"));
         mainWindowTabbed->setModal(false);
@@ -131,7 +131,7 @@ public:
         tabWidget->setFont(font);
         tabWidget->setMouseTracking(true);
         tabWidget->setAutoFillBackground(false);
-        tabWidget->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 124));"));
+        tabWidget->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         tabWidget->setTabPosition(QTabWidget::South);
         tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setIconSize(QSize(16, 16));
@@ -347,7 +347,7 @@ public:
         TimeStart_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget = new QWidget(AddEventTab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 70, 51, 52));
+        layoutWidget->setGeometry(QRect(0, 70, 70, 65));
         AddEvent_FromToDateLabels = new QVBoxLayout(layoutWidget);
         AddEvent_FromToDateLabels->setObjectName(QStringLiteral("AddEvent_FromToDateLabels"));
         AddEvent_FromToDateLabels->setContentsMargins(0, 0, 0, 0);
@@ -435,7 +435,7 @@ public:
         AddEvent_SaveThisLocationButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget_2 = new QWidget(AddEventTab);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(0, 200, 321, 32));
+        layoutWidget_2->setGeometry(QRect(0, 200, 484, 53));
         horizontalLayout = new QHBoxLayout(layoutWidget_2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
