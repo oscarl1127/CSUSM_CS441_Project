@@ -88,7 +88,6 @@ public:
     QTextEdit *Lcation_Box;
     QLabel *AddEvent_LocationNameLabel;
     QLabel *AddEvent_NotifyMeLabelPt1;
-    QTextEdit *Title_Box;
     QTextEdit *Zip_Box;
     QLabel *AddEvent_ZipCodeLabel;
     QDateEdit *DateEnd_Box;
@@ -102,6 +101,7 @@ public:
     QLabel *AddEvent_LoadSavedLabel;
     QComboBox *AddEvent_LoadSavedLocationComboBox;
     QLabel *label_3;
+    QTextEdit *Title_Box;
     QWidget *AppSettingsTab;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_29;
@@ -119,7 +119,7 @@ public:
             mainWindowTabbed->setObjectName(QStringLiteral("mainWindowTabbed"));
         mainWindowTabbed->resize(687, 559);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
-        mainWindowTabbed->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 124));"));
+        mainWindowTabbed->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:1 rgba(88, 175, 213, 255));"));
         mainWindowTabbed->setModal(false);
         gridLayout = new QGridLayout(mainWindowTabbed);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -395,10 +395,6 @@ public:
         AddEvent_NotifyMeLabelPt1->setObjectName(QStringLiteral("AddEvent_NotifyMeLabelPt1"));
         AddEvent_NotifyMeLabelPt1->setGeometry(QRect(340, 190, 60, 16));
         AddEvent_NotifyMeLabelPt1->setFont(font4);
-        Title_Box = new QTextEdit(AddEventTab);
-        Title_Box->setObjectName(QStringLiteral("Title_Box"));
-        Title_Box->setGeometry(QRect(50, 30, 271, 21));
-        Title_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         Zip_Box = new QTextEdit(AddEventTab);
         Zip_Box->setObjectName(QStringLiteral("Zip_Box"));
         Zip_Box->setGeometry(QRect(240, 350, 81, 21));
@@ -459,6 +455,10 @@ public:
         label_3->setFont(font5);
         label_3->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         label_3->setAlignment(Qt::AlignCenter);
+        Title_Box = new QTextEdit(AddEventTab);
+        Title_Box->setObjectName(QStringLiteral("Title_Box"));
+        Title_Box->setGeometry(QRect(50, 30, 211, 21));
+        Title_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         tabWidget->addTab(AddEventTab, QString());
         AppSettingsTab = new QWidget();
         AppSettingsTab->setObjectName(QStringLiteral("AppSettingsTab"));
@@ -523,7 +523,7 @@ public:
 
         retranslateUi(mainWindowTabbed);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
         SelectTodoListTab->setCurrentIndex(2);
 
 
