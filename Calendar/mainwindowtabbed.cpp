@@ -123,10 +123,10 @@ void mainWindowTabbed::on_pushButton_pressed()
 void mainWindowTabbed::RefreshUpcomingEventList(int days)
 {
    int k = 0;
-   ui->UpcomingEventsTable->clear();
+   ui->UpcomingEventsTable->setRowCount(0);
    qDebug() << "button clicked";
    vector<Event> events = userEvents.GetUpcomingEvents(30, QDate::currentDate());
-
+    qDebug() << "events size is : " << events.size();
    qDebug() << "got dates";
    for(int i = 0; i < events.size(); i++)
    {
@@ -143,7 +143,6 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
    }
    ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "End Date");
    ui->UpcomingEventsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
 }
 
 void mainWindowTabbed::on_AddEvent_SaveThisLocationButton_clicked()
