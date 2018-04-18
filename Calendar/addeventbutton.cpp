@@ -3,6 +3,8 @@
 #include "event.h"
 #include "daycalendar.h"
 #include <QDebug>
+#include <QMessageBox>
+#include <mainwindowtabbed.h>
 
 using namespace std;
 enum Mode
@@ -10,11 +12,17 @@ enum Mode
     Edit,
     Read
 };
-AddEventButton::AddEventButton(QWidget *parent) :
+AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
 {   
     ui->setupUi(this);
+    ui->StartDate_Box->setDate(date);
+    ui->EndDate_Box->setDate(date);
+    ui->StartTime_Box->setTime(QTime::currentTime());
+    ui->EndTime_Box->setTime(QTime::currentTime().addSecs(60));
+    userEvents = &_userEvents;
+    father = (mainWindowTabbed*) parent;
 }
 
 
@@ -23,8 +31,8 @@ AddEventButton::~AddEventButton()
     delete ui;
 }
 
-// action once add event is clicked
-void AddEventButton::on_AddEventButton_2_clicked()
+
+void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
 {
     Event newEvent = Event();
 
@@ -52,8 +60,19 @@ void AddEventButton::on_AddEventButton_2_clicked()
     newEvent.setTimeStart( ui->StartTime_Box ->time() );
     newEvent.setTimeEnd( ui->EndTime_Box->time());
 
-    userEvents.AddEvent(newEvent);
-
-    qDebug() << "Event Name"<< QString(newEvent.getName() );
-
+    //adding event to daycalendar object map
+    //if there is an Event with the same date and time, show message box to ask user if they want to replace it with new event
+    QMessageBox::StandardButton reply;
+    if(!userEvents->AddEvent(newEvent))
+    {
+        reply = QMessageBox::question(this, "Same Date Collision", "Event with same Date and Time found! Replace?",
+                                   QMessageBox::Yes|QMessageBox::No);
+        if(reply == QMessageBox::Yes)
+            userEvents->ReplaceEvent(newEvent);
+        else return;
+    }
+    if(father != NULL)
+         father->RefreshUpcomingEventList(30);
+    qDebug() << "Event Name GAGAG"<< QString(newEvent.getName() );
+    this->close();
 }

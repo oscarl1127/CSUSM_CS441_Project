@@ -68,6 +68,9 @@
      <height>24</height>
     </rect>
    </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -158,6 +161,9 @@
      <width>81</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTimeEdit" name="StartTime_Box">

@@ -20,14 +20,14 @@ public:
     int userID;
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
-
+    void RefreshUpcomingEventList(int days);
     ~mainWindowTabbed();
 
 private slots:
     void on_calendarWidget_clicked(const QDate &date);
     void on_AddEvent_AcceptDeclineButton_accepted();
     void on_SelectTodoListTab_tabBarClicked(int index);
-    void RefreshUpcomingEventList(int days);
+
     //void on_pushButton_clicked();
 
     void on_pushButton_pressed();
