@@ -17,6 +17,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFontComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -72,7 +73,7 @@ public:
     QLabel *AddEvent_CityLabel;
     QTextEdit *Note_Box;
     QTimeEdit *TimeStart_Box;
-    QWidget *layoutWidget;
+    QFrame *frame;
     QVBoxLayout *AddEvent_FromToDateLabels;
     QLabel *AddEvent_FromDateTimeLabel;
     QLabel *AddEvent_ToDateTimeLabel;
@@ -90,7 +91,7 @@ public:
     QLabel *AddEvent_StateLabel;
     QLabel *AddEvent_NotesLabel;
     QPushButton *AddEvent_SaveThisLocationButton;
-    QWidget *layoutWidget_2;
+    QFrame *frame_2;
     QHBoxLayout *horizontalLayout;
     QLabel *AddEvent_LoadSavedLabel;
     QComboBox *AddEvent_LoadSavedLocationComboBox;
@@ -271,6 +272,7 @@ public:
         TodoListJumpToDateLabel = new QLabel(TodoListsTab);
         TodoListJumpToDateLabel->setObjectName(QStringLiteral("TodoListJumpToDateLabel"));
         TodoListJumpToDateLabel->setGeometry(QRect(460, 30, 60, 16));
+        TodoListJumpToDateLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         TodoListJumpToDateSelector = new QDateEdit(TodoListsTab);
         TodoListJumpToDateSelector->setObjectName(QStringLiteral("TodoListJumpToDateSelector"));
         TodoListJumpToDateSelector->setGeometry(QRect(520, 30, 110, 24));
@@ -293,7 +295,11 @@ public:
         DateStart_Box = new QDateEdit(AddEventTab);
         DateStart_Box->setObjectName(QStringLiteral("DateStart_Box"));
         DateStart_Box->setGeometry(QRect(60, 70, 81, 24));
-        DateStart_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        DateStart_Box->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: black;\n"
+"background-color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(52, 141, 180);\n"
+"alternate-background-color: rgb(102, 102, 102);"));
         DateStart_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         DateStart_Box->setCalendarPopup(true);
         AddEvent_CategoryLabel = new QLabel(AddEventTab);
@@ -312,6 +318,7 @@ public:
         Category_Box->addItem(QString());
         Category_Box->setObjectName(QStringLiteral("Category_Box"));
         Category_Box->setGeometry(QRect(400, 30, 221, 26));
+        Category_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         TimeEnd_Box = new QTimeEdit(AddEventTab);
         TimeEnd_Box->setObjectName(QStringLiteral("TimeEnd_Box"));
         TimeEnd_Box->setGeometry(QRect(140, 110, 91, 24));
@@ -331,20 +338,20 @@ public:
         TimeStart_Box->setObjectName(QStringLiteral("TimeStart_Box"));
         TimeStart_Box->setGeometry(QRect(140, 70, 91, 24));
         TimeStart_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
-        layoutWidget = new QWidget(AddEventTab);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 64, 70, 71));
-        AddEvent_FromToDateLabels = new QVBoxLayout(layoutWidget);
+        frame = new QFrame(AddEventTab);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setGeometry(QRect(0, 64, 70, 71));
+        frame->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        AddEvent_FromToDateLabels = new QVBoxLayout(frame);
         AddEvent_FromToDateLabels->setObjectName(QStringLiteral("AddEvent_FromToDateLabels"));
-        AddEvent_FromToDateLabels->setContentsMargins(0, 0, 0, 0);
-        AddEvent_FromDateTimeLabel = new QLabel(layoutWidget);
+        AddEvent_FromDateTimeLabel = new QLabel(frame);
         AddEvent_FromDateTimeLabel->setObjectName(QStringLiteral("AddEvent_FromDateTimeLabel"));
         AddEvent_FromDateTimeLabel->setFont(font3);
         AddEvent_FromDateTimeLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         AddEvent_FromToDateLabels->addWidget(AddEvent_FromDateTimeLabel);
 
-        AddEvent_ToDateTimeLabel = new QLabel(layoutWidget);
+        AddEvent_ToDateTimeLabel = new QLabel(frame);
         AddEvent_ToDateTimeLabel->setObjectName(QStringLiteral("AddEvent_ToDateTimeLabel"));
         AddEvent_ToDateTimeLabel->setFont(font3);
         AddEvent_ToDateTimeLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
@@ -390,7 +397,11 @@ public:
         DateEnd_Box = new QDateEdit(AddEventTab);
         DateEnd_Box->setObjectName(QStringLiteral("DateEnd_Box"));
         DateEnd_Box->setGeometry(QRect(60, 110, 81, 24));
-        DateEnd_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        DateEnd_Box->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: black;\n"
+"background-color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(52, 141, 180);\n"
+"alternate-background-color: rgb(102, 102, 102);"));
         DateEnd_Box->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         DateEnd_Box->setCalendarPopup(true);
         City_Box = new QTextEdit(AddEventTab);
@@ -415,21 +426,22 @@ public:
         AddEvent_SaveThisLocationButton->setObjectName(QStringLiteral("AddEvent_SaveThisLocationButton"));
         AddEvent_SaveThisLocationButton->setGeometry(QRect(70, 380, 151, 32));
         AddEvent_SaveThisLocationButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
-        layoutWidget_2 = new QWidget(AddEventTab);
-        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(0, 190, 484, 53));
-        horizontalLayout = new QHBoxLayout(layoutWidget_2);
+        frame_2 = new QFrame(AddEventTab);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setGeometry(QRect(0, 190, 484, 53));
+        frame_2->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        horizontalLayout = new QHBoxLayout(frame_2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        AddEvent_LoadSavedLabel = new QLabel(layoutWidget_2);
+        AddEvent_LoadSavedLabel = new QLabel(frame_2);
         AddEvent_LoadSavedLabel->setObjectName(QStringLiteral("AddEvent_LoadSavedLabel"));
         AddEvent_LoadSavedLabel->setFont(font3);
         AddEvent_LoadSavedLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLabel);
 
-        AddEvent_LoadSavedLocationComboBox = new QComboBox(layoutWidget_2);
+        AddEvent_LoadSavedLocationComboBox = new QComboBox(frame_2);
         AddEvent_LoadSavedLocationComboBox->setObjectName(QStringLiteral("AddEvent_LoadSavedLocationComboBox"));
+        AddEvent_LoadSavedLocationComboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLocationComboBox);
 
@@ -447,6 +459,31 @@ public:
         Title_Box->setGeometry(QRect(50, 30, 211, 21));
         Title_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         tabWidget->addTab(AddEventTab, QString());
+        label_3->raise();
+        DateStart_Box->raise();
+        AddEvent_CategoryLabel->raise();
+        Category_Box->raise();
+        TimeEnd_Box->raise();
+        AddEvent_CityLabel->raise();
+        Note_Box->raise();
+        TimeStart_Box->raise();
+        frame->raise();
+        AddEvent_AcceptDeclineButton->raise();
+        State_Box->raise();
+        Street_Box->raise();
+        AddEvent_TitleLabel->raise();
+        Lcation_Box->raise();
+        AddEvent_LocationNameLabel->raise();
+        Zip_Box->raise();
+        AddEvent_ZipCodeLabel->raise();
+        DateEnd_Box->raise();
+        City_Box->raise();
+        AddEvent_StreetNameLabel->raise();
+        AddEvent_StateLabel->raise();
+        AddEvent_NotesLabel->raise();
+        AddEvent_SaveThisLocationButton->raise();
+        frame_2->raise();
+        Title_Box->raise();
         AppSettingsTab = new QWidget();
         AppSettingsTab->setObjectName(QStringLiteral("AppSettingsTab"));
         verticalLayout_2 = new QVBoxLayout(AppSettingsTab);
@@ -457,6 +494,7 @@ public:
         font5.setFamily(QStringLiteral("Papyrus"));
         font5.setPointSize(20);
         label_29->setFont(font5);
+        label_29->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         label_29->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_29);
@@ -466,6 +504,7 @@ public:
         QFont font6;
         font6.setPointSize(15);
         label_30->setFont(font6);
+        label_30->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_30);
 
@@ -477,17 +516,20 @@ public:
         label_31 = new QLabel(AppSettingsTab);
         label_31->setObjectName(QStringLiteral("label_31"));
         label_31->setFont(font6);
+        label_31->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_31);
 
         fontComboBox = new QFontComboBox(AppSettingsTab);
         fontComboBox->setObjectName(QStringLiteral("fontComboBox"));
+        fontComboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
 
         verticalLayout_2->addWidget(fontComboBox);
 
         label_32 = new QLabel(AppSettingsTab);
         label_32->setObjectName(QStringLiteral("label_32"));
         label_32->setFont(font6);
+        label_32->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_32);
 

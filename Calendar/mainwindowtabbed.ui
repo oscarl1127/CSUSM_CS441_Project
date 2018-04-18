@@ -47,7 +47,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <property name="iconSize">
       <size>
@@ -492,7 +492,11 @@ alternate-background-color: rgb(102, 102, 102);
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+color: black;
+background-color: rgb(255, 255, 255);
+gridline-color: rgb(52, 141, 180);
+alternate-background-color: rgb(102, 102, 102);</string>
        </property>
        <property name="dateTime">
         <datetime>
@@ -532,6 +536,9 @@ alternate-background-color: rgb(102, 102, 102);
          <width>221</width>
          <height>26</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
        </property>
        <item>
         <property name="text">
@@ -825,7 +832,11 @@ alternate-background-color: rgb(102, 102, 102);
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+color: black;
+background-color: rgb(255, 255, 255);
+gridline-color: rgb(52, 141, 180);
+alternate-background-color: rgb(102, 102, 102);</string>
        </property>
        <property name="dateTime">
         <datetime>
@@ -957,7 +968,11 @@ alternate-background-color: rgb(102, 102, 102);
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="AddEvent_LoadSavedLocationComboBox"/>
+         <widget class="QComboBox" name="AddEvent_LoadSavedLocationComboBox">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -999,6 +1014,31 @@ alternate-background-color: rgb(102, 102, 102);
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
        </property>
       </widget>
+      <zorder>label_3</zorder>
+      <zorder>DateStart_Box</zorder>
+      <zorder>AddEvent_CategoryLabel</zorder>
+      <zorder>Category_Box</zorder>
+      <zorder>TimeEnd_Box</zorder>
+      <zorder>AddEvent_CityLabel</zorder>
+      <zorder>Note_Box</zorder>
+      <zorder>TimeStart_Box</zorder>
+      <zorder>frame</zorder>
+      <zorder>AddEvent_AcceptDeclineButton</zorder>
+      <zorder>State_Box</zorder>
+      <zorder>Street_Box</zorder>
+      <zorder>AddEvent_TitleLabel</zorder>
+      <zorder>Lcation_Box</zorder>
+      <zorder>AddEvent_LocationNameLabel</zorder>
+      <zorder>Zip_Box</zorder>
+      <zorder>AddEvent_ZipCodeLabel</zorder>
+      <zorder>DateEnd_Box</zorder>
+      <zorder>City_Box</zorder>
+      <zorder>AddEvent_StreetNameLabel</zorder>
+      <zorder>AddEvent_StateLabel</zorder>
+      <zorder>AddEvent_NotesLabel</zorder>
+      <zorder>AddEvent_SaveThisLocationButton</zorder>
+      <zorder>frame_2</zorder>
+      <zorder>Title_Box</zorder>
      </widget>
      <widget class="QWidget" name="AppSettingsTab">
       <attribute name="title">
