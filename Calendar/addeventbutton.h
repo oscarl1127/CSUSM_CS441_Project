@@ -15,9 +15,11 @@ class AddEventButton : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddEventButton(QDate date, DayCalendar &_userEvents, QWidget *parent = 0);
+     enum Mode {Read, Write};
+    explicit AddEventButton(QDate date, DayCalendar &_userEvents, Mode mode, QWidget *parent = 0);
     DayCalendar *userEvents;
     mainWindowTabbed *father;
+    void EnableAll(bool enable);
     ~AddEventButton();
 
 private slots:

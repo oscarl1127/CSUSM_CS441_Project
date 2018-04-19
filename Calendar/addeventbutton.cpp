@@ -13,7 +13,7 @@ enum Mode
     Read
 };
 
-AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, QWidget *parent) :
+AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, Mode mode, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
 {   
@@ -24,6 +24,17 @@ AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, QWidget *pa
     ui->EndTime_Box->setTime(QTime::currentTime().addSecs(60));
     userEvents = &_userEvents;
     father = (mainWindowTabbed*) parent;
+}
+
+void AddEventButton::EnableAll(bool enable)
+{
+  ui->StartDate_Box->setEnabled(enable);
+  ui->EndDate_Box->setEnabled(enable);
+  ui->StartTime_Box->setEnabled(enable);
+  ui->EndTime_Box->setEnabled(enable);
+  ui->HaveLocationCheckBox->setEnabled(enable);
+  ui->Note_Box->setEnabled(enable);
+  ui->Category_Box->setEnabled(enable);
 }
 
 
