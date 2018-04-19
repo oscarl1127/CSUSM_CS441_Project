@@ -73,11 +73,8 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 
     Event newEvent = Event();
 
+    //Event Info
     newEvent.setName( ui->Title_Box->toPlainText() );
-   // newEvent.setLocation( ui->Lcation_Box->toPlainText() );
-    //newEvent.setStreet( ui->Street_Box ->toPlainText() );
-    //newEvent.setCity( ui->City_Box->toPlainText() );
-    //newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
 
@@ -142,7 +139,7 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
        ui->UpcomingEventsTable->setItem(i, k++, startDate);
        ui->UpcomingEventsTable->setItem(i, k++, startTime);
    }
-   ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "End Date");
+   ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "Start Time");
    ui->UpcomingEventsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 

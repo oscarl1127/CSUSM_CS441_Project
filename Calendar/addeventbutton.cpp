@@ -12,6 +12,7 @@ enum Mode
     Edit,
     Read
 };
+
 AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
@@ -45,12 +46,8 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
         newEvent.eventLoc.setZipCode(ui->Zip_Box->toPlainText());
         newEvent.eventLoc.setState(ui->Stste_Box->toPlainText());
         newEvent.eventLoc.setSavedLocation(0);
-
-        //newEvent.setLocation( ui->Location_Box->toPlainText() );
-        //newEvent.setStreet( ui->Street_Box ->toPlainText() );
-       // newEvent.setCity( ui->City_Box->toPlainText() );
-       // newEvent.setZipCode(( ui->Zip_Box->toPlainText()) );
     }
+
     newEvent.setNote( ui->Note_Box ->toPlainText() );
     newEvent.setCategory( ui->Category_Box->currentText() );
 

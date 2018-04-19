@@ -84,6 +84,7 @@ public:
         EndDate_Box = new QDateEdit(AddEventButton);
         EndDate_Box->setObjectName(QStringLiteral("EndDate_Box"));
         EndDate_Box->setGeometry(QRect(90, 357, 81, 24));
+        EndDate_Box->setCalendarPopup(true);
         layoutWidget = new QWidget(AddEventButton);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(22, 327, 61, 81));
@@ -119,6 +120,7 @@ public:
         StartDate_Box = new QDateEdit(AddEventButton);
         StartDate_Box->setObjectName(QStringLiteral("StartDate_Box"));
         StartDate_Box->setGeometry(QRect(90, 330, 81, 24));
+        StartDate_Box->setCalendarPopup(true);
         StartTime_Box = new QTimeEdit(AddEventButton);
         StartTime_Box->setObjectName(QStringLiteral("StartTime_Box"));
         StartTime_Box->setGeometry(QRect(180, 330, 91, 24));

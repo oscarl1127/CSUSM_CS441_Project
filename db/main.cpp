@@ -5,6 +5,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QDate>
+#include <QTime>
 #include <QString>
 
 using namespace std;
@@ -13,8 +14,13 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QDate x(2018,04,12);
-    QString y = x.toString();
-    qDebug() <<y;
+    //QDate date= QDate::fromString("2018-04-15","yyyy-MM-dd");
+
+
+
+    QTime theTime= QTime::fromString("12:10:00", "hh:mm:ss");
+
+
+    qDebug() <<theTime.toString();
 
 }

@@ -10,6 +10,7 @@ using namespace std;
 
 DayCalendar::DayCalendar()
 {
+    /*
     ///Inital Values for Testing, feel free to delete these if they are annoying.
     Event a, b, c;
     a.setName("Poop");
@@ -21,6 +22,7 @@ DayCalendar::DayCalendar()
                             ((QDateTime)QDate::currentDate().addDays(1), b));
     this->userEvents.insert(pair<QDateTime, Event>
                             ((QDateTime)QDate::currentDate().addDays(2), c));
+                            */
 }
 
 void DayCalendar::setUserID(int id)
@@ -86,7 +88,7 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
     qDebug() << "Get UpcomingEvents called";
     QDate proposed = inital_day;
     qDebug() << "proposed is initally " << proposed;
-    vector<Event> Events;
+    vector<Event> Events=calenderdb.getEventsForUser(userID);
     for(int i = 0; i < numberOfDays; i++)
     {
         //qDebug() << "Get Events for day " << i;

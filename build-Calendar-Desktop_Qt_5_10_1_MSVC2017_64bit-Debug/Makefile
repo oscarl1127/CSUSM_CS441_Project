@@ -259,6 +259,7 @@ Makefile: ..\Calendar\Calendar.pro C:\Qt\5.10.1\msvc2017_64\mkspecs\win32-msvc\q
 		C:\Qt\5.10.1\msvc2017_64\mkspecs\features\lex.prf \
 		..\Calendar\Calendar.pro \
 		C:\Qt\5.10.1\msvc2017_64\lib\qtmaind.prl \
+		C:\Qt\5.10.1\msvc2017_64\lib\Qt5Charts.prl \
 		C:\Qt\5.10.1\msvc2017_64\lib\Qt5Widgets.prl \
 		C:\Qt\5.10.1\msvc2017_64\lib\Qt5Gui.prl \
 		C:\Qt\5.10.1\msvc2017_64\lib\Qt5Sql.prl \
@@ -448,6 +449,7 @@ C:\Qt\5.10.1\msvc2017_64\mkspecs\features\yacc.prf:
 C:\Qt\5.10.1\msvc2017_64\mkspecs\features\lex.prf:
 ..\Calendar\Calendar.pro:
 C:\Qt\5.10.1\msvc2017_64\lib\qtmaind.prl:
+C:\Qt\5.10.1\msvc2017_64\lib\Qt5Charts.prl:
 C:\Qt\5.10.1\msvc2017_64\lib\Qt5Widgets.prl:
 C:\Qt\5.10.1\msvc2017_64\lib\Qt5Gui.prl:
 C:\Qt\5.10.1\msvc2017_64\lib\Qt5Sql.prl:

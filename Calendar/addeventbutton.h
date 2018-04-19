@@ -24,6 +24,7 @@ private slots:
 
     void on_buttonBox_clicked(QAbstractButton *button);
 
+
 private:
     Ui::AddEventButton *ui;
 

@@ -95,11 +95,15 @@ vector <Event> theDB::getEventsForUser(int userID)
         eventNote=theQuery.value(5).toString();
         locationNum=theQuery.value(6).toInt();
 
+
+
+        //QDate date= QDate::fromString("2018-04-15","yyyy-MM-dd");
+       // QTime theTime= QTime::fromString("12:10:00", "hh:mm:ss");
         //Convert dates/times
-        eventStartDate.fromString(dateStart);
-        eventEndDate.fromString(dateEnd);
-        eventStartTime.fromString(timeStart);
-        eventEndTime.fromString(timeEnd);
+        eventStartDate = QDate::fromString(dateStart);
+        eventEndDate = QDate::fromString(dateEnd);
+        eventStartTime=QTime::fromString(timeStart, "hh:mm:ss");
+        eventEndTime=QTime::fromString(timeEnd, "hh:mm:ss");
 
         //Get location for event
         currentLocation=getLocationForEvent(userID,locationNum);
@@ -118,6 +122,8 @@ vector <Event> theDB::getEventsForUser(int userID)
         //Add current event to vector
         eventsList.push_back(currentEvent);
     }
+
+
 
     return eventsList;
 }
