@@ -14,11 +14,12 @@ using namespace std;
 class DayCalendar
 {
 private:
-    map<QDateTime, Event> userEvents;
+
 
     bool AddToDatabase(Event e, int theID);
 
 public:
+    map<QDateTime, Event> userEvents;
     theDB calenderdb;
     int userID;
     void setUserID(int id);

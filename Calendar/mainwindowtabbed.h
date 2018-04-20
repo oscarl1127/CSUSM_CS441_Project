@@ -18,7 +18,7 @@ public:
     explicit mainWindowTabbed(QWidget *parent = 0);
     void setUserID(int theUserID);
     int userID;
-    int work,exercise,school,freeTime,appointment,meetings,study,vacation = 0;
+    int work=0,exercise=0,school=0,freeTime=0,appointment=0,meetings=0,study=0,vacation = 0;
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
     void RefreshUpcomingEventList(int days);
@@ -28,9 +28,6 @@ private slots:
     void on_calendarWidget_clicked(const QDate &date);
     void on_AddEvent_AcceptDeclineButton_accepted();
     void on_SelectTodoListTab_tabBarClicked(int index);
-
-
-    //void on_pushButton_clicked();
 
     void on_pushButton_pressed();
 
