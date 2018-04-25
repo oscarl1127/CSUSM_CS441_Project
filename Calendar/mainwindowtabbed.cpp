@@ -34,6 +34,7 @@ void mainWindowTabbed::setUserID(int theUserID)
 {
     userID=theUserID;
     userEvents.setUserID(theUserID);
+
     //Pass the userID to daycalender
 }
 
@@ -314,4 +315,35 @@ void mainWindowTabbed::calculateWeekStatsByCategory()
         }
 
     }
+}
+
+void mainWindowTabbed::on_AddEvent_LoadSavedLocationComboBox_currentIndexChanged(const QString &arg1)
+{
+    //Get location based off locationName and userID
+    Location theLoc = calenderdb.getLocationBasedOfName(arg1, userID);
+
+    //Change each label field
+    ui->Lcation_Box->setText(arg1);
+    ui->Street_Box->setText(theLoc.getStreet());
+    ui->State_Box->setText(theLoc.getState());
+    ui ->City_Box->setText(theLoc.getCity());
+    ui->Zip_Box->setText(theLoc.getZipcode());
+}
+
+void mainWindowTabbed::populateLocations(int theUsrID)
+{
+    userID =  theUsrID;
+    userEvents.setUserID(theUsrID);
+    //Get list of locations for user
+    vector <Location> locs = calenderdb.getListOfLocationsForUSer(theUsrID);
+
+    QString currentLoc;
+
+    //Add each locationName to the combobox
+    for(int y=0;y<locs.size();y++)
+    {
+        currentLoc = locs[y].getLocationName();
+            ui->AddEvent_LoadSavedLocationComboBox->addItem(currentLoc);
+    }
+
 }

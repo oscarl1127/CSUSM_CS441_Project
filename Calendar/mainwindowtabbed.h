@@ -15,7 +15,9 @@ class mainWindowTabbed : public QDialog
     Q_OBJECT
 
 public:
+    theDB calenderdb;
     explicit mainWindowTabbed(QWidget *parent = 0);
+    void populateLocations(int theUsrID);
     void setUserID(int theUserID);
     int userID;
     int work=0,exercise=0,school=0,freeTime=0,appointment=0,meetings=0,study=0,vacation = 0;
@@ -37,11 +39,14 @@ private slots:
 
     void on_monthlyStats_clicked();
 
+    void on_AddEvent_LoadSavedLocationComboBox_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::mainWindowTabbed *ui;
     void calculateMonthStatsByCategory();
     void calculateWeekStatsByCategory();
     void centerAndResize(double width_perc, double height_perc);
+
 };
 
 #endif // MAINWINDOWTABBED_H
