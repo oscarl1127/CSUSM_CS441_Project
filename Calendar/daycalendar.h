@@ -18,7 +18,7 @@ private:
     bool AddToDatabase(Event e, int theID);
 
 public:
-    map<QDateTime, Event> userEvents;
+    map<QDate, vector<Event>> userEvents;
     theDB calenderdb;
     int userID;
     void setUserID(int id);
