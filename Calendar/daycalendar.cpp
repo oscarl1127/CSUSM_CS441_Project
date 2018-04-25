@@ -34,49 +34,76 @@ void DayCalendar::setUserID(int id)
 /// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
 bool DayCalendar::AddEvent(Event e)
 {
-    //events.push_back(e);
-    //Retrieve Vector list of events for specific datetime
-    QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
-    QDate orig=e.getStartDate();
-    QString fStrg=orig.toString();
-    QDate newDate=QDate::fromString(fStrg);
-    qDebug() << "Original Date: " <<orig<<endl<<"String Version "<<fStrg<<endl <<"New Date "<<newDate<<endl;
-    //Event event = this->userEvents[dateTime];
-    //insert new pair
-    qDebug() << "Inserting into Dictionary";
-    if(EventExists(e))
-        return false;
+    QDate date = e.getStartDate();
+    if(EventOnDayExists(date))
+        this->userEvents[date].push_back(e);
     else
-        this->userEvents.insert(pair<QDateTime, Event>(dateTime, e));
+    {
+        vector<Event> events;
+        events.push_back(e);
+        this->userEvents.insert(pair<QDate, vector<Event>>(date, events));
+    }
+
     qDebug() << "sucessfully inserted " << e.getName();
-    qDebug() << dateTime;
+    qDebug() << date;
     qDebug() << userEvents.size();
-    qDebug() << userEvents[dateTime].getName();
-    AddToDatabase(e,userID);
+    //AddToDatabase(e,userID);
     return true;
 
 }
 
 void DayCalendar::ReplaceEvent(Event e)
 {
-    QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
-    userEvents[dateTime] = e;
+    QDate date = e.getStartDate();
+    if(EventOnDayExists(date))
+    {
+        vector<Event> &event = this->userEvents[date];
+        for (vector<Event>::iterator it = event.begin() ; it != event.end(); ++it)
+           {
+            if(it->getTimeStart() == e.getTimeStart())
+            {
+                event.erase(it);
+                event.insert(it, event.begin(), event.end());
+            }
+          }
+    }
+    else
+    {
+        qDebug() << "Event does not exist";
+    }
 }
 
-Event DayCalendar::GetEvents(QDateTime q)
+bool DayCalendar::GetEvent(QDateTime q, Event &event)
 {
     //Event event = this->events[index];
-    Event event = this->userEvents[q];
-    return event;
+    vector<Event> events = GetEvents(q.date());
+    for(vector<Event>::iterator it = events.begin(); it != events.end(); ++it)
+        if(it->getTimeStart() == q.time())
+        {
+            event = *it;
+            return true;
+        }
+    qDebug() << "Could not find event";
+    return false;
 
+}
+
+vector<Event> DayCalendar::GetEvents(QDate q)
+{
+    return this->userEvents[q];
 }
 
 void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
 {
-    removedEvent = this->userEvents[q];
-    map<QDateTime, Event>::iterator it;
-    it = this->userEvents.find(q);
-    this->userEvents.erase(it);
+    vector<Event> events = GetEvents(q.date());
+    for(vector<Event>::iterator it = events.begin(); it != events.end(); ++it)
+        if(it->getTimeStart() == q.time())
+        {
+            removedEvent = (Event)*it;
+            events.erase(it);
+        }
+    userEvents[q.date()] = events;
+
 }
 
 ///Purpose: Get the upcoming events given the number of upcoming days you would like to see ahead
@@ -88,34 +115,50 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
     qDebug() << "Get UpcomingEvents called";
     QDate proposed = inital_day;
     qDebug() << "proposed is initally " << proposed;
-    vector<Event> Events=calenderdb.getEventsForUser(userID);
+    vector<Event> events;
+    vector<Event> ShowEvents;//=calenderdb.getEventsForUser(userID);
     for(int i = 0; i < numberOfDays; i++)
     {
-        //qDebug() << "Get Events for day " << i;
-        for(std::map<QDateTime, Event>::iterator it = userEvents.begin();
-            it!=userEvents.end(); ++it)
+        if(EventOnDayExists(proposed))
         {
-            if(it->first.date() == proposed)
+            events = GetEvents(proposed);
+            qDebug() << "Got Events";
+            qDebug() << "events size: " << events.size();
+            for(int j = 0; j < events.size(); j++)
             {
-               // qDebug() << "pushing " << ((Event)it->second).getName();
-                Events.push_back(it->second);
+                qDebug() << "pushing " << events[j].getName();
+                ShowEvents.push_back(events[j]);
             }
         }
-        //qDebug() << "adding a day";
-        proposed = proposed.addDays(1);
-        //qDebug() << "Proposed is now " << proposed;
+      proposed = proposed.addDays(1);
     }
-    return Events;
+    return ShowEvents;
 }
 
 ///Purpose: If Event exists in map, return true, else false
 bool DayCalendar::EventExists(Event e)
 {
-    QDateTime dateTime = QDateTime(e.getStartDate(), e.getTimeStart());
-    map<QDateTime,Event>::const_iterator it = userEvents.find(dateTime);
-    return it!=userEvents.end();
+    QDate date = e.getStartDate();
+    if(EventOnDayExists(date))
+    {
+         vector<Event> events = GetEvents(date);
+         QTime time = e.getTimeStart();
+         for(vector<Event>::iterator it = events.begin(); it != events.end(); ++it)
+            if(it->getTimeStart() == time)
+                return true;
+    }
+    return false;
+}
 
-
+bool DayCalendar::EventOnDayExists(QDate q)
+{
+    if(userEvents.find(q) != userEvents.end())
+    {
+        qDebug() << "Event on day " << q << "exists!";
+        return true;
+    }
+    qDebug() << "Event on day " << q << "does not exist";
+    return false;
 }
 
 //Passes the user's id and the event to add.

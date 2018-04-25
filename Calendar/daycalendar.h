@@ -14,7 +14,7 @@ using namespace std;
 class DayCalendar
 {
 private:
-    map<QDateTime, Event> userEvents;
+    map<QDate, vector<Event>> userEvents;
 
     bool AddToDatabase(Event e, int theID);
 
@@ -33,7 +33,9 @@ public:
 
     void ReplaceEvent(Event e);
 
-    Event GetEvents(QDateTime q);
+    vector<Event> GetEvents(QDate q);
+
+    bool GetEvent(QDateTime q, Event &event);
 
     void RemoveEvent(QDateTime q, Event &removedEvent);
 
@@ -46,8 +48,11 @@ public:
     vector<Event> GetAllEvents();
 
 
-    ///Purpose: If Event exists in map, return true, else false
+    ///Purpose: If Event exists anywhere in map, return true, else false
     bool EventExists(Event e);
+
+    ///Purpose: Returns true if at least one Event exists on the specified date.
+    bool EventOnDayExists(QDate q);
 
 
 };
