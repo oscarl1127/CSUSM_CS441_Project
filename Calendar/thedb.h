@@ -25,6 +25,8 @@ public:
     int getLocationNumber(QString locationName, int userID);
     vector <Event> getEventsForUser(int userID);
     Location getLocationForEvent(int userID, int locNum);
+    Location getLocationBasedOfName(QString locName, int theID);
+    vector <Location> getListOfLocationsForUSer(int theID);
 };
 
 #endif // THEDB_H

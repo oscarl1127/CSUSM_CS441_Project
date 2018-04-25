@@ -15,10 +15,12 @@ class mainWindowTabbed : public QDialog
     Q_OBJECT
 
 public:
+    theDB calenderdb;
     explicit mainWindowTabbed(QWidget *parent = 0);
+    void populateLocations(int theUsrID);
     void setUserID(int theUserID);
     int userID;
-    int work,exercise,school,freeTime,appointment,meetings,study,vacation = 0;
+    int work=0,exercise=0,school=0,freeTime=0,appointment=0,meetings=0,study=0,vacation = 0;
     DayCalendar userEvents;
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
     void RefreshUpcomingEventList(int days);
@@ -29,9 +31,6 @@ private slots:
     void on_AddEvent_AcceptDeclineButton_accepted();
     void on_SelectTodoListTab_tabBarClicked(int index);
 
-
-    //void on_pushButton_clicked();
-
     void on_pushButton_pressed();
 
     void on_AddEvent_SaveThisLocationButton_clicked();
@@ -40,11 +39,14 @@ private slots:
 
     void on_monthlyStats_clicked();
 
+    void on_AddEvent_LoadSavedLocationComboBox_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::mainWindowTabbed *ui;
     void calculateMonthStatsByCategory();
     void calculateWeekStatsByCategory();
     void centerAndResize(double width_perc, double height_perc);
+
 };
 
 #endif // MAINWINDOWTABBED_H

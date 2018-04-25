@@ -28,6 +28,8 @@ void login::on_pushButton_clicked()
             qDebug()<<"id-----"<<theUserID;
             hide();
             mainWindowTabbed m;
+            m.populateLocations(theUserID);
+
             m.setUserID(theUserID);
             m.setModal(true);
             m.exec();

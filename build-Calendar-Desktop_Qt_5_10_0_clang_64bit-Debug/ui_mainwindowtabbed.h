@@ -307,10 +307,10 @@ public:
         TimeStatsTab->setObjectName(QStringLiteral("TimeStatsTab"));
         weeklyStats = new QPushButton(TimeStatsTab);
         weeklyStats->setObjectName(QStringLiteral("weeklyStats"));
-        weeklyStats->setGeometry(QRect(160, 20, 113, 32));
+        weeklyStats->setGeometry(QRect(112, 20, 161, 32));
         monthlyStats = new QPushButton(TimeStatsTab);
         monthlyStats->setObjectName(QStringLiteral("monthlyStats"));
-        monthlyStats->setGeometry(QRect(370, 20, 113, 32));
+        monthlyStats->setGeometry(QRect(322, 20, 181, 32));
         gridLayoutWidget = new QWidget(TimeStatsTab);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(10, 110, 641, 391));
@@ -493,6 +493,7 @@ public:
         AddEvent_LoadSavedLocationComboBox->setObjectName(QStringLiteral("AddEvent_LoadSavedLocationComboBox"));
         AddEvent_LoadSavedLocationComboBox->setFont(font4);
         AddEvent_LoadSavedLocationComboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        AddEvent_LoadSavedLocationComboBox->setEditable(true);
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLocationComboBox);
 
@@ -601,7 +602,7 @@ public:
 
         retranslateUi(mainWindowTabbed);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(2);
         SelectTodoListTab->setCurrentIndex(2);
 
 
@@ -636,8 +637,8 @@ public:
         TodoListJumpToDateLabel->setText(QApplication::translate("mainWindowTabbed", "Jump to :", nullptr));
         label_2->setText(QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TodoListsTab), QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
-        weeklyStats->setText(QApplication::translate("mainWindowTabbed", "Weekly", nullptr));
-        monthlyStats->setText(QApplication::translate("mainWindowTabbed", "Monthly", nullptr));
+        weeklyStats->setText(QApplication::translate("mainWindowTabbed", "View Last Week Activity", nullptr));
+        monthlyStats->setText(QApplication::translate("mainWindowTabbed", "View Current Month Activity", nullptr));
         label_4->setText(QApplication::translate("mainWindowTabbed", "Activity Breakdown by Category", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TimeStatsTab), QApplication::translate("mainWindowTabbed", "Time Stats", nullptr));
         AddEvent_CategoryLabel->setText(QApplication::translate("mainWindowTabbed", "Category :", nullptr));

@@ -128,6 +128,107 @@ vector <Event> theDB::getEventsForUser(int userID)
     return eventsList;
 }
 
+Location theDB::getLocationBasedOfName(QString locName, int theID)
+{
+    Location theLoc;
+    QString locationName;
+    QString street;
+    QString city;
+    QString state;
+    QString zipcode;
+    int saveLocation;
+
+    QString t= QString::number(theID);
+
+    //SELECT locationName, street, city, state, saveLocation, zipcode, userID FROM Location WHERE locationName='CSUSM' AND userID=4;
+    QString query;
+    query="SELECT locationName, street, city, state, saveLocation, zipcode, userID FROM Location WHERE userID="+t+" AND locationName= '"
+            + locName + "';";
+
+
+
+    //Run the query
+    QSqlQuery theQuery;
+    theQuery.prepare(query);
+    theQuery.exec();
+
+    while(theQuery.next())
+    {
+        //math, pull data from row
+        locationName= theQuery.value(0).toString();
+        street=theQuery.value(1).toString();
+        city=theQuery.value(2).toString();
+        state=theQuery.value(3).toString();
+        saveLocation=theQuery.value(4).toInt();
+        zipcode=theQuery.value(5).toString();
+        theID= theQuery.value(6).toInt();
+
+        //Save data in Locaiton object
+        theLoc.setLocationName(locationName);
+        theLoc.setStreet(street);
+        theLoc.setCity(city);
+        theLoc.setState(state);
+        theLoc.setSavedLocation(saveLocation);
+        theLoc.setZipCode(zipcode);
+
+        return theLoc;
+    }
+    return theLoc;
+
+}
+
+vector <Location> theDB::getListOfLocationsForUSer(int theID)
+{
+    vector <Location> locs;
+
+    //Create location variables
+    Location currLoc;
+    QString locationName;
+    QString street;
+    QString city;
+    QString state;
+    QString zipcode;
+    int saveLocation;
+    int usrID;
+
+    QString t= QString::number(theID);
+
+    //SELECT locationName, street, city, state, saveLocation, zipcode, userID FROM Location WHERE locationName='CSUSM' AND userID=4;
+    QString query;
+    query="SELECT locationName, street, city, state, saveLocation, zipcode, userID FROM Location WHERE userID="+t+";";
+
+
+    //Run the query
+    QSqlQuery theQuery;
+    theQuery.prepare(query);
+    theQuery.exec();
+
+    while(theQuery.next())
+    {
+        //math, pull data from row
+        locationName= theQuery.value(0).toString();
+        street=theQuery.value(1).toString();
+        city=theQuery.value(2).toString();
+        state=theQuery.value(3).toString();
+        saveLocation=theQuery.value(4).toInt();
+        zipcode=theQuery.value(5).toString();
+        theID= theQuery.value(6).toInt();
+
+        //Add attributes to current location
+        currLoc.setLocationName(locationName);
+        currLoc.setStreet(street);
+        currLoc.setCity(city);
+        currLoc.setState(state);
+        currLoc.setSavedLocation(saveLocation);
+        currLoc.setZipCode(zipcode);
+
+        //Add the current location to the vector
+        locs.push_back(currLoc);
+    }
+
+    //Return the list after all rows have been parsed through
+    return locs;
+}
 
 Location theDB::getLocationForEvent(int userID, int locNum)
 {
