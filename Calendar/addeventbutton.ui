@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>501</width>
-    <height>558</height>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <x>0</x>
      <y>10</y>
      <width>502</width>
-     <height>541</height>
+     <height>551</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout" rowminimumheight="60,24,0,0,0,0,155,0">
@@ -150,6 +150,12 @@ alternate-background-color: rgb(102, 102, 102);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>26</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
       </property>
@@ -182,8 +188,14 @@ alternate-background-color: rgb(102, 102, 102);
          <x>250</x>
          <y>130</y>
          <width>81</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
@@ -198,7 +210,7 @@ alternate-background-color: rgb(102, 102, 102);
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>20</y>
          <width>121</width>
          <height>31</height>
@@ -217,8 +229,14 @@ alternate-background-color: rgb(102, 102, 102);
          <x>130</x>
          <y>130</y>
          <width>81</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
@@ -228,7 +246,7 @@ alternate-background-color: rgb(102, 102, 102);
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
+         <y>113</y>
          <width>61</width>
          <height>16</height>
         </rect>
@@ -246,8 +264,14 @@ alternate-background-color: rgb(102, 102, 102);
          <x>10</x>
          <y>130</y>
          <width>101</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
@@ -257,7 +281,7 @@ alternate-background-color: rgb(102, 102, 102);
        <property name="geometry">
         <rect>
          <x>130</x>
-         <y>110</y>
+         <y>113</y>
          <width>60</width>
          <height>16</height>
         </rect>
@@ -289,10 +313,16 @@ alternate-background-color: rgb(102, 102, 102);
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>90</y>
+         <y>88</y>
          <width>321</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
@@ -302,7 +332,7 @@ alternate-background-color: rgb(102, 102, 102);
        <property name="geometry">
         <rect>
          <x>250</x>
-         <y>110</y>
+         <y>113</y>
          <width>60</width>
          <height>16</height>
         </rect>
@@ -318,10 +348,16 @@ alternate-background-color: rgb(102, 102, 102);
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>45</y>
          <width>281</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
@@ -331,6 +367,12 @@ alternate-background-color: rgb(102, 102, 102);
     </item>
     <item row="2" column="1" colspan="2">
      <widget class="QComboBox" name="Category_Box">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>30</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
       </property>
@@ -433,7 +475,11 @@ alternate-background-color: rgb(102, 102, 102);
     <item row="7" column="0" colspan="3">
      <widget class="QDialogButtonBox" name="buttonBox">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))</string>
+       <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 9px;
+border: 1px solid black;
+padding: 0 20px;
+margin: 2px;</string>
       </property>
       <property name="standardButtons">
        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
