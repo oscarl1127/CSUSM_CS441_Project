@@ -116,7 +116,7 @@ public:
 
     void retranslateUi(QWidget *login)
     {
-        login->setWindowTitle(QApplication::translate("login", "Form", nullptr));
+        login->setWindowTitle(QApplication::translate("login", "My Time Login", nullptr));
         password_lineEdit->setPlaceholderText(QApplication::translate("login", "Password", nullptr));
         username_lineEdit->setPlaceholderText(QApplication::translate("login", "Username", nullptr));
         Title->setText(QApplication::translate("login", " My Time", nullptr));

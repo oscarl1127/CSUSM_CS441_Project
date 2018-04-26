@@ -148,6 +148,7 @@ public:
 
         buttonBox = new QDialogButtonBox(gridLayoutWidget);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
         buttonBox->setCenterButtons(true);

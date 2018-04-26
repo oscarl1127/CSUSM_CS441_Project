@@ -609,7 +609,7 @@ public:
 
     void retranslateUi(QDialog *mainWindowTabbed)
     {
-        mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "Dialog", nullptr));
+        mainWindowTabbed->setWindowTitle(QApplication::translate("mainWindowTabbed", "My Time", nullptr));
         QTableWidgetItem *___qtablewidgetitem = UpcomingEventsTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("mainWindowTabbed", "Title", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = UpcomingEventsTable->horizontalHeaderItem(1);

@@ -14,7 +14,7 @@
    <enum>Qt::NoFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>My Time</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:1 rgba(88, 175, 213, 255));</string>

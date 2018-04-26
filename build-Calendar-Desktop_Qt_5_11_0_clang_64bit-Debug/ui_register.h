@@ -145,6 +145,7 @@ public:
 
         buttonBox = new QDialogButtonBox(gridLayoutWidget);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
         buttonBox->setCenterButtons(true);
@@ -159,7 +160,7 @@ public:
 
     void retranslateUi(QDialog *Register)
     {
-        Register->setWindowTitle(QApplication::translate("Register", "Dialog", nullptr));
+        Register->setWindowTitle(QApplication::translate("Register", "Register Window", nullptr));
         label->setText(QApplication::translate("Register", "Register", nullptr));
         label_5->setText(QApplication::translate("Register", " Confirm Password :  ", nullptr));
         label_4->setText(QApplication::translate("Register", "         Password :        ", nullptr));
