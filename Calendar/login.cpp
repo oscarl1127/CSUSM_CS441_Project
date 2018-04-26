@@ -2,6 +2,8 @@
 #include "mainwindowtabbed.h"
 #include "ui_login.h"
 #include "thedb.h"
+#include "register.h"
+#include "forgotpassword.h"
 #include <QMessageBox>
 
 login::login(QWidget *parent) :
@@ -41,4 +43,20 @@ void login::on_pushButton_clicked()
         {
             QMessageBox::warning(this,"Login", "Username and/or password is not correct");
         }
+}
+
+void login::on_pushButton_3_clicked() // Register Button
+{
+    Register Reg;
+    Reg.exec();
+    show();
+    this->hide();
+}
+
+void login::on_pushButton_2_clicked() // Forgot Password Button
+{
+    ForgotPassword PassReset;
+    PassReset.exec();
+    show();
+    this->hide();
 }

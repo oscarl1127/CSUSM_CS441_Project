@@ -57,7 +57,7 @@ public:
         username_lineEdit->setAlignment(Qt::AlignCenter);
         Title = new QLabel(widget);
         Title->setObjectName(QStringLiteral("Title"));
-        Title->setGeometry(QRect(210, 180, 401, 101));
+        Title->setGeometry(QRect(200, 180, 411, 101));
         QFont font1;
         font1.setFamily(QStringLiteral("Papyrus"));
         font1.setPointSize(80);

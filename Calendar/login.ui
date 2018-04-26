@@ -83,9 +83,9 @@ color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0.985222, y2:1, stop:1 rgb
    <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>200</x>
       <y>180</y>
-      <width>401</width>
+      <width>411</width>
       <height>101</height>
      </rect>
     </property>
