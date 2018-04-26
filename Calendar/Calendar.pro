@@ -37,7 +37,9 @@ SOURCES += \
     login.cpp \
     addeventbutton.cpp \
     activitystats.cpp \
-    location.cpp
+    location.cpp \
+    forgotpassword.cpp \
+    register.cpp
 
 HEADERS += \
     mainwindowtabbed.h \
@@ -48,10 +50,17 @@ HEADERS += \
     login.h \
     addeventbutton.h \
     activitystats.h \
-    location.h
+    location.h \
+    forgotpassword.h \
+    register.h
 
 FORMS += \
     mainwindowtabbed.ui \
     dayview.ui \
     login.ui \
-    addeventbutton.ui
+    addeventbutton.ui \
+    forgotpassword.ui \
+    register.ui
+
+RESOURCES += \
+    resources.qrc

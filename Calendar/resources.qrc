@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>hourglass-background.jpeg</file>
+        <file>time-background-big.jpg</file>
+    </qresource>
+</RCC>

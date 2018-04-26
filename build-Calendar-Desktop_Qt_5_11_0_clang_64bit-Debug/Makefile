@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../Calendar -I. -I../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../../Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib
+INCPATH       = -I../Calendar -I. -I../../../../Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../../Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib
 QMAKE         = /Users/kristenosborne/Qt/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = Calendar1.0.0
 DISTDIR = /Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/build-Calendar-Desktop_Qt_5_11_0_clang_64bit-Debug/.tmp/Calendar1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/kristenosborne/Qt/5.11.0/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSql -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib -framework QtCharts -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSql -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -58,10 +58,16 @@ SOURCES       = ../Calendar/main.cpp \
 		../Calendar/thedb.cpp \
 		../Calendar/login.cpp \
 		../Calendar/addeventbutton.cpp \
-		../Calendar/location.cpp moc_mainwindowtabbed.cpp \
+		../Calendar/activitystats.cpp \
+		../Calendar/location.cpp \
+		../Calendar/forgotpassword.cpp \
+		../Calendar/register.cpp qrc_resources.cpp \
+		moc_mainwindowtabbed.cpp \
 		moc_dayview.cpp \
 		moc_login.cpp \
-		moc_addeventbutton.cpp
+		moc_addeventbutton.cpp \
+		moc_forgotpassword.cpp \
+		moc_register.cpp
 OBJECTS       = main.o \
 		mainwindowtabbed.o \
 		event.o \
@@ -70,11 +76,17 @@ OBJECTS       = main.o \
 		thedb.o \
 		login.o \
 		addeventbutton.o \
+		activitystats.o \
 		location.o \
+		forgotpassword.o \
+		register.o \
+		qrc_resources.o \
 		moc_mainwindowtabbed.o \
 		moc_dayview.o \
 		moc_login.o \
-		moc_addeventbutton.o
+		moc_addeventbutton.o \
+		moc_forgotpassword.o \
+		moc_register.o
 DIST          = ../../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.11.0/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.11.0/clang_64/mkspecs/features/device_config.prf \
@@ -272,7 +284,10 @@ DIST          = ../../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../Calendar/thedb.h \
 		../Calendar/login.h \
 		../Calendar/addeventbutton.h \
-		../Calendar/location.h ../Calendar/main.cpp \
+		../Calendar/activitystats.h \
+		../Calendar/location.h \
+		../Calendar/forgotpassword.h \
+		../Calendar/register.h ../Calendar/main.cpp \
 		../Calendar/mainwindowtabbed.cpp \
 		../Calendar/event.cpp \
 		../Calendar/daycalendar.cpp \
@@ -280,7 +295,10 @@ DIST          = ../../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../Calendar/thedb.cpp \
 		../Calendar/login.cpp \
 		../Calendar/addeventbutton.cpp \
-		../Calendar/location.cpp
+		../Calendar/activitystats.cpp \
+		../Calendar/location.cpp \
+		../Calendar/forgotpassword.cpp \
+		../Calendar/register.cpp
 QMAKE_TARGET  = Calendar
 DESTDIR       = 
 TARGET        = Calendar.app/Contents/MacOS/Calendar
@@ -294,7 +312,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h $(OBJECTS)  
+$(TARGET): ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h ui_forgotpassword.h ui_register.h $(OBJECTS)  
 	@test -d Calendar.app/Contents/MacOS/ || mkdir -p Calendar.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -489,6 +507,8 @@ Makefile: ../Calendar/Calendar.pro ../../../../Qt/5.11.0/clang_64/mkspecs/macx-c
 		../../../../Qt/5.11.0/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.11.0/clang_64/mkspecs/features/lex.prf \
 		../Calendar/Calendar.pro \
+		../Calendar/resources.qrc \
+		../../../../Qt/5.11.0/clang_64/lib/QtCharts.framework/QtCharts.prl \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		../../../../Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl \
@@ -685,6 +705,8 @@ Makefile: ../Calendar/Calendar.pro ../../../../Qt/5.11.0/clang_64/mkspecs/macx-c
 ../../../../Qt/5.11.0/clang_64/mkspecs/features/yacc.prf:
 ../../../../Qt/5.11.0/clang_64/mkspecs/features/lex.prf:
 ../Calendar/Calendar.pro:
+../Calendar/resources.qrc:
+../../../../Qt/5.11.0/clang_64/lib/QtCharts.framework/QtCharts.prl:
 ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 ../../../../Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl:
 ../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl:
@@ -718,10 +740,11 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h ../Calendar/login.h ../Calendar/addeventbutton.h ../Calendar/location.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp ../Calendar/login.cpp ../Calendar/addeventbutton.cpp ../Calendar/location.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.ui ../Calendar/dayview.ui ../Calendar/login.ui ../Calendar/addeventbutton.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.h ../Calendar/event.h ../Calendar/daycalendar.h ../Calendar/dayview.h ../Calendar/thedb.h ../Calendar/login.h ../Calendar/addeventbutton.h ../Calendar/activitystats.h ../Calendar/location.h ../Calendar/forgotpassword.h ../Calendar/register.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/main.cpp ../Calendar/mainwindowtabbed.cpp ../Calendar/event.cpp ../Calendar/daycalendar.cpp ../Calendar/dayview.cpp ../Calendar/thedb.cpp ../Calendar/login.cpp ../Calendar/addeventbutton.cpp ../Calendar/activitystats.cpp ../Calendar/location.cpp ../Calendar/forgotpassword.cpp ../Calendar/register.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calendar/mainwindowtabbed.ui ../Calendar/dayview.ui ../Calendar/login.ui ../Calendar/addeventbutton.ui ../Calendar/forgotpassword.ui ../Calendar/register.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -745,17 +768,24 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resources.cpp
+qrc_resources.cpp: ../Calendar/resources.qrc \
+		../../../../Qt/5.11.0/clang_64/bin/rcc \
+		../Calendar/time-background-big.jpg \
+		../Calendar/hourglass-background.jpeg
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/rcc -name resources ../Calendar/resources.qrc -o qrc_resources.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp moc_addeventbutton.cpp
+compiler_moc_header_make_all: moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp moc_addeventbutton.cpp moc_forgotpassword.cpp moc_register.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp moc_addeventbutton.cpp
+	-$(DEL_FILE) moc_mainwindowtabbed.cpp moc_dayview.cpp moc_login.cpp moc_addeventbutton.cpp moc_forgotpassword.cpp moc_register.cpp
 moc_mainwindowtabbed.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
@@ -782,14 +812,14 @@ moc_mainwindowtabbed.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework
 		../Calendar/mainwindowtabbed.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/mainwindowtabbed.h -o moc_mainwindowtabbed.cpp
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/mainwindowtabbed.h -o moc_mainwindowtabbed.cpp
 
 moc_dayview.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../Calendar/dayview.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/dayview.h -o moc_dayview.cpp
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/dayview.h -o moc_dayview.cpp
 
 moc_login.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -811,7 +841,7 @@ moc_login.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QW
 		../Calendar/login.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/login.h -o moc_login.cpp
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/login.h -o moc_login.cpp
 
 moc_addeventbutton.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -834,18 +864,37 @@ moc_addeventbutton.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/H
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../Calendar/login.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QAbstractButton \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../Calendar/mainwindowtabbed.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../Calendar/addeventbutton.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/addeventbutton.h -o moc_addeventbutton.cpp
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/addeventbutton.h -o moc_addeventbutton.cpp
+
+moc_forgotpassword.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Calendar/forgotpassword.h \
+		moc_predefs.h \
+		../../../../Qt/5.11.0/clang_64/bin/moc
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/forgotpassword.h -o moc_forgotpassword.cpp
+
+moc_register.cpp: ../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Calendar/register.h \
+		moc_predefs.h \
+		../../../../Qt/5.11.0/clang_64/bin/moc
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/kristenosborne/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/kristenosborne/Documents/GitHub/CSUSM_CS441_Project/Calendar -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCharts.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/kristenosborne/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/kristenosborne/Qt/5.11.0/clang_64/lib ../Calendar/register.h -o moc_register.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h
+compiler_uic_make_all: ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h ui_forgotpassword.h ui_register.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h
+	-$(DEL_FILE) ui_mainwindowtabbed.h ui_dayview.h ui_login.h ui_addeventbutton.h ui_forgotpassword.h ui_register.h
 ui_mainwindowtabbed.h: ../Calendar/mainwindowtabbed.ui \
 		../../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/uic ../Calendar/mainwindowtabbed.ui -o ui_mainwindowtabbed.h
@@ -862,6 +911,14 @@ ui_addeventbutton.h: ../Calendar/addeventbutton.ui \
 		../../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/uic ../Calendar/addeventbutton.ui -o ui_addeventbutton.h
 
+ui_forgotpassword.h: ../Calendar/forgotpassword.ui \
+		../../../../Qt/5.11.0/clang_64/bin/uic
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/uic ../Calendar/forgotpassword.ui -o ui_forgotpassword.h
+
+ui_register.h: ../Calendar/register.ui \
+		../../../../Qt/5.11.0/clang_64/bin/uic
+	/Users/kristenosborne/Qt/5.11.0/clang_64/bin/uic ../Calendar/register.ui -o ui_register.h
+
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
 compiler_yacc_decl_make_all:
@@ -870,7 +927,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -926,7 +983,11 @@ mainwindowtabbed.o: ../Calendar/mainwindowtabbed.cpp ../Calendar/mainwindowtabbe
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDate \
 		../Calendar/dayview.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
-		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../Calendar/addeventbutton.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QAbstractButton \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../Calendar/activitystats.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindowtabbed.o ../Calendar/mainwindowtabbed.cpp
 
 event.o: ../Calendar/event.cpp ../Calendar/event.h \
@@ -1035,13 +1096,38 @@ addeventbutton.o: ../Calendar/addeventbutton.cpp ../Calendar/addeventbutton.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../Calendar/login.h \
-		ui_addeventbutton.h
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QAbstractButton \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		../Calendar/mainwindowtabbed.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		ui_addeventbutton.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addeventbutton.o ../Calendar/addeventbutton.cpp
+
+activitystats.o: ../Calendar/activitystats.cpp ../Calendar/activitystats.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o activitystats.o ../Calendar/activitystats.cpp
 
 location.o: ../Calendar/location.cpp ../Calendar/location.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o location.o ../Calendar/location.cpp
+
+forgotpassword.o: ../Calendar/forgotpassword.cpp ../Calendar/forgotpassword.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_forgotpassword.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o forgotpassword.o ../Calendar/forgotpassword.cpp
+
+register.o: ../Calendar/register.cpp ../Calendar/register.h \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_register.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o register.o ../Calendar/register.cpp
+
+qrc_resources.o: qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
 moc_mainwindowtabbed.o: moc_mainwindowtabbed.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindowtabbed.o moc_mainwindowtabbed.cpp
@@ -1054,6 +1140,12 @@ moc_login.o: moc_login.cpp
 
 moc_addeventbutton.o: moc_addeventbutton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addeventbutton.o moc_addeventbutton.cpp
+
+moc_forgotpassword.o: moc_forgotpassword.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_forgotpassword.o moc_forgotpassword.cpp
+
+moc_register.o: moc_register.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_register.o moc_register.cpp
 
 ####### Install
 

@@ -65,6 +65,11 @@ public:
     QDateEdit *TodoListJumpToDateSelector;
     QLabel *label_2;
     QWidget *TimeStatsTab;
+    QPushButton *weeklyStats;
+    QPushButton *monthlyStats;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout_3;
+    QLabel *label_4;
     QWidget *AddEventTab;
     QDateEdit *DateStart_Box;
     QLabel *AddEvent_CategoryLabel;
@@ -298,6 +303,25 @@ public:
         TodoListJumpToDateSelector->raise();
         TimeStatsTab = new QWidget();
         TimeStatsTab->setObjectName(QStringLiteral("TimeStatsTab"));
+        weeklyStats = new QPushButton(TimeStatsTab);
+        weeklyStats->setObjectName(QStringLiteral("weeklyStats"));
+        weeklyStats->setGeometry(QRect(112, 20, 161, 32));
+        monthlyStats = new QPushButton(TimeStatsTab);
+        monthlyStats->setObjectName(QStringLiteral("monthlyStats"));
+        monthlyStats->setGeometry(QRect(322, 20, 181, 32));
+        gridLayoutWidget = new QWidget(TimeStatsTab);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(10, 110, 641, 391));
+        gridLayout_3 = new QGridLayout(gridLayoutWidget);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_4 = new QLabel(TimeStatsTab);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(160, 60, 331, 41));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Papyrus"));
+        font3.setPointSize(22);
+        label_4->setFont(font3);
         tabWidget->addTab(TimeStatsTab, QString());
         AddEventTab = new QWidget();
         AddEventTab->setObjectName(QStringLiteral("AddEventTab"));
@@ -327,9 +351,9 @@ public:
         Category_Box->addItem(QString());
         Category_Box->setObjectName(QStringLiteral("Category_Box"));
         Category_Box->setGeometry(QRect(400, 30, 221, 26));
-        QFont font3;
-        font3.setPointSize(15);
-        Category_Box->setFont(font3);
+        QFont font4;
+        font4.setPointSize(15);
+        Category_Box->setFont(font4);
         Category_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
         TimeEnd_Box = new QTimeEdit(AddEventTab);
         TimeEnd_Box->setObjectName(QStringLiteral("TimeEnd_Box"));
@@ -342,9 +366,9 @@ public:
         AddEvent_CityLabel = new QLabel(AddEventTab);
         AddEvent_CityLabel->setObjectName(QStringLiteral("AddEvent_CityLabel"));
         AddEvent_CityLabel->setGeometry(QRect(0, 330, 60, 16));
-        QFont font4;
-        font4.setPointSize(17);
-        AddEvent_CityLabel->setFont(font4);
+        QFont font5;
+        font5.setPointSize(17);
+        AddEvent_CityLabel->setFont(font5);
         AddEvent_CityLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         Note_Box = new QTextEdit(AddEventTab);
         Note_Box->setObjectName(QStringLiteral("Note_Box"));
@@ -366,14 +390,14 @@ public:
         AddEvent_FromToDateLabels->setObjectName(QStringLiteral("AddEvent_FromToDateLabels"));
         AddEvent_FromDateTimeLabel = new QLabel(frame);
         AddEvent_FromDateTimeLabel->setObjectName(QStringLiteral("AddEvent_FromDateTimeLabel"));
-        AddEvent_FromDateTimeLabel->setFont(font4);
+        AddEvent_FromDateTimeLabel->setFont(font5);
         AddEvent_FromDateTimeLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         AddEvent_FromToDateLabels->addWidget(AddEvent_FromDateTimeLabel);
 
         AddEvent_ToDateTimeLabel = new QLabel(frame);
         AddEvent_ToDateTimeLabel->setObjectName(QStringLiteral("AddEvent_ToDateTimeLabel"));
-        AddEvent_ToDateTimeLabel->setFont(font4);
+        AddEvent_ToDateTimeLabel->setFont(font5);
         AddEvent_ToDateTimeLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         AddEvent_FromToDateLabels->addWidget(AddEvent_ToDateTimeLabel);
@@ -395,7 +419,7 @@ public:
         AddEvent_TitleLabel = new QLabel(AddEventTab);
         AddEvent_TitleLabel->setObjectName(QStringLiteral("AddEvent_TitleLabel"));
         AddEvent_TitleLabel->setGeometry(QRect(0, 30, 60, 16));
-        AddEvent_TitleLabel->setFont(font4);
+        AddEvent_TitleLabel->setFont(font5);
         AddEvent_TitleLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         Lcation_Box = new QTextEdit(AddEventTab);
         Lcation_Box->setObjectName(QStringLiteral("Lcation_Box"));
@@ -404,7 +428,7 @@ public:
         AddEvent_LocationNameLabel = new QLabel(AddEventTab);
         AddEvent_LocationNameLabel->setObjectName(QStringLiteral("AddEvent_LocationNameLabel"));
         AddEvent_LocationNameLabel->setGeometry(QRect(0, 230, 131, 16));
-        AddEvent_LocationNameLabel->setFont(font4);
+        AddEvent_LocationNameLabel->setFont(font5);
         AddEvent_LocationNameLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         Zip_Box = new QTextEdit(AddEventTab);
         Zip_Box->setObjectName(QStringLiteral("Zip_Box"));
@@ -413,7 +437,7 @@ public:
         AddEvent_ZipCodeLabel = new QLabel(AddEventTab);
         AddEvent_ZipCodeLabel->setObjectName(QStringLiteral("AddEvent_ZipCodeLabel"));
         AddEvent_ZipCodeLabel->setGeometry(QRect(240, 330, 60, 16));
-        AddEvent_ZipCodeLabel->setFont(font4);
+        AddEvent_ZipCodeLabel->setFont(font5);
         AddEvent_ZipCodeLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         DateEnd_Box = new QDateEdit(AddEventTab);
         DateEnd_Box->setObjectName(QStringLiteral("DateEnd_Box"));
@@ -432,12 +456,12 @@ public:
         AddEvent_StreetNameLabel = new QLabel(AddEventTab);
         AddEvent_StreetNameLabel->setObjectName(QStringLiteral("AddEvent_StreetNameLabel"));
         AddEvent_StreetNameLabel->setGeometry(QRect(0, 280, 60, 16));
-        AddEvent_StreetNameLabel->setFont(font4);
+        AddEvent_StreetNameLabel->setFont(font5);
         AddEvent_StreetNameLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0))"));
         AddEvent_StateLabel = new QLabel(AddEventTab);
         AddEvent_StateLabel->setObjectName(QStringLiteral("AddEvent_StateLabel"));
         AddEvent_StateLabel->setGeometry(QRect(130, 330, 60, 16));
-        AddEvent_StateLabel->setFont(font4);
+        AddEvent_StateLabel->setFont(font5);
         AddEvent_StateLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         AddEvent_NotesLabel = new QLabel(AddEventTab);
         AddEvent_NotesLabel->setObjectName(QStringLiteral("AddEvent_NotesLabel"));
@@ -458,25 +482,26 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         AddEvent_LoadSavedLabel = new QLabel(frame_2);
         AddEvent_LoadSavedLabel->setObjectName(QStringLiteral("AddEvent_LoadSavedLabel"));
-        AddEvent_LoadSavedLabel->setFont(font4);
+        AddEvent_LoadSavedLabel->setFont(font5);
         AddEvent_LoadSavedLabel->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLabel);
 
         AddEvent_LoadSavedLocationComboBox = new QComboBox(frame_2);
         AddEvent_LoadSavedLocationComboBox->setObjectName(QStringLiteral("AddEvent_LoadSavedLocationComboBox"));
-        AddEvent_LoadSavedLocationComboBox->setFont(font3);
+        AddEvent_LoadSavedLocationComboBox->setFont(font4);
         AddEvent_LoadSavedLocationComboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        AddEvent_LoadSavedLocationComboBox->setEditable(true);
 
         horizontalLayout->addWidget(AddEvent_LoadSavedLocationComboBox);
 
         label_3 = new QLabel(AddEventTab);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(-1, -11, 661, 61));
-        QFont font5;
-        font5.setFamily(QStringLiteral("Papyrus"));
-        font5.setPointSize(24);
-        label_3->setFont(font5);
+        QFont font6;
+        font6.setFamily(QStringLiteral("Papyrus"));
+        font6.setPointSize(24);
+        label_3->setFont(font6);
         label_3->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         label_3->setAlignment(Qt::AlignCenter);
         Title_Box = new QTextEdit(AddEventTab);
@@ -515,10 +540,10 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label_29 = new QLabel(AppSettingsTab);
         label_29->setObjectName(QStringLiteral("label_29"));
-        QFont font6;
-        font6.setFamily(QStringLiteral("Papyrus"));
-        font6.setPointSize(20);
-        label_29->setFont(font6);
+        QFont font7;
+        font7.setFamily(QStringLiteral("Papyrus"));
+        font7.setPointSize(20);
+        label_29->setFont(font7);
         label_29->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         label_29->setAlignment(Qt::AlignCenter);
 
@@ -526,7 +551,7 @@ public:
 
         label_30 = new QLabel(AppSettingsTab);
         label_30->setObjectName(QStringLiteral("label_30"));
-        label_30->setFont(font3);
+        label_30->setFont(font4);
         label_30->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_30);
@@ -538,7 +563,7 @@ public:
 
         label_31 = new QLabel(AppSettingsTab);
         label_31->setObjectName(QStringLiteral("label_31"));
-        label_31->setFont(font3);
+        label_31->setFont(font4);
         label_31->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_31);
@@ -551,7 +576,7 @@ public:
 
         label_32 = new QLabel(AppSettingsTab);
         label_32->setObjectName(QStringLiteral("label_32"));
-        label_32->setFont(font3);
+        label_32->setFont(font4);
         label_32->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
 
         verticalLayout_2->addWidget(label_32);
@@ -575,7 +600,7 @@ public:
 
         retranslateUi(mainWindowTabbed);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
         SelectTodoListTab->setCurrentIndex(2);
 
 
@@ -610,6 +635,9 @@ public:
         TodoListJumpToDateLabel->setText(QApplication::translate("mainWindowTabbed", "Jump to :", nullptr));
         label_2->setText(QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TodoListsTab), QApplication::translate("mainWindowTabbed", "Todo Lists", nullptr));
+        weeklyStats->setText(QApplication::translate("mainWindowTabbed", "View Last Week Activity", nullptr));
+        monthlyStats->setText(QApplication::translate("mainWindowTabbed", "View Current Month Activity", nullptr));
+        label_4->setText(QApplication::translate("mainWindowTabbed", "Activity Breakdown by Category", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(TimeStatsTab), QApplication::translate("mainWindowTabbed", "Time Stats", nullptr));
         AddEvent_CategoryLabel->setText(QApplication::translate("mainWindowTabbed", "Category :", nullptr));
         Category_Box->setItemText(0, QApplication::translate("mainWindowTabbed", "Work", nullptr));
