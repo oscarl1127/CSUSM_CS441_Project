@@ -257,6 +257,7 @@ public:
         gridLayout->addWidget(buttonBox, 7, 0, 1, 3);
 
         gridLayout->setRowMinimumHeight(0, 60);
+        gridLayout->setRowMinimumHeight(1, 24);
         gridLayout->setRowMinimumHeight(6, 155);
 
         retranslateUi(AddEventButton);

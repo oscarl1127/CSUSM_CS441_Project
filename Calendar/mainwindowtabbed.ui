@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>687</width>
-    <height>559</height>
+    <width>703</width>
+    <height>560</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -17,13 +17,13 @@
    <string>My Time</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:1 rgba(88, 175, 213, 255));</string>
+   <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:1 rgba(99, 197, 240, 255));</string>
   </property>
   <property name="modal">
    <bool>false</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="font">
       <font>
@@ -77,653 +77,345 @@
       <attribute name="title">
        <string>Overview</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="1" column="1">
-        <widget class="QTableWidget" name="UpcomingEventsTable">
-         <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(202, 202, 202, 255), stop:1 rgba(255, 255, 255, 255));</string>
-         </property>
-         <property name="verticalScrollBarPolicy">
-          <enum>Qt::ScrollBarAsNeeded</enum>
-         </property>
-         <property name="horizontalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
-         </property>
-         <property name="sizeAdjustPolicy">
-          <enum>QAbstractScrollArea::AdjustToContents</enum>
-         </property>
-         <property name="autoScroll">
-          <bool>false</bool>
-         </property>
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="dragEnabled">
-          <bool>false</bool>
-         </property>
-         <property name="alternatingRowColors">
-          <bool>true</bool>
-         </property>
-         <property name="selectionMode">
-          <enum>QAbstractItemView::SingleSelection</enum>
-         </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-         <property name="showGrid">
-          <bool>true</bool>
-         </property>
-         <property name="sortingEnabled">
-          <bool>true</bool>
-         </property>
-         <property name="cornerButtonEnabled">
-          <bool>true</bool>
-         </property>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>78</number>
-         </attribute>
-         <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderStretchLastSection">
-          <bool>false</bool>
-         </attribute>
-         <column>
-          <property name="text">
-           <string>Title</string>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>651</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2" columnminimumwidth="330,0">
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <item row="1" column="1">
+         <widget class="QTableWidget" name="UpcomingEventsTable">
+          <property name="autoFillBackground">
+           <bool>true</bool>
           </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Category</string>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));</string>
           </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Start Time</string>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
           </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>End Time</string>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
           </property>
-         </column>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="2">
-        <widget class="QCalendarWidget" name="calendarWidget">
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContents</enum>
+          </property>
+          <property name="autoScroll">
+           <bool>false</bool>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="showDropIndicator" stdset="0">
+           <bool>false</bool>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="cornerButtonEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>78</number>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Title</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Category</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Start Time</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>End Time</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QCalendarWidget" name="calendarWidget">
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
 color: black;
 background-color: rgb(255, 255, 255);
 gridline-color: rgb(52, 141, 180);
 alternate-background-color: rgb(102, 102, 102);
 </string>
-         </property>
-         <property name="gridVisible">
-          <bool>true</bool>
-         </property>
-         <property name="verticalHeaderFormat">
-          <enum>QCalendarWidget::NoVerticalHeader</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label">
-         <property name="font">
-          <font>
-           <family>Papyrus</family>
-           <pointsize>21</pointsize>
-           <italic>true</italic>
-           <underline>true</underline>
-          </font>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-         </property>
-         <property name="text">
-          <string>Upcoming Events </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
+          </property>
+          <property name="gridVisible">
+           <bool>true</bool>
+          </property>
+          <property name="verticalHeaderFormat">
+           <enum>QCalendarWidget::NoVerticalHeader</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Papyrus</family>
+            <pointsize>21</pointsize>
+            <italic>true</italic>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+          </property>
+          <property name="text">
+           <string>Upcoming Events </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
      <widget class="QWidget" name="TodoListsTab">
       <attribute name="title">
        <string>Todo Lists</string>
       </attribute>
-      <widget class="QTabWidget" name="SelectTodoListTab">
+      <widget class="QWidget" name="gridLayoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>451</width>
-         <height>391</height>
+         <x>10</x>
+         <y>10</y>
+         <width>641</width>
+         <height>505</height>
         </rect>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-       <property name="currentIndex">
-        <number>2</number>
-       </property>
-       <widget class="QWidget" name="DayTodoList">
-        <attribute name="title">
-         <string>Day</string>
-        </attribute>
-        <widget class="QListWidget" name="Day_TodoListViewWindow">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>12</y>
-           <width>411</width>
-           <height>311</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Day_DeleteTaskButton">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>320</y>
-           <width>161</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Delete selected task</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Day_AddTaskButton">
-         <property name="geometry">
-          <rect>
-           <x>340</x>
-           <y>320</y>
-           <width>91</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Add task</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Day_UpdateTaskButton">
-         <property name="geometry">
-          <rect>
-           <x>180</x>
-           <y>320</y>
-           <width>161</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Update selected task</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="WeekTodoList">
-        <attribute name="title">
-         <string>Week</string>
-        </attribute>
-        <widget class="QPushButton" name="Week_UpdateTask">
-         <property name="geometry">
-          <rect>
-           <x>180</x>
-           <y>320</y>
-           <width>161</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Update selected task</string>
-         </property>
-        </widget>
-        <widget class="QListWidget" name="Week_TodoListViewWindow">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>12</y>
-           <width>411</width>
-           <height>311</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Week_AddTask">
-         <property name="geometry">
-          <rect>
-           <x>340</x>
-           <y>320</y>
-           <width>91</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Add task</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Week_DeleteTask">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>320</y>
-           <width>161</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Delete selected task</string>
-         </property>
-        </widget>
-        <zorder>Week_TodoListViewWindow</zorder>
-        <zorder>Week_DeleteTask</zorder>
-        <zorder>Week_UpdateTask</zorder>
-        <zorder>Week_AddTask</zorder>
-       </widget>
-       <widget class="QWidget" name="MonthTodoList">
-        <attribute name="title">
-         <string>Month</string>
-        </attribute>
-        <widget class="QPushButton" name="Month_UpdateTask">
-         <property name="geometry">
-          <rect>
-           <x>180</x>
-           <y>321</y>
-           <width>171</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Update selected task</string>
-         </property>
-        </widget>
-        <widget class="QListWidget" name="Month_TodoListViewWindow">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>12</y>
-           <width>411</width>
-           <height>311</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Month_AddTask">
-         <property name="geometry">
-          <rect>
-           <x>340</x>
-           <y>321</y>
-           <width>91</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Add task</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="Month_DeleteTask">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>321</y>
-           <width>171</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Delete selected task</string>
-         </property>
-        </widget>
-        <zorder>Month_TodoListViewWindow</zorder>
-        <zorder>Month_DeleteTask</zorder>
-        <zorder>Month_UpdateTask</zorder>
-        <zorder>Month_AddTask</zorder>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_5" rowminimumheight="0,380,0,0">
+        <property name="topMargin">
+         <number>1</number>
+        </property>
+        <item row="3" column="1" colspan="2">
+         <widget class="QDialogButtonBox" name="TodoListAcceptDeclineButtons">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          </property>
+          <property name="standardButtons">
+           <set>QDialogButtonBox::Save</set>
+          </property>
+          <property name="centerButtons">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>150</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="Month_AddTask">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          </property>
+          <property name="text">
+           <string>Add task</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="Month_DeleteTask">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          </property>
+          <property name="text">
+           <string>Delete selected task</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QListWidget" name="Month_TodoListViewWindow">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>150</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="4">
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Papyrus</family>
+            <pointsize>36</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+          </property>
+          <property name="text">
+           <string>Todo List</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-      <widget class="QDialogButtonBox" name="TodoListAcceptDeclineButtons">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>420</y>
-         <width>171</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="TodoListJumpToDateLabel">
-       <property name="geometry">
-        <rect>
-         <x>460</x>
-         <y>30</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Jump to :</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="TodoListJumpToDateSelector">
-       <property name="geometry">
-        <rect>
-         <x>520</x>
-         <y>30</y>
-         <width>110</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
-color: black;
-background-color: rgb(255, 255, 255);
-gridline-color: rgb(52, 141, 180);
-alternate-background-color: rgb(102, 102, 102);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>-10</y>
-         <width>671</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Papyrus</family>
-         <pointsize>25</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Todo Lists</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <zorder>label_2</zorder>
-      <zorder>SelectTodoListTab</zorder>
-      <zorder>TodoListAcceptDeclineButtons</zorder>
-      <zorder>TodoListJumpToDateLabel</zorder>
-      <zorder>TodoListJumpToDateSelector</zorder>
      </widget>
      <widget class="QWidget" name="TimeStatsTab">
       <attribute name="title">
        <string>Time Stats</string>
       </attribute>
-      <widget class="QPushButton" name="weeklyStats">
-       <property name="geometry">
-        <rect>
-         <x>112</x>
-         <y>20</y>
-         <width>161</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>View Last Week Activity</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="monthlyStats">
-       <property name="geometry">
-        <rect>
-         <x>322</x>
-         <y>20</y>
-         <width>181</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>View Current Month Activity</string>
-       </property>
-      </widget>
-      <widget class="QWidget" name="gridLayoutWidget">
+      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
-         <width>641</width>
-         <height>391</height>
+         <y>10</y>
+         <width>631</width>
+         <height>489</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_3"/>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>60</y>
-         <width>331</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Papyrus</family>
-         <pointsize>22</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Activity Breakdown by Category</string>
-       </property>
+       <layout class="QGridLayout" name="gridLayout_4" rowminimumheight="0,0,0,370">
+        <item row="2" column="0">
+         <widget class="QPushButton" name="weeklyStats">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 9px;
+border: 1px solid black;
+padding: 0 8px;
+margin: 2px;</string>
+          </property>
+          <property name="text">
+           <string>View Last Week Activity</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <layout class="QGridLayout" name="gridLayout_3"/>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <family>Papyrus</family>
+            <pointsize>43</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+          </property>
+          <property name="text">
+           <string>Activity Breakdown by Category</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="monthlyStats">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 9px;
+border: 1px solid black;
+padding: 0 8px;
+margin: 2px;</string>
+          </property>
+          <property name="text">
+           <string>View Current Month Activity</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
      <widget class="QWidget" name="AddEventTab">
       <attribute name="title">
        <string>Add Event</string>
       </attribute>
-      <widget class="QDateEdit" name="DateStart_Box">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>70</y>
-         <width>81</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
-color: black;
-background-color: rgb(255, 255, 255);
-gridline-color: rgb(52, 141, 180);
-alternate-background-color: rgb(102, 102, 102);</string>
-       </property>
-       <property name="dateTime">
-        <datetime>
-         <hour>0</hour>
-         <minute>0</minute>
-         <second>0</second>
-         <year>2018</year>
-         <month>1</month>
-         <day>1</day>
-        </datetime>
-       </property>
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_CategoryLabel">
-       <property name="geometry">
-        <rect>
-         <x>330</x>
-         <y>30</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Category :</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="Category_Box">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>30</y>
-         <width>221</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Work</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>School</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Exercise</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Free Time</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Appointment</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Meetings</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Study</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Vacation</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>New Item</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QTimeEdit" name="TimeEnd_Box">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>110</y>
-         <width>91</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
-color: black;
-background-color: rgb(255, 255, 255);
-gridline-color: rgb(52, 141, 180);
-alternate-background-color: rgb(102, 102, 102);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_CityLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>330</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>City :</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="Note_Box">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>60</y>
-         <width>281</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QTimeEdit" name="TimeStart_Box">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>70</y>
-         <width>91</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
-color: black;
-background-color: rgb(255, 255, 255);
-gridline-color: rgb(52, 141, 180);
-alternate-background-color: rgb(102, 102, 102);</string>
-       </property>
-      </widget>
       <widget class="QFrame" name="frame">
        <property name="geometry">
         <rect>
@@ -736,399 +428,561 @@ alternate-background-color: rgb(102, 102, 102);</string>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
        </property>
-       <layout class="QVBoxLayout" name="AddEvent_FromToDateLabels">
-        <item>
-         <widget class="QLabel" name="AddEvent_FromDateTimeLabel">
+       <layout class="QVBoxLayout" name="AddEvent_FromToDateLabels"/>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>675</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_10" columnminimumwidth="350,0">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_3">
           <property name="font">
            <font>
-            <pointsize>17</pointsize>
+            <family>Papyrus</family>
+            <pointsize>35</pointsize>
            </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
           </property>
           <property name="text">
-           <string>From :</string>
+           <string>Add Event</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLabel" name="AddEvent_ToDateTimeLabel">
-          <property name="font">
-           <font>
-            <pointsize>17</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-          </property>
-          <property name="text">
-           <string>    To :</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QDialogButtonBox" name="AddEvent_AcceptDeclineButton">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>420</y>
-         <width>164</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
-</string>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="State_Box">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>350</y>
-         <width>81</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="Street_Box">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>300</y>
-         <width>321</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_TitleLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string> Title :</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="Lcation_Box">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>250</y>
-         <width>321</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_LocationNameLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>230</y>
-         <width>131</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Location Name :</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="Zip_Box">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>350</y>
-         <width>81</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_ZipCodeLabel">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>330</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Zip :</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="DateEnd_Box">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>110</y>
-         <width>81</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+        <item row="2" column="0">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="4" column="1">
+           <widget class="QDateEdit" name="DateEnd_Box">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
 color: black;
 background-color: rgb(255, 255, 255);
 gridline-color: rgb(52, 141, 180);
 alternate-background-color: rgb(102, 102, 102);</string>
-       </property>
-       <property name="dateTime">
-        <datetime>
-         <hour>0</hour>
-         <minute>0</minute>
-         <second>0</second>
-         <year>2018</year>
-         <month>1</month>
-         <day>1</day>
-        </datetime>
-       </property>
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="City_Box">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>350</y>
-         <width>101</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_StreetNameLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>280</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0))</string>
-       </property>
-       <property name="text">
-        <string>Street :</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_StateLabel">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>330</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>State :</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="AddEvent_NotesLabel">
-       <property name="geometry">
-        <rect>
-         <x>290</x>
-         <y>60</y>
-         <width>60</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Notes :</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="AddEvent_SaveThisLocationButton">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>380</y>
-         <width>151</width>
-         <height>32</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-border: 1px solid black;
-padding: 0 8px;</string>
-       </property>
-       <property name="text">
-        <string>Save This Location</string>
-       </property>
-      </widget>
-      <widget class="QFrame" name="frame_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>180</y>
-         <width>484</width>
-         <height>53</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="AddEvent_LoadSavedLabel">
-          <property name="font">
-           <font>
-            <pointsize>17</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-          </property>
-          <property name="text">
-           <string>Load a saved location :</string>
-          </property>
-         </widget>
+            </property>
+            <property name="dateTime">
+             <datetime>
+              <hour>0</hour>
+              <minute>0</minute>
+              <second>0</second>
+              <year>2018</year>
+              <month>1</month>
+              <day>1</day>
+             </datetime>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="AddEvent_NotesLabel">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>Notes :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="AddEvent_TitleLabel">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string> Title :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDateEdit" name="DateStart_Box">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+color: black;
+background-color: rgb(255, 255, 255);
+gridline-color: rgb(52, 141, 180);
+alternate-background-color: rgb(102, 102, 102);</string>
+            </property>
+            <property name="dateTime">
+             <datetime>
+              <hour>0</hour>
+              <minute>0</minute>
+              <second>0</second>
+              <year>2018</year>
+              <month>1</month>
+              <day>1</day>
+             </datetime>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="AddEvent_CategoryLabel">
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>Category :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="AddEvent_FromDateTimeLabel">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>From :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="AddEvent_ToDateTimeLabel">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>    To :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QTimeEdit" name="TimeStart_Box">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+color: black;
+background-color: rgb(255, 255, 255);
+gridline-color: rgb(52, 141, 180);
+alternate-background-color: rgb(102, 102, 102);</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QTimeEdit" name="TimeEnd_Box">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+color: black;
+background-color: rgb(255, 255, 255);
+gridline-color: rgb(52, 141, 180);
+alternate-background-color: rgb(102, 102, 102);</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="3">
+           <widget class="QComboBox" name="Category_Box">
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Work</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>School</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Exercise</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Free Time</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Appointment</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Meetings</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Study</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vacation</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>New Item</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QTextEdit" name="Title_Box">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="3">
+           <widget class="QTextEdit" name="Note_Box">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QComboBox" name="AddEvent_LoadSavedLocationComboBox">
-          <property name="font">
-           <font>
-            <pointsize>15</pointsize>
-           </font>
-          </property>
+        <item row="3" column="0" colspan="2">
+         <widget class="QDialogButtonBox" name="AddEvent_AcceptDeclineButton">
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
           </property>
-          <property name="editable">
+          <property name="standardButtons">
+           <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+          </property>
+          <property name="centerButtons">
            <bool>true</bool>
           </property>
          </widget>
         </item>
+        <item row="2" column="1">
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="5" column="0">
+           <widget class="QLabel" name="AddEvent_StreetNameLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0))</string>
+            </property>
+            <property name="text">
+             <string>Street :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="8" column="1">
+           <widget class="QTextEdit" name="State_Box">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="QLabel" name="AddEvent_ZipCodeLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>Zip :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" colspan="3">
+           <widget class="QTextEdit" name="Street_Box">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="3">
+           <widget class="QTextEdit" name="Lcation_Box">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0" colspan="2">
+           <widget class="QPushButton" name="AddEvent_SaveThisLocationButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;
+border: 1px solid black;
+padding: 0 8px;
+margin: 2px;</string>
+            </property>
+            <property name="text">
+             <string>Save This Location</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLabel" name="AddEvent_StateLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>State :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QTextEdit" name="City_Box">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
+           <widget class="QTextEdit" name="Zip_Box">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="AddEvent_CityLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>City :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="AddEvent_LocationNameLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>Location Name :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QLabel" name="AddEvent_LoadSavedLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
+            </property>
+            <property name="text">
+             <string>Load a saved location :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="QComboBox" name="AddEvent_LoadSavedLocationComboBox">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>-1</x>
-         <y>-11</y>
-         <width>661</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Papyrus</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));</string>
-       </property>
-       <property name="text">
-        <string>Add Event</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="Title_Box">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>30</y>
-         <width>241</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
-       </property>
-      </widget>
-      <zorder>label_3</zorder>
-      <zorder>DateStart_Box</zorder>
-      <zorder>AddEvent_CategoryLabel</zorder>
-      <zorder>Category_Box</zorder>
-      <zorder>TimeEnd_Box</zorder>
-      <zorder>AddEvent_CityLabel</zorder>
-      <zorder>Note_Box</zorder>
-      <zorder>TimeStart_Box</zorder>
-      <zorder>frame</zorder>
-      <zorder>AddEvent_AcceptDeclineButton</zorder>
-      <zorder>State_Box</zorder>
-      <zorder>Street_Box</zorder>
-      <zorder>AddEvent_TitleLabel</zorder>
-      <zorder>Lcation_Box</zorder>
-      <zorder>AddEvent_LocationNameLabel</zorder>
-      <zorder>Zip_Box</zorder>
-      <zorder>AddEvent_ZipCodeLabel</zorder>
-      <zorder>DateEnd_Box</zorder>
-      <zorder>City_Box</zorder>
-      <zorder>AddEvent_StreetNameLabel</zorder>
-      <zorder>AddEvent_StateLabel</zorder>
-      <zorder>AddEvent_NotesLabel</zorder>
-      <zorder>AddEvent_SaveThisLocationButton</zorder>
-      <zorder>frame_2</zorder>
-      <zorder>Title_Box</zorder>
      </widget>
      <widget class="QWidget" name="AppSettingsTab">
       <attribute name="title">
@@ -1212,7 +1066,7 @@ padding: 0 8px;</string>
        <item>
         <widget class="QTextEdit" name="textEdit_15">
          <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(202, 202, 202, 255), stop:1 rgba(255, 255, 255, 255));</string>
+          <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));</string>
          </property>
         </widget>
        </item>
