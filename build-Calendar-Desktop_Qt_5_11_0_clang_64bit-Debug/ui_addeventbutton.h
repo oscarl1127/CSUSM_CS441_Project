@@ -214,6 +214,7 @@ public:
         Category_Box->addItem(QString());
         Category_Box->addItem(QString());
         Category_Box->setObjectName(QStringLiteral("Category_Box"));
+        Category_Box->setMinimumSize(QSize(0, 30));
         Category_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
 
         gridLayout->addWidget(Category_Box, 2, 1, 1, 2);
