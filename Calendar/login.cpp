@@ -50,7 +50,7 @@ void login::on_pushButton_3_clicked() // Register Button
     Register Reg;
     Reg.exec();
     show();
-    this->hide();
+   // this->hide();
 }
 
 void login::on_pushButton_2_clicked() // Forgot Password Button
@@ -58,5 +58,5 @@ void login::on_pushButton_2_clicked() // Forgot Password Button
     ForgotPassword PassReset;
     PassReset.exec();
     show();
-    this->hide();
+    //this->hide();
 }

@@ -14,6 +14,34 @@ theDB::theDB()
  * P@SS
  * */
 
+bool theDB::checkForUsedUsername(QString uName)
+{
+    QString currentUser;
+    QSqlQuery query("SELECT userName FROM users");
+
+    while(query.next())
+    {
+        currentUser=query.value(0).toString();
+        if(currentUser==uName)
+            return true; //There is a match, stop here.
+    }
+
+    return false;//There was no match found
+}
+
+void theDB::createUser(QString uName, QString pass)
+{
+    //INSERT INTO USERS VALUES('Jdawk','Pass');
+    QString query;
+    query="INSERT INTO USERS VALUES('" + uName + "','"+pass+"');";
+    //Run the query
+    QSqlQuery theQuery;
+    theQuery.prepare(query);
+    theQuery.exec();
+
+    return;
+}
+
 int theDB::getUserID(QString username)
 {
     int actualID;
