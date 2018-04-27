@@ -16,13 +16,13 @@
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>502</width>
-     <height>551</height>
+     <width>534</width>
+     <height>594</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout" rowminimumheight="60,24,0,0,0,0,155,0">
@@ -388,17 +388,32 @@ alternate-background-color: rgb(102, 102, 102);
       </item>
       <item>
        <property name="text">
-        <string>Study</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Fitness</string>
+        <string>Exercise</string>
        </property>
       </item>
       <item>
        <property name="text">
         <string>Free Time</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Appointment</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Meetings</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Study</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Vacation</string>
        </property>
       </item>
      </widget>

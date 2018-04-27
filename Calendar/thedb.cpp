@@ -295,8 +295,25 @@ bool theDB::addEventInDb(Event theEvent, int userId)
     QString endDate = theEvent.getEndDate().toString();
 
 
-    //To do later, for now assumes the WORK category
-    int categoryID = 1;
+    QString category = theEvent.getCategory();
+
+    int catID;
+    if(category=="Work")
+        catID = 1;
+    else if(category=="School")
+        catID=2;
+    else if(category=="Exercise")
+        catID=3;
+    else if(category=="Free Time")
+        catID=4;
+    else if(category=="Appointment")
+        catID=5;
+    else if(category=="Meetings")
+        catID=6;
+    else if(category=="Study")
+        catID=7;
+    else if(category=="Vacation")
+        catID=8;
 
     //Assume all locations are saved
     int saveLocation=1;
@@ -331,7 +348,8 @@ bool theDB::addEventInDb(Event theEvent, int userId)
 
     //Now we must add this event to the database, and use the location Number as a foreign key
     theQuery="INSERT INTO Event VALUES('"+eventName+"','"+startTime+"','"+endTime+"','"+startDate+"','"+endDate+"','"
-            +eventNote+"',"+QString::number(locationNumber)+","+QString::number(categoryID)+","+QString::number(userId)+");";
+            +eventNote+"',"+QString::number(locationNumber)+","+QString::number(catID)+","+QString::number(userId)+");";
+
 
     //Run the query
     QSqlQuery query2;

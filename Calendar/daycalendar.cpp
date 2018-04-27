@@ -48,7 +48,7 @@ bool DayCalendar::AddEvent(Event e)
     qDebug() << "sucessfully inserted " << e.getName();
     qDebug() << date;
     qDebug() << userEvents.size();
-    //AddToDatabase(e,userID);
+    AddToDatabase(e,userID);
     return true;
 
 }
@@ -165,7 +165,11 @@ bool DayCalendar::EventOnDayExists(QDate q)
 //Passes the user's id and the event to add.
 bool DayCalendar::AddToDatabase(Event newEvent,int theID)
 {
-    return calenderdb.addEventInDb(newEvent,userID);
+    bool x =calenderdb.addEventInDb(newEvent,userID);
+    QMessageBox msgBox;
+    msgBox.setText("Event added sucessfully.");
+    msgBox.exec();
+    return x;
 }
 
 

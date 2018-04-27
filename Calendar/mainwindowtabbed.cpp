@@ -70,8 +70,34 @@ void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
 
 void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
 {
-    //Once Event OK is given, check constraints of data (will do later), for now assumes data that can be put into database
+    bool cont = false;
 
+        //Check for null values
+         QString eventName = ui->Title_Box->toPlainText();
+         QString lName = ui->Lcation_Box->toPlainText();
+         QString streetName = ui->Street_Box->toPlainText();
+         QString stateName = ui->State_Box->toPlainText();
+         QString cityName = ui->City_Box->toPlainText();
+         QString zip = ui->Zip_Box->toPlainText();
+         //Check correct date values
+         QDate endD = ui->DateEnd_Box->date();
+         QDate startD = ui->DateStart_Box->date();
+         if(eventName==NULL||lName ==NULL||streetName==NULL||stateName==NULL||cityName==NULL||zip==NULL)
+         {
+             QMessageBox msgBox;
+             msgBox.setText("Error. Please complete all fields before continuing.");
+             msgBox.exec();
+             return;
+         }
+         else if(endD<startD)
+         {
+             QMessageBox msgBox;
+             msgBox.setText("End date cannot come before start date");
+             msgBox.exec();
+             return;
+         }
+         else
+             cont = true;
 
     Event newEvent = Event();
 
