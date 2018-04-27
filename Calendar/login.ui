@@ -89,6 +89,12 @@ color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0.985222, y2:1, stop:1 rgb
       <height>101</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>411</width>
+      <height>101</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Papyrus</family>

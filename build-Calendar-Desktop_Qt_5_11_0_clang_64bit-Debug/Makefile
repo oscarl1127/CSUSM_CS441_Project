@@ -1070,6 +1070,8 @@ login.o: ../Calendar/login.cpp ../Calendar/login.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../Calendar/daycalendar.h \
 		ui_login.h \
+		../Calendar/register.h \
+		../Calendar/forgotpassword.h \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Calendar/login.cpp
