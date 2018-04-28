@@ -54,6 +54,8 @@ public:
     ///Purpose: Returns true if at least one Event exists on the specified date.
     bool EventOnDayExists(QDate q);
 
+    void Display();
+
 
 };
 

@@ -13,17 +13,20 @@ enum Mode
     Read
 };
 
-AddEventButton::AddEventButton(QDate date, DayCalendar &_userEvents, Mode mode, QWidget *parent) :
+AddEventButton::AddEventButton(QDate date, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
 {   
+    qDebug() << "entering constructor";
     ui->setupUi(this);
     ui->StartDate_Box->setDate(date);
     ui->EndDate_Box->setDate(date);
     ui->StartTime_Box->setTime(QTime::currentTime());
     ui->EndTime_Box->setTime(QTime::currentTime().addSecs(60));
-    userEvents = &_userEvents;
-    father = (mainWindowTabbed*) parent;
+    userEvents = _userEvents;
+    father = (mainWindowTabbed*) main;
+    dayView = (DayView*) parent;
+    qDebug() << "AddEventButton Constructed";
 }
 
 void AddEventButton::EnableAll(bool enable)
@@ -79,8 +82,10 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
             userEvents->ReplaceEvent(newEvent);
         else return;
     }
+    if(dayView != NULL)
+        dayView->RefreshDayView();
     if(father != NULL)
          father->RefreshUpcomingEventList(30);
-    qDebug() << "Event Name GAGAG"<< QString(newEvent.getName() );
+    qDebug() << "Event Name "<< QString(newEvent.getName() );
     this->close();
 }

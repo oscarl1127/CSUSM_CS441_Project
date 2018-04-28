@@ -59,13 +59,14 @@ void mainWindowTabbed::centerAndResize(double width_perc, double height_perc)
 
 void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
 {
-//    DayView _dayView; // makes the instance
-//    _dayView.setModal(true);
-//    _dayView.exec();
+    DayCalendar* pointer = &userEvents;
+    DayView _dayView(pointer, date, this); // makes the instance
+    _dayView.setModal(true);
+    _dayView.exec();
 
-    AddEventButton _event(date, userEvents, AddEventButton::Mode::Read, this);
-    _event.setModal(true);
-    _event.exec();
+//    AddEventButton _event(date, userEvents, AddEventButton::Mode::Read, this);
+//    _event.setModal(true);
+//    _event.exec();
 }
 
 void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "daycalendar.h"
+#include "dayview.h"
 #include <QAbstractButton>
 #include <mainwindowtabbed.h>
 
@@ -16,9 +17,10 @@ class AddEventButton : public QDialog
 
 public:
      enum Mode {Read, Write};
-    explicit AddEventButton(QDate date, DayCalendar &_userEvents, Mode mode, QWidget *parent = 0);
+    explicit AddEventButton(QDate date, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent = 0);
     DayCalendar *userEvents;
     mainWindowTabbed *father;
+    DayView *dayView;
     void EnableAll(bool enable);
     ~AddEventButton();
 

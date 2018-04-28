@@ -156,6 +156,11 @@ bool DayCalendar::EventOnDayExists(QDate q)
     if(userEvents.find(q) != userEvents.end())
     {
         qDebug() << "Event on day " << q << "exists!";
+        vector<Event> events = GetEvents(q);
+        for(int i = 0; i < events.size(); i++)
+        {
+            qDebug() << events[i].getName();
+        }
         return true;
     }
     qDebug() << "Event on day " << q << "does not exist";
@@ -166,6 +171,11 @@ bool DayCalendar::EventOnDayExists(QDate q)
 bool DayCalendar::AddToDatabase(Event newEvent,int theID)
 {
     return calenderdb.addEventInDb(newEvent,userID);
+}
+
+void DayCalendar::Display()
+{
+
 }
 
 

@@ -9,6 +9,10 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication a(argc, argv);
+    QFont font("Courier New");
+    font.setStyleHint(QFont::Monospace);
+    QApplication::setFont(font);
+
     login w;
     w.show();
 
