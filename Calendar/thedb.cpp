@@ -14,6 +14,34 @@ theDB::theDB()
  * P@SS
  * */
 
+bool theDB::checkForUsedUsername(QString uName)
+{
+    QString currentUser;
+    QSqlQuery query("SELECT userName FROM users");
+
+    while(query.next())
+    {
+        currentUser=query.value(0).toString();
+        if(currentUser==uName)
+            return true; //There is a match, stop here.
+    }
+
+    return false;//There was no match found
+}
+
+void theDB::createUser(QString uName, QString pass)
+{
+    //INSERT INTO USERS VALUES('Jdawk','Pass');
+    QString query;
+    query="INSERT INTO USERS VALUES('" + uName + "','"+pass+"');";
+    //Run the query
+    QSqlQuery theQuery;
+    theQuery.prepare(query);
+    theQuery.exec();
+
+    return;
+}
+
 int theDB::getUserID(QString username)
 {
     int actualID;
@@ -45,10 +73,6 @@ bool theDB::connectToDb()
     db.setPort(1433);
 
     retvalue = db.open();
-    if(retvalue==1)
-        cout <<  "Connected to database."<<endl;
-    else
-        cout << "Connection to database failed."<<endl;
 
     return retvalue;
 }
@@ -295,8 +319,25 @@ bool theDB::addEventInDb(Event theEvent, int userId)
     QString endDate = theEvent.getEndDate().toString();
 
 
-    //To do later, for now assumes the WORK category
-    int categoryID = 1;
+    QString category = theEvent.getCategory();
+
+    int catID;
+    if(category=="Work")
+        catID = 1;
+    else if(category=="School")
+        catID=2;
+    else if(category=="Exercise")
+        catID=3;
+    else if(category=="Free Time")
+        catID=4;
+    else if(category=="Appointment")
+        catID=5;
+    else if(category=="Meetings")
+        catID=6;
+    else if(category=="Study")
+        catID=7;
+    else if(category=="Vacation")
+        catID=8;
 
     //Assume all locations are saved
     int saveLocation=1;
@@ -331,7 +372,8 @@ bool theDB::addEventInDb(Event theEvent, int userId)
 
     //Now we must add this event to the database, and use the location Number as a foreign key
     theQuery="INSERT INTO Event VALUES('"+eventName+"','"+startTime+"','"+endTime+"','"+startDate+"','"+endDate+"','"
-            +eventNote+"',"+QString::number(locationNumber)+","+QString::number(categoryID)+","+QString::number(userId)+");";
+            +eventNote+"',"+QString::number(locationNumber)+","+QString::number(catID)+","+QString::number(userId)+");";
+
 
     //Run the query
     QSqlQuery query2;
@@ -382,34 +424,13 @@ bool theDB::validateCredentials(QString uName, QString password)
 
 bool theDB::changePassword(QString userName, QString password)
 {
-    bool userExist = false;
-
-    QString theName;
-    QString thePass;
-
-    QSqlQuery query("SELECT userName FROM theUser");
+    QSqlQuery query;
     QString updatePass;
 
-    //Traverse database to see if this user exists
-    while(query.next())
-    {
-        //Grab the name and current password for the location in the database
-        theName=query.value(0).toString();
-
-        if((userName==theName))
-        {
-            //The user exists in the databse
-            userExist=true;
-        }
-    }
-
-    updatePass= "UPDATE theUser SET userPassword='" + password + "' WHERE userName='" + userName + "';";
+    updatePass= "UPDATE USERS SET userPass='" + password + "' WHERE userName='" + userName + "';";
 
     query.prepare(updatePass);
     query.exec();
 
-    return userExist;
+    return true;
 }
-
-
-

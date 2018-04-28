@@ -10,10 +10,6 @@ class Event
 private:
     QString name;
     QString category;
-    //QString locationName;
-    //QString street;
-    //QString city;
-    //QString zipCode;
     QString note;
     QString driveTime;
     QString notifyDriveTime;

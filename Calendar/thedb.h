@@ -27,6 +27,8 @@ public:
     Location getLocationForEvent(int userID, int locNum);
     Location getLocationBasedOfName(QString locName, int theID);
     vector <Location> getListOfLocationsForUSer(int theID);
+    bool checkForUsedUsername(QString uName);
+    void createUser(QString uName, QString pass);
 };
 
 #endif // THEDB_H
