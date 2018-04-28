@@ -860,6 +860,44 @@ release\moc_forgotpassword.cpp: C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QDial
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qfiledevice.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qtouchdevice.h \
+		..\Calendar\mainwindowtabbed.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QListWidgetItem \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qlistwidget.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qlistview.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qrubberband.h \
+		..\Calendar\daycalendar.h \
+		..\Calendar\event.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QString \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDateTime \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qdatetime.h \
+		..\Calendar\location.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QWidget \
+		..\Calendar\thedb.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlDatabase \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDebug \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlError \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqlerror.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlQuery \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqlquery.h \
+		..\Calendar\login.h \
 		..\Calendar\forgotpassword.h \
 		release\moc_predefs.h \
 		C:\Qt\5.10.1\msvc2017_64\bin\moc.exe
@@ -2315,6 +2353,46 @@ release\forgotpassword.obj: ..\Calendar\forgotpassword.cpp ../Calendar/forgotpas
 		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qfiledevice.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qtouchdevice.h \
+		../Calendar/mainwindowtabbed.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QListWidgetItem \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qlistwidget.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qlistview.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtGui\qicon.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qrubberband.h \
+		../Calendar/daycalendar.h \
+		../Calendar/event.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QString \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDateTime \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\qdatetime.h \
+		../Calendar/location.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QWidget \
+		../Calendar/thedb.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlDatabase \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtCore\QDebug \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlError \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqlerror.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\QSqlQuery \
+		C:\Qt\5.10.1\msvc2017_64\include\QtSql\qsqlquery.h \
+		../Calendar/login.h \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\QMessageBox \
+		C:\Qt\5.10.1\msvc2017_64\include\QtWidgets\qmessagebox.h \
 		ui_forgotpassword.h
 
 release\register.obj: ..\Calendar\register.cpp ../Calendar/register.h \

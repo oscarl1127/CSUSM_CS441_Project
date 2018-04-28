@@ -51,19 +51,19 @@ public:
     {
         if (ForgotPassword->objectName().isEmpty())
             ForgotPassword->setObjectName(QStringLiteral("ForgotPassword"));
-        ForgotPassword->resize(401, 322);
+        ForgotPassword->resize(458, 320);
         QFont font;
         font.setPointSize(13);
         ForgotPassword->setFont(font);
         widget = new QWidget(ForgotPassword);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(0, 0, 401, 321));
+        widget->setGeometry(QRect(0, 0, 461, 321));
         widget->setLayoutDirection(Qt::LeftToRight);
         widget->setAutoFillBackground(false);
         widget->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         gridLayoutWidget = new QWidget(widget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(20, 10, 376, 301));
+        gridLayoutWidget->setGeometry(QRect(20, 10, 431, 301));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 16);
@@ -71,7 +71,7 @@ public:
         label->setObjectName(QStringLiteral("label"));
         QFont font1;
         font1.setFamily(QStringLiteral("Papyrus"));
-        font1.setPointSize(49);
+        font1.setPointSize(42);
         label->setFont(font1);
         label->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
         label->setAlignment(Qt::AlignCenter);
@@ -168,10 +168,10 @@ public:
     {
         ForgotPassword->setWindowTitle(QApplication::translate("ForgotPassword", "Forgot Password Window", nullptr));
         label->setText(QApplication::translate("ForgotPassword", "Password Reset", nullptr));
-        label_5->setText(QApplication::translate("ForgotPassword", " Confirm Password :  ", nullptr));
-        label_4->setText(QApplication::translate("ForgotPassword", "         Password :        ", nullptr));
-        label_3->setText(QApplication::translate("ForgotPassword", "Please fill out to register account ", nullptr));
-        label_2->setText(QApplication::translate("ForgotPassword", "        Username :        ", nullptr));
+        label_5->setText(QApplication::translate("ForgotPassword", " Confirm New Password: ", nullptr));
+        label_4->setText(QApplication::translate("ForgotPassword", "        New Password:      ", nullptr));
+        label_3->setText(QApplication::translate("ForgotPassword", "Enter Username and New Password", nullptr));
+        label_2->setText(QApplication::translate("ForgotPassword", "        Username :            ", nullptr));
     } // retranslateUi
 
 };

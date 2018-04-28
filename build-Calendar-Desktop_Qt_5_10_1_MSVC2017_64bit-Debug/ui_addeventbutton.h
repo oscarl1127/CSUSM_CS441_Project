@@ -62,7 +62,7 @@ public:
     {
         if (AddEventButton->objectName().isEmpty())
             AddEventButton->setObjectName(QStringLiteral("AddEventButton"));
-        AddEventButton->resize(501, 567);
+        AddEventButton->resize(609, 631);
         AddEventButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget = new QWidget(AddEventButton);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));

@@ -73,10 +73,6 @@ bool theDB::connectToDb()
     db.setPort(1433);
 
     retvalue = db.open();
-    if(retvalue==1)
-        cout <<  "Connected to database."<<endl;
-    else
-        cout << "Connection to database failed."<<endl;
 
     return retvalue;
 }
@@ -428,34 +424,13 @@ bool theDB::validateCredentials(QString uName, QString password)
 
 bool theDB::changePassword(QString userName, QString password)
 {
-    bool userExist = false;
-
-    QString theName;
-    QString thePass;
-
-    QSqlQuery query("SELECT userName FROM theUser");
+    QSqlQuery query;
     QString updatePass;
 
-    //Traverse database to see if this user exists
-    while(query.next())
-    {
-        //Grab the name and current password for the location in the database
-        theName=query.value(0).toString();
-
-        if((userName==theName))
-        {
-            //The user exists in the databse
-            userExist=true;
-        }
-    }
-
-    updatePass= "UPDATE theUser SET userPassword='" + password + "' WHERE userName='" + userName + "';";
+    updatePass= "UPDATE USERS SET userPass='" + password + "' WHERE userName='" + userName + "';";
 
     query.prepare(updatePass);
     query.exec();
 
-    return userExist;
+    return true;
 }
-
-
-
