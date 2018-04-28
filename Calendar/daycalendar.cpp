@@ -28,7 +28,7 @@ DayCalendar::DayCalendar()
 void DayCalendar::setUserID(int id)
 {
     userID=id;
-    qDebug() << "&%"<< userID;
+
 }
 
 ///Purpose: Adding Event to userEvent Map

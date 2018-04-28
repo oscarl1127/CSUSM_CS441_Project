@@ -22,6 +22,10 @@ public:
     theDB calenderdb;
     int userID;
     void setUserID(int id);
+    int getUserID()
+    {
+        return userID;
+    }
     //vector<Event> events;
 
     ///Constructor

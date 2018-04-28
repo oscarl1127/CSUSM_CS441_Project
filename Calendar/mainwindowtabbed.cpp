@@ -63,7 +63,6 @@ void mainWindowTabbed::on_calendarWidget_clicked(const QDate &date)
     DayView _dayView(pointer, date, this); // makes the instance
     _dayView.setModal(true);
     _dayView.exec();
-
 //    AddEventButton _event(date, userEvents, AddEventButton::Mode::Read, this);
 //    _event.setModal(true);
 //    _event.exec();
