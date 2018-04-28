@@ -51,25 +51,69 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
 {
     Event newEvent = Event();
 
-    newEvent.setName( ui->Title_Box->toPlainText() );
+    //Event attributes
+    QString eventName = ui->Title_Box->toPlainText();
+    QString category = ui->Category_Box->currentText();
+    QDate startDate = ui->StartDate_Box->date();
+    QDate endDate = ui->EndDate_Box->date();
+    QTime startTime = ui->StartTime_Box->time();
+    QTime endTime = ui->EndTime_Box->time();
+    QString note = ui->Note_Box->toPlainText();
+
+    //Check if there is a location
     if(ui->HaveLocationCheckBox->isChecked())
     {
-        newEvent.eventLoc.setLocationName(ui->Location_Box->toPlainText());
-        newEvent.eventLoc.setStreet( ui->Street_Box ->toPlainText());
-        newEvent.eventLoc.setCity(ui->City_Box->toPlainText() );
-        newEvent.eventLoc.setZipCode(ui->Zip_Box->toPlainText());
-        newEvent.eventLoc.setState(ui->Stste_Box->toPlainText());
-        newEvent.eventLoc.setSavedLocation(0);
+        //Store loation attributes
+        QString locationName = ui->Location_Box->toPlainText();
+        QString streetName = ui->Street_Box->toPlainText();
+        QString cityName = ui->City_Box->toPlainText();
+        QString stateName = ui->Stste_Box->toPlainText();
+        QString zip = ui->Zip_Box->toPlainText();
+        //Set location attributes
+        newEvent.eventLoc.setLocationName(locationName);
+        newEvent.eventLoc.setStreet(streetName);
+        newEvent.eventLoc.setCity(cityName);
+        newEvent.eventLoc.setZipCode(zip);
+        newEvent.eventLoc.setState(stateName);
+        newEvent.eventLoc.setSavedLocation(1);
+
+        //Check for location null values
+        if(locationName==NULL || streetName==NULL||cityName==NULL||stateName==NULL||zip==NULL)
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Error. Please complete all fields before continuing.");
+            msgBox.exec();
+            return;
+        }
     }
 
-    newEvent.setNote( ui->Note_Box ->toPlainText() );
-    newEvent.setCategory( ui->Category_Box->currentText() );
+    //Set event attributes
+    newEvent.setName(eventName);
+    newEvent.setNote(note);
+    newEvent.setCategory(category);
+    newEvent.setStartDate(startDate);
+    newEvent.setEndDate(endDate);
+    newEvent.setTimeStart(startTime);
+    newEvent.setTimeEnd(endTime);
 
-    newEvent.setStartDate( ui->StartDate_Box->date() );
-    newEvent.setEndDate( ui->EndDate_Box->date() );
+    //Check For Null Values
+    if(eventName==NULL||category==NULL)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Error. Please complete all fields before continuing.");
+        msgBox.exec();
+        return;
+    }
+    //Check for proper dates
+    QDate today = QDate::currentDate();
+    if((startDate<today)||(endDate<today)||(startDate>endDate))
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Error. Please check your dates");
+        msgBox.exec();
+        return;
 
-    newEvent.setTimeStart( ui->StartTime_Box ->time() );
-    newEvent.setTimeEnd( ui->EndTime_Box->time());
+    }
 
     //adding event to daycalendar object map
     //if there is an Event with the same date and time, show message box to ask user if they want to replace it with new event
