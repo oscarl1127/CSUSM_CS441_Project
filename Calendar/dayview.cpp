@@ -61,6 +61,9 @@ void DayView::RefreshDayView()
     }
 }
 
+
+
+
 DayView::~DayView()
 {
     delete ui;
@@ -77,6 +80,7 @@ void DayView::on_TimeTable_cellClicked(int row, int column)
         qDebug() << "no text found";
         AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Write, Parent, this);
         //_event.setModal(true);
+          _event.populateLocations();
         _event.exec();
     }
     else
@@ -84,6 +88,7 @@ void DayView::on_TimeTable_cellClicked(int row, int column)
         qDebug() << "text found";
         AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Read, Parent, this);
         _event.setModal(true);
+        _event.populateLocations();
         _event.exec();
     }
 

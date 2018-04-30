@@ -72,6 +72,7 @@ AddEventButton::~AddEventButton()
 
 void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
 {
+
     Event newEvent = Event();
 
     //Event attributes
@@ -83,32 +84,19 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
     QTime endTime = ui->EndTime_Box->time();
     QString note = ui->Note_Box->toPlainText();
 
-    //Check if there is a location
-    if(ui->HaveLocationCheckBox->isChecked())
-    {
-        //Store loation attributes
-        QString locationName = ui->Location_Box->toPlainText();
-        QString streetName = ui->Street_Box->toPlainText();
-        QString cityName = ui->City_Box->toPlainText();
-        QString stateName = ui->Stste_Box->toPlainText();
-        QString zip = ui->Zip_Box->toPlainText();
-        //Set location attributes
-        newEvent.eventLoc.setLocationName(locationName);
-        newEvent.eventLoc.setStreet(streetName);
-        newEvent.eventLoc.setCity(cityName);
-        newEvent.eventLoc.setZipCode(zip);
-        newEvent.eventLoc.setState(stateName);
-        newEvent.eventLoc.setSavedLocation(1);
-
-        //Check for location null values
-        if(locationName==NULL || streetName==NULL||cityName==NULL||stateName==NULL||zip==NULL)
-        {
-            QMessageBox msgBox;
-            msgBox.setText("Error. Please complete all fields before continuing.");
-            msgBox.exec();
-            return;
-        }
-    }
+    //Store loation attributes
+    QString locationName = ui->Location_Box->toPlainText();
+    QString streetName = ui->Street_Box->toPlainText();
+    QString cityName = ui->City_Box->toPlainText();
+    QString stateName = ui->Stste_Box->toPlainText();
+    QString zip = ui->Zip_Box->toPlainText();
+    //Set location attributes
+    newEvent.eventLoc.setLocationName(locationName);
+    newEvent.eventLoc.setStreet(streetName);
+    newEvent.eventLoc.setCity(cityName);
+    newEvent.eventLoc.setZipCode(zip);
+    newEvent.eventLoc.setState(stateName);
+    newEvent.eventLoc.setSavedLocation(1);
 
     //Set event attributes
     newEvent.setName(eventName);
@@ -120,7 +108,7 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
     newEvent.setTimeEnd(endTime);
 
     //Check For Null Values
-    if(eventName==NULL||category==NULL)
+    if(eventName==NULL||category==NULL||locationName==NULL || streetName==NULL||cityName==NULL||stateName==NULL||zip==NULL)
     {
         QMessageBox msgBox;
         msgBox.setText("Error. Please complete all fields before continuing.");
@@ -155,4 +143,30 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
          father->RefreshCalendarView();
     qDebug() << "Event Name "<< QString(newEvent.getName() );
     this->close();
+}
+
+void AddEventButton::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    //Get location based off locationName and userID
+    int id=userEvents->getUserID();
+    Location theLoc = calenderdb.getLocationBasedOfName(arg1, id);
+    ui->Location_Box->setText(theLoc.getLocationName());
+    ui->Zip_Box->setText(theLoc.getZipcode());
+    ui->Street_Box->setText(theLoc.getStreet());
+    ui->Stste_Box->setText(theLoc.getState());
+    ui->City_Box->setText(theLoc.getCity());
+}
+
+void AddEventButton::populateLocations()
+{
+    //Get locations for the user
+    vector <Location> locs=calenderdb.getListOfLocationsForUSer(userEvents->getUserID());
+    QString currentLoc;
+
+    //Add each location to the combo box
+    for(int y=0;y<locs.size();y++)
+    {
+        currentLoc=locs[y].getLocationName();
+        ui->comboBox->addItem(currentLoc);
+    }
 }

@@ -51,16 +51,16 @@ public:
     {
         if (Register->objectName().isEmpty())
             Register->setObjectName(QStringLiteral("Register"));
-        Register->resize(390, 321);
+        Register->resize(450, 350);
         widget = new QWidget(Register);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(0, 0, 391, 321));
+        widget->setGeometry(QRect(0, 0, 450, 450));
         widget->setLayoutDirection(Qt::LeftToRight);
         widget->setAutoFillBackground(false);
         widget->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         gridLayoutWidget = new QWidget(widget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(20, 10, 371, 301));
+        gridLayoutWidget->setGeometry(QRect(20, 10, 411, 301));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 16);

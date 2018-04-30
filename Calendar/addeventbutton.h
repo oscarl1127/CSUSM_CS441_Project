@@ -6,6 +6,7 @@
 #include "dayview.h"
 #include <QAbstractButton>
 #include <mainwindowtabbed.h>
+#include "thedb.h"
 
 namespace Ui {
 class AddEventButton;
@@ -18,6 +19,8 @@ class AddEventButton : public QDialog
 public:
      enum Mode {Read, Write};
     explicit AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent = 0);
+    theDB calenderdb;
+    void populateLocations();
     DayCalendar *userEvents;
     mainWindowTabbed *father;
     DayView *dayView;
@@ -28,6 +31,8 @@ private slots:
 
     void on_buttonBox_clicked(QAbstractButton *button);
 
+
+    void on_comboBox_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::AddEventButton *ui;

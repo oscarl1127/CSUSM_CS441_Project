@@ -605,7 +605,7 @@ public:
         AddEvent_LoadSavedLocationComboBox->setMaximumSize(QSize(16777215, 30));
         AddEvent_LoadSavedLocationComboBox->setFont(font6);
         AddEvent_LoadSavedLocationComboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
-        AddEvent_LoadSavedLocationComboBox->setEditable(true);
+        AddEvent_LoadSavedLocationComboBox->setEditable(false);
 
         gridLayout_9->addWidget(AddEvent_LoadSavedLocationComboBox, 2, 0, 1, 3);
 
@@ -750,7 +750,7 @@ public:
         AddEvent_StateLabel->setText(QApplication::translate("mainWindowTabbed", "State :", nullptr));
         AddEvent_CityLabel->setText(QApplication::translate("mainWindowTabbed", "City :", nullptr));
         AddEvent_LocationNameLabel->setText(QApplication::translate("mainWindowTabbed", "Location Name :", nullptr));
-        AddEvent_LoadSavedLabel->setText(QApplication::translate("mainWindowTabbed", "Load a saved location :", nullptr));
+        AddEvent_LoadSavedLabel->setText(QApplication::translate("mainWindowTabbed", "Load a recent location :", nullptr));
         AddEvent_SaveThisLocationButton->setText(QApplication::translate("mainWindowTabbed", "Save This Location", nullptr));
         label_3->setText(QApplication::translate("mainWindowTabbed", "Add Event", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(AddEventTab), QApplication::translate("mainWindowTabbed", "Add Event", nullptr));

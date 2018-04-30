@@ -28,7 +28,7 @@ DayCalendar::DayCalendar()
 void DayCalendar::setUserID(int id)
 {
     userID=id;
-    qDebug() << "&%"<< userID;
+
 }
 
 void DayCalendar::FillFromDatabase()

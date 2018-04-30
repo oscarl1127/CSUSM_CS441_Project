@@ -18,7 +18,6 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTextEdit>
@@ -40,7 +39,13 @@ public:
     QDateEdit *EndDate_Box;
     QTextEdit *Title_Box;
     QTextEdit *Note_Box;
-    QGroupBox *HaveLocationCheckBox;
+    QComboBox *Category_Box;
+    QLabel *label_2;
+    QDateEdit *StartDate_Box;
+    QLabel *label_4;
+    QLabel *label_3;
+    QDialogButtonBox *buttonBox;
+    QWidget *HaveLocationCheckBox;
     QTextEdit *Zip_Box;
     QLabel *label_6;
     QTextEdit *Stste_Box;
@@ -51,22 +56,18 @@ public:
     QTextEdit *Street_Box;
     QLabel *label_10;
     QTextEdit *Location_Box;
-    QComboBox *Category_Box;
-    QLabel *label_2;
-    QDateEdit *StartDate_Box;
-    QLabel *label_4;
-    QLabel *label_3;
-    QDialogButtonBox *buttonBox;
+    QComboBox *comboBox;
+    QLabel *label_11;
 
     void setupUi(QDialog *AddEventButton)
     {
         if (AddEventButton->objectName().isEmpty())
             AddEventButton->setObjectName(QStringLiteral("AddEventButton"));
-        AddEventButton->resize(609, 631);
+        AddEventButton->resize(609, 657);
         AddEventButton->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(183, 233, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         layoutWidget = new QWidget(AddEventButton);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 10, 534, 594));
+        layoutWidget->setGeometry(QRect(0, 10, 534, 601));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 9, 6);
@@ -157,59 +158,6 @@ public:
 
         gridLayout->addWidget(Note_Box, 5, 1, 1, 2);
 
-        HaveLocationCheckBox = new QGroupBox(layoutWidget);
-        HaveLocationCheckBox->setObjectName(QStringLiteral("HaveLocationCheckBox"));
-        HaveLocationCheckBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        HaveLocationCheckBox->setCheckable(true);
-        HaveLocationCheckBox->setChecked(false);
-        Zip_Box = new QTextEdit(HaveLocationCheckBox);
-        Zip_Box->setObjectName(QStringLiteral("Zip_Box"));
-        Zip_Box->setGeometry(QRect(250, 130, 81, 26));
-        Zip_Box->setMinimumSize(QSize(0, 26));
-        Zip_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
-        label_6 = new QLabel(HaveLocationCheckBox);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 20, 121, 31));
-        label_6->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        Stste_Box = new QTextEdit(HaveLocationCheckBox);
-        Stste_Box->setObjectName(QStringLiteral("Stste_Box"));
-        Stste_Box->setGeometry(QRect(130, 130, 81, 26));
-        Stste_Box->setMinimumSize(QSize(0, 26));
-        Stste_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
-        label_8 = new QLabel(HaveLocationCheckBox);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(10, 113, 61, 16));
-        label_8->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        City_Box = new QTextEdit(HaveLocationCheckBox);
-        City_Box->setObjectName(QStringLiteral("City_Box"));
-        City_Box->setGeometry(QRect(10, 130, 101, 26));
-        City_Box->setMinimumSize(QSize(0, 26));
-        City_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
-        label_9 = new QLabel(HaveLocationCheckBox);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(130, 113, 60, 16));
-        label_9->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        label_7 = new QLabel(HaveLocationCheckBox);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(10, 70, 111, 20));
-        label_7->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        Street_Box = new QTextEdit(HaveLocationCheckBox);
-        Street_Box->setObjectName(QStringLiteral("Street_Box"));
-        Street_Box->setGeometry(QRect(10, 88, 321, 26));
-        Street_Box->setMinimumSize(QSize(0, 26));
-        Street_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
-        label_10 = new QLabel(HaveLocationCheckBox);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(250, 113, 60, 16));
-        label_10->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
-        Location_Box = new QTextEdit(HaveLocationCheckBox);
-        Location_Box->setObjectName(QStringLiteral("Location_Box"));
-        Location_Box->setGeometry(QRect(10, 45, 281, 26));
-        Location_Box->setMinimumSize(QSize(0, 26));
-        Location_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
-
-        gridLayout->addWidget(HaveLocationCheckBox, 6, 0, 1, 3);
-
         Category_Box = new QComboBox(layoutWidget);
         Category_Box->addItem(QString());
         Category_Box->addItem(QString());
@@ -273,6 +221,64 @@ public:
 
         gridLayout->addWidget(buttonBox, 7, 0, 1, 3);
 
+        HaveLocationCheckBox = new QWidget(layoutWidget);
+        HaveLocationCheckBox->setObjectName(QStringLiteral("HaveLocationCheckBox"));
+        HaveLocationCheckBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        Zip_Box = new QTextEdit(HaveLocationCheckBox);
+        Zip_Box->setObjectName(QStringLiteral("Zip_Box"));
+        Zip_Box->setGeometry(QRect(250, 130, 81, 26));
+        Zip_Box->setMinimumSize(QSize(0, 26));
+        Zip_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
+        label_6 = new QLabel(HaveLocationCheckBox);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(10, 20, 121, 31));
+        label_6->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        Stste_Box = new QTextEdit(HaveLocationCheckBox);
+        Stste_Box->setObjectName(QStringLiteral("Stste_Box"));
+        Stste_Box->setGeometry(QRect(130, 130, 81, 26));
+        Stste_Box->setMinimumSize(QSize(0, 26));
+        Stste_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
+        label_8 = new QLabel(HaveLocationCheckBox);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(10, 113, 61, 16));
+        label_8->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        City_Box = new QTextEdit(HaveLocationCheckBox);
+        City_Box->setObjectName(QStringLiteral("City_Box"));
+        City_Box->setGeometry(QRect(10, 130, 101, 26));
+        City_Box->setMinimumSize(QSize(0, 26));
+        City_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
+        label_9 = new QLabel(HaveLocationCheckBox);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setGeometry(QRect(130, 113, 60, 16));
+        label_9->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        label_7 = new QLabel(HaveLocationCheckBox);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(10, 70, 111, 20));
+        label_7->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        Street_Box = new QTextEdit(HaveLocationCheckBox);
+        Street_Box->setObjectName(QStringLiteral("Street_Box"));
+        Street_Box->setGeometry(QRect(10, 88, 321, 26));
+        Street_Box->setMinimumSize(QSize(0, 26));
+        Street_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
+        label_10 = new QLabel(HaveLocationCheckBox);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setGeometry(QRect(250, 113, 60, 16));
+        label_10->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));"));
+        Location_Box = new QTextEdit(HaveLocationCheckBox);
+        Location_Box->setObjectName(QStringLiteral("Location_Box"));
+        Location_Box->setGeometry(QRect(10, 45, 281, 26));
+        Location_Box->setMinimumSize(QSize(0, 26));
+        Location_Box->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(225, 225, 225, 255), stop:1 rgba(255, 255, 255, 255))"));
+        comboBox = new QComboBox(HaveLocationCheckBox);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(330, 40, 181, 22));
+        comboBox->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));"));
+        label_11 = new QLabel(HaveLocationCheckBox);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setGeometry(QRect(330, 20, 201, 20));
+
+        gridLayout->addWidget(HaveLocationCheckBox, 6, 0, 1, 3);
+
         gridLayout->setRowMinimumHeight(0, 60);
         gridLayout->setRowMinimumHeight(1, 24);
         gridLayout->setRowMinimumHeight(6, 155);
@@ -288,14 +294,6 @@ public:
         label_13->setText(QApplication::translate("AddEventButton", "Category :", nullptr));
         label->setText(QApplication::translate("AddEventButton", "<html><head/><body><p><span style=\" font-size:64pt;\">Add Event</span></p></body></html>", nullptr));
         label_5->setText(QApplication::translate("AddEventButton", " Title :", nullptr));
-        HaveLocationCheckBox->setTitle(QApplication::translate("AddEventButton", "Location", nullptr));
-        Zip_Box->setDocumentTitle(QString());
-        Zip_Box->setPlaceholderText(QString());
-        label_6->setText(QApplication::translate("AddEventButton", "Location Name :", nullptr));
-        label_8->setText(QApplication::translate("AddEventButton", "City :", nullptr));
-        label_9->setText(QApplication::translate("AddEventButton", "State :", nullptr));
-        label_7->setText(QApplication::translate("AddEventButton", "Street :", nullptr));
-        label_10->setText(QApplication::translate("AddEventButton", "Zip :", nullptr));
         Category_Box->setItemText(0, QApplication::translate("AddEventButton", "Work", nullptr));
         Category_Box->setItemText(1, QApplication::translate("AddEventButton", "School", nullptr));
         Category_Box->setItemText(2, QApplication::translate("AddEventButton", "Exercise", nullptr));
@@ -308,6 +306,14 @@ public:
         label_2->setText(QApplication::translate("AddEventButton", "Start Time:", nullptr));
         label_4->setText(QApplication::translate("AddEventButton", "Note :", nullptr));
         label_3->setText(QApplication::translate("AddEventButton", "End Time:", nullptr));
+        Zip_Box->setDocumentTitle(QString());
+        Zip_Box->setPlaceholderText(QString());
+        label_6->setText(QApplication::translate("AddEventButton", "Location Name :", nullptr));
+        label_8->setText(QApplication::translate("AddEventButton", "City :", nullptr));
+        label_9->setText(QApplication::translate("AddEventButton", "State :", nullptr));
+        label_7->setText(QApplication::translate("AddEventButton", "Street :", nullptr));
+        label_10->setText(QApplication::translate("AddEventButton", "Zip :", nullptr));
+        label_11->setText(QApplication::translate("AddEventButton", "Load Recent Location:", nullptr));
     } // retranslateUi
 
 };

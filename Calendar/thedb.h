@@ -19,6 +19,7 @@ public:
     bool connectToDb();
     int username;
     bool addEventInDb(Event theEvent, int userId);
+    bool addEventInDbNoLocation(Event theEvent, int userId);
     bool validateCredentials(QString uName, QString password);
     bool changePassword(QString userName, QString password);
     int getUserID(QString username);
