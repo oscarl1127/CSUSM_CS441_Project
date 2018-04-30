@@ -31,6 +31,25 @@ void DayCalendar::setUserID(int id)
     qDebug() << "&%"<< userID;
 }
 
+void DayCalendar::FillFromDatabase()
+{
+    vector<Event> events =calenderdb.getEventsForUser(userID);
+    for(int i = 0; i < events.size(); i++)
+    {
+        QDate date = events[i].getStartDate();
+        if(!EventOnDayExists(date))
+            this->userEvents.insert(pair<QDate, vector<Event>>
+                                    (date, events));
+        else
+        {
+            vector<Event> nestedEvents = GetEvents(date);
+            nestedEvents.push_back(events[i]);
+            this->userEvents[date] = nestedEvents;
+        }
+
+    }
+}
+
 ///Purpose: Adding Event to userEvent Map
 /// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
 bool DayCalendar::AddEvent(Event e)
@@ -175,6 +194,16 @@ bool DayCalendar::AddToDatabase(Event newEvent,int theID)
     msgBox.setText("Event added sucessfully.");
     msgBox.exec();
     return x;
+}
+
+vector<QDate> DayCalendar::GetAllEventDates()
+{
+    vector<QDate> DateVector;
+    for (std::map<QDate,vector<Event>>::iterator it=userEvents.begin(); it!=userEvents.end(); ++it)
+    {
+        DateVector.push_back(it->first);
+    }
+    return DateVector;
 }
 
 void DayCalendar::Display()

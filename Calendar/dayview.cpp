@@ -49,8 +49,6 @@ void DayView::RefreshDayView()
                 EndRow = endTime.hour();
         int columnEvent = 0;
        // if(!ui->TimeTable->item(StartRow, columnEvent)->text().isEmpty()) Check when events are on same time
-        //QTableWidgetItem* item = ui->TimeTable->item(StartRow,columnEvent);
-        //item->setText(Events[i].getName());
         ui->TimeTable->setItem(StartRow, columnEvent, new QTableWidgetItem(Events[i].getName()));
         for(int j = StartRow; j < EndRow; j++)
         {
@@ -71,18 +69,20 @@ DayView::~DayView()
 void DayView::on_TimeTable_cellClicked(int row, int column)
 {
     qDebug() << row << " " << column << endl;
+    const QTime time(row, 0, 0);
+    QDateTime dateTime(Date, time);
     QTableWidgetItem* item = ui->TimeTable->item(row,column);
     if (!item || item->text().isEmpty())
     {
         qDebug() << "no text found";
-        AddEventButton _event(Date, UserEvents, AddEventButton::Mode::Read, Parent, this);
+        AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Write, Parent, this);
         //_event.setModal(true);
         _event.exec();
     }
     else
     {
         qDebug() << "text found";
-        AddEventButton _event(Date, UserEvents, AddEventButton::Mode::Read, Parent, this);
+        AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Read, Parent, this);
         _event.setModal(true);
         _event.exec();
     }

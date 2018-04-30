@@ -13,16 +13,29 @@
 #include "activitystats.h"
 
 
-mainWindowTabbed::mainWindowTabbed(QWidget *parent) :
+mainWindowTabbed::mainWindowTabbed(int UserID, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mainWindowTabbed)
 {
     ui->setupUi(this);
-
+    //Resize application to 90% of screen
     centerAndResize(0.9, 0.9);
+
+    //Gather Dates for Event tab form
     ui->DateStart_Box->setDate( QDate::currentDate() );
     ui->DateEnd_Box->setDate( QDate::currentDate() );
-    RefreshUpcomingEventList(30);
+
+    //Set the global userId variable
+    setUserID(UserID);
+
+    //populate locations from database into comboboxes
+    populateLocations(UserID);
+
+    //Fill up the map with events from database
+    userEvents.FillFromDatabase();
+
+    //refresh upcoming event list with filled up map (if any events)
+    RefreshCalendarView();
 }
 
 mainWindowTabbed::~mainWindowTabbed()
@@ -132,7 +145,7 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
             userEvents.ReplaceEvent(newEvent);
         else return;
     }
-    RefreshUpcomingEventList(30);
+    RefreshCalendarView();
 }
 
 // for Todo list
@@ -144,6 +157,18 @@ void mainWindowTabbed::on_SelectTodoListTab_tabBarClicked(int index)
 
 void mainWindowTabbed::on_pushButton_pressed()
 {
+    RefreshUpcomingEventList(30);
+}
+
+void mainWindowTabbed::RefreshCalendarView()
+{
+    QTextCharFormat fmt;
+    fmt.setBackground(Qt::yellow);
+    vector<QDate> allevents = this->userEvents.GetAllEventDates();
+    for(int i = 0; i < allevents.size(); ++i)
+    {
+        ui->calendarWidget->setDateTextFormat(allevents[i], fmt);
+    }
     RefreshUpcomingEventList(30);
 }
 
@@ -171,6 +196,8 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
    ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "Start Time");
    ui->UpcomingEventsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
+
+
 
 void mainWindowTabbed::on_AddEvent_SaveThisLocationButton_clicked()
 {

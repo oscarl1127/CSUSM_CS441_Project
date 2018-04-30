@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
     QFont font("Courier New");
     font.setStyleHint(QFont::Monospace);
     QApplication::setFont(font);
-
     login w;
     w.show();
 

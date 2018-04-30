@@ -22,6 +22,8 @@ public:
     theDB calenderdb;
     int userID;
     void setUserID(int id);
+
+    void FillFromDatabase();
     //vector<Event> events;
 
     ///Constructor
@@ -45,7 +47,7 @@ public:
     vector<Event> GetUpcomingEvents(int numberOfDays, QDate inital_day);
 
     ///Need to have all Events in a Vector
-    vector<Event> GetAllEvents();
+    vector<QDate> GetAllEventDates();
 
 
     ///Purpose: If Event exists anywhere in map, return true, else false

@@ -16,12 +16,13 @@ class mainWindowTabbed : public QDialog
 
 public:
     theDB calenderdb;
-    explicit mainWindowTabbed(QWidget *parent = 0);
+    explicit mainWindowTabbed(int UserID, QWidget *parent = 0);
     void populateLocations(int theUsrID);
     void setUserID(int theUserID);
     int userID;
     int work=0,exercise=0,school=0,freeTime=0,appointment=0,meetings=0,study=0,vacation = 0;
     DayCalendar userEvents;
+    void RefreshCalendarView();
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
     void RefreshUpcomingEventList(int days);
     ~mainWindowTabbed();

@@ -17,7 +17,7 @@ class AddEventButton : public QDialog
 
 public:
      enum Mode {Read, Write};
-    explicit AddEventButton(QDate date, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent = 0);
+    explicit AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent = 0);
     DayCalendar *userEvents;
     mainWindowTabbed *father;
     DayView *dayView;

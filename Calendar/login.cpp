@@ -29,10 +29,7 @@ void login::on_pushButton_clicked()
             int theUserID= calenderdb.getUserID(username);
             qDebug()<<"id-----"<<theUserID;
             hide();
-            mainWindowTabbed m;
-            m.populateLocations(theUserID);
-
-            m.setUserID(theUserID);
+            mainWindowTabbed m(theUserID);
             m.setModal(true);
             m.exec();
             show();

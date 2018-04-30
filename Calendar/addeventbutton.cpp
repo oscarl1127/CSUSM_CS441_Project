@@ -13,19 +13,42 @@ enum Mode
     Read
 };
 
-AddEventButton::AddEventButton(QDate date, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent) :
+AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mode mode, QWidget *main, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEventButton)
 {   
     qDebug() << "entering constructor";
     ui->setupUi(this);
-    ui->StartDate_Box->setDate(date);
-    ui->EndDate_Box->setDate(date);
-    ui->StartTime_Box->setTime(QTime::currentTime());
-    ui->EndTime_Box->setTime(QTime::currentTime().addSecs(60));
     userEvents = _userEvents;
     father = (mainWindowTabbed*) main;
     dayView = (DayView*) parent;
+    switch(mode)
+    {
+        case Mode::Write:
+        ui->StartDate_Box->setDate(dateTime.date());
+        ui->EndDate_Box->setDate(dateTime.date());
+        ui->StartTime_Box->setTime(dateTime.time());
+        ui->EndTime_Box->setTime(dateTime.time().addSecs(60));
+        break;
+
+        case Mode::Read:
+        Event theEvent;
+        userEvents->GetEvent(dateTime, theEvent);
+        ui->StartDate_Box->setDate(dateTime.date());
+        ui->EndDate_Box->setDate(dateTime.date());
+        ui->StartTime_Box->setTime(dateTime.time());
+        ui->EndTime_Box->setTime(dateTime.time().addSecs(60));
+        ui->Title_Box->setText(theEvent.getName());
+        ui->Category_Box->setCurrentText(theEvent.getCategory());
+        ui->City_Box->setText(theEvent.getLocation().getCity());
+        ui->Street_Box->setText(theEvent.getLocation().getStreet());
+        ui->Stste_Box->setText(theEvent.getLocation().getState());
+        ui->Zip_Box->setText(theEvent.getLocation().getZipcode());
+        ui->Note_Box->setText(theEvent.getNote());
+        break;
+    }
+
+
     qDebug() << "AddEventButton Constructed";
 }
 
@@ -129,7 +152,7 @@ void AddEventButton::on_buttonBox_clicked(QAbstractButton *button)
     if(dayView != NULL)
         dayView->RefreshDayView();
     if(father != NULL)
-         father->RefreshUpcomingEventList(30);
+         father->RefreshCalendarView();
     qDebug() << "Event Name "<< QString(newEvent.getName() );
     this->close();
 }
