@@ -91,6 +91,7 @@ vector <Event> theDB::getEventsForUser(int userID)
     QString dateEnd;
     QString eventNote;
     int locationNum;
+    int categoryId;
 
     QDate eventStartDate;
     QDate eventEndDate;
@@ -100,7 +101,7 @@ vector <Event> theDB::getEventsForUser(int userID)
     Event currentEvent;
     Location currentLocation;
 
-    query = "SELECT eventName, eventTimeStart, eventTimeEnd, eventDateStart, eventDateEnd, eventNote,locationNum FROM Event;";
+    query = "SELECT eventName, eventTimeStart, eventTimeEnd, eventDateStart, eventDateEnd, eventNote,locationNum,categoryId FROM Event;";
 
     //Run the query
     QSqlQuery theQuery;
@@ -118,6 +119,7 @@ vector <Event> theDB::getEventsForUser(int userID)
         dateEnd=theQuery.value(4).toString();
         eventNote=theQuery.value(5).toString();
         locationNum=theQuery.value(6).toInt();
+        categoryId=theQuery.value(7).toInt();
 
 
 
@@ -138,10 +140,28 @@ vector <Event> theDB::getEventsForUser(int userID)
         currentEvent.setEndDate(eventEndDate);
         currentEvent.setTimeStart(eventStartTime);
         currentEvent.setTimeEnd(eventEndTime);
-        //Temp catagory
-        currentEvent.setCategory("Work");
         currentEvent.setNote(eventNote);
         currentEvent.setLocation(currentLocation);
+
+        QString theCat;
+        if(categoryId==1)
+            theCat="Work";
+        else if(categoryId==2)
+            theCat="School";
+        else if(categoryId==3)
+            theCat="Exercise";
+        else if(categoryId==4)
+            theCat="Free Time";
+        else if(categoryId==5)
+            theCat="Appointment";
+        else if(categoryId==6)
+            theCat="Meetings";
+        else if(categoryId==7)
+            theCat="Study";
+        else if(categoryId==8)
+            theCat="Vacation";
+
+        currentEvent.setCategory(theCat);
 
         //Add current event to vector
         eventsList.push_back(currentEvent);

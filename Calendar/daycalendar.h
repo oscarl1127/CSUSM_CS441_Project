@@ -19,6 +19,7 @@ private:
 
 public:
     map<QDate, vector<Event>> userEvents;
+    vector<Event> orderEvents(vector<Event> origEvents);
     theDB calenderdb;
     int userID;
     void setUserID(int id);

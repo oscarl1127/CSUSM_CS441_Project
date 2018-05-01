@@ -191,6 +191,7 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
        ui->UpcomingEventsTable->setItem(i, k++, category);
        ui->UpcomingEventsTable->setItem(i, k++, startDate);
        ui->UpcomingEventsTable->setItem(i, k++, startTime);
+       //qDebug() << "$$$$"<<i;
    }
    ui->UpcomingEventsTable->setHorizontalHeaderLabels(QStringList() << "Title" << "Category" << "Start Date" << "Start Time");
    ui->UpcomingEventsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);

@@ -27,7 +27,6 @@ void login::on_pushButton_clicked()
         if((username ==  "username" && password == "password")||(calenderdb.validateCredentials(username,password)))
         {
             int theUserID= calenderdb.getUserID(username);
-            qDebug()<<"id-----"<<theUserID;
             hide();
             mainWindowTabbed m(theUserID);
             m.setModal(true);

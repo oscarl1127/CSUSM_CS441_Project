@@ -152,6 +152,8 @@ vector<Event> DayCalendar::GetUpcomingEvents(int numberOfDays, QDate inital_day)
         }
       proposed = proposed.addDays(1);
     }
+    //ShowEvents=calenderdb.getEventsForUser(userID);
+    ShowEvents=orderEvents(ShowEvents);
     return ShowEvents;
 }
 
@@ -204,6 +206,39 @@ vector<QDate> DayCalendar::GetAllEventDates()
         DateVector.push_back(it->first);
     }
     return DateVector;
+}
+
+vector<Event> DayCalendar::orderEvents(vector<Event> origEvents)
+{
+    vector<Event> EventsOrdered;
+    vector<Event> runningList = origEvents;
+    //eventStartDate = QDate::fromString(dateStart);
+
+    int idOfMinEvent;
+    QDate minDate;
+
+    //Runs until the each event has been parsed through
+    while(runningList.size()>0)
+    {
+        //Assume min date is first element of current vector
+        minDate= runningList[0].getStartDate();
+        idOfMinEvent=0;
+        //Traverse and find closest date
+        for(int x=0;x<runningList.size();x++)
+        {
+            if(runningList[x].getStartDate()<minDate)
+            {
+                minDate=runningList[x].getStartDate();
+                idOfMinEvent=x;
+            }
+        }
+        //Push the current minimum to the ordered events list
+        EventsOrdered.push_back(runningList[idOfMinEvent]);
+        //Erase the event that was added to the sorted list
+        runningList.erase(runningList.begin()+idOfMinEvent);
+    }
+
+    return EventsOrdered;
 }
 
 void DayCalendar::Display()
