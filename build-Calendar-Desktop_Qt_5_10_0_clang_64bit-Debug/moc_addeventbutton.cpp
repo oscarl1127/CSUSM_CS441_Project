@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AddEventButton_t {
-    QByteArrayData data[5];
-    char stringdata0[61];
+    QByteArrayData data[7];
+    char stringdata0[98];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,14 @@ QT_MOC_LITERAL(0, 0, 14), // "AddEventButton"
 QT_MOC_LITERAL(1, 15, 20), // "on_buttonBox_clicked"
 QT_MOC_LITERAL(2, 36, 0), // ""
 QT_MOC_LITERAL(3, 37, 16), // "QAbstractButton*"
-QT_MOC_LITERAL(4, 54, 6) // "button"
+QT_MOC_LITERAL(4, 54, 6), // "button"
+QT_MOC_LITERAL(5, 61, 31), // "on_comboBox_currentIndexChanged"
+QT_MOC_LITERAL(6, 93, 4) // "arg1"
 
     },
     "AddEventButton\0on_buttonBox_clicked\0"
-    "\0QAbstractButton*\0button"
+    "\0QAbstractButton*\0button\0"
+    "on_comboBox_currentIndexChanged\0arg1"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +52,7 @@ static const uint qt_meta_data_AddEventButton[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,10 +60,12 @@ static const uint qt_meta_data_AddEventButton[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x08 /* Private */,
+       1,    1,   24,    2, 0x08 /* Private */,
+       5,    1,   27,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QString,    6,
 
        0        // eod
 };
@@ -72,6 +77,7 @@ void AddEventButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_buttonBox_clicked((*reinterpret_cast< QAbstractButton*(*)>(_a[1]))); break;
+        case 1: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -113,13 +119,13 @@ int AddEventButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

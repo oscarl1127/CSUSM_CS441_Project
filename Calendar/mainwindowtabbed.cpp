@@ -219,6 +219,39 @@ void mainWindowTabbed::on_weeklyStats_clicked()
     stats->buildPieSeries(this->work,this->exercise,this->school,this->freeTime,this->appointment,
                           this->meetings,this->study,this->vacation);
 
+    if(this->work>0)
+    {
+        stats->slice2->setLabelVisible(true);
+    }
+    if(this->exercise>0)
+    {
+        stats->slice1->setLabelVisible(true);
+    }
+    if(this->school>0)
+    {
+        stats->slice3->setLabelVisible(true);
+    }
+    if(this->freeTime>0)
+    {
+        stats->slice4->setLabelVisible(true);
+    }
+    if(this->appointment>0)
+    {
+        stats->slice5->setLabelVisible(true);
+    }
+    if(this->meetings>0)
+    {
+        stats->slice8->setLabelVisible(true);
+    }
+    if(this->study>0)
+    {
+        stats->slice6->setLabelVisible(true);
+    }
+    if(this->vacation >0)
+    {
+        stats->slice7->setLabelVisible(true);
+    }
+
     stats->chart->setTitle("Weekly Activity Breakdown");
 
     stats->chart->setTheme(QChart::ChartThemeDark);
@@ -241,10 +274,42 @@ void mainWindowTabbed::on_monthlyStats_clicked()
 
     calculateMonthStatsByCategory();
 
-    qDebug() << "events about to build" << this->meetings << this->work ;
-
     stats->buildPieSeries(this->work,this->exercise,this->school,this->freeTime,this->appointment,
                           this->meetings,this->study,this->vacation);
+
+    if(this->work>0)
+    {
+        stats->slice2->setLabelVisible(true);
+    }
+    if(this->exercise>0)
+    {
+        stats->slice1->setLabelVisible(true);
+    }
+    if(this->school>0)
+    {
+        stats->slice3->setLabelVisible(true);
+    }
+    if(this->freeTime>0)
+    {
+        stats->slice4->setLabelVisible(true);
+    }
+    if(this->appointment>0)
+    {
+        stats->slice5->setLabelVisible(true);
+    }
+    if(this->meetings>0)
+    {
+        stats->slice8->setLabelVisible(true);
+    }
+    if(this->study>0)
+    {
+        stats->slice6->setLabelVisible(true);
+    }
+    if(this->vacation >0)
+    {
+        stats->slice7->setLabelVisible(true);
+    }
+
 
     stats->chart->setTheme(QChart::ChartThemeBlueCerulean);
 
@@ -272,7 +337,6 @@ void mainWindowTabbed::calculateMonthStatsByCategory()
 
     vector<Event> events = userEvents.GetUpcomingEvents(31, monthDate);
 
-    //qDebug() << "vector size " << events.size();
     foreach (Event e, events)
     {
         if(e.getCategory() == "Work" )
@@ -315,22 +379,20 @@ void mainWindowTabbed::calculateWeekStatsByCategory()
 {
     int month = QDate::currentDate().month();
     int day = QDate::currentDate().day();
-    //qDebug()<<"beforeW " <<day;
+
     day = (day <= 7) ? 1 : day-=7;
-    //qDebug() << "afterW "<< day;
+
     int year = QDate::currentDate().year();
-    //qDebug()<<"DateW "<< year <<month <<day;
 
     QDate week = QDate(year,month,day);
 
     if(userEvents.userEvents.size() == 0)
     {
+
         return;
     }
 
     vector<Event> events = userEvents.GetUpcomingEvents(8, week);
-
-    //qDebug() << "vector sizeW " << events.size();
 
     foreach (Event e, events)
     {

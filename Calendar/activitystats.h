@@ -13,6 +13,9 @@ class activitystats
 
 private:
     QPieSeries *series = new QPieSeries();
+
+
+public:
     QPieSlice *slice1 ;
     QPieSlice *slice2 ;
     QPieSlice *slice3 ;
@@ -21,8 +24,6 @@ private:
     QPieSlice *slice6 ;
     QPieSlice *slice7 ;
     QPieSlice *slice8 ;
-
-public:
     QChart *chart = new QChart();
     activitystats();
     void buildPieSeries(int W, int E, int Sc, int F, int A, int M, int S, int V);
