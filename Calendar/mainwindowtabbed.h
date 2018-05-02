@@ -5,6 +5,7 @@
 #include <QListWidgetItem>
 #include "daycalendar.h"
 #include "thedb.h"
+#include <QTableWidget>
 
 namespace Ui {
 class mainWindowTabbed;
@@ -41,6 +42,8 @@ private slots:
     void on_monthlyStats_clicked();
 
     void on_AddEvent_LoadSavedLocationComboBox_currentIndexChanged(const QString &arg1);
+
+    void on_UpcomingEventsTable_itemDoubleClicked(QTableWidgetItem *item);
 
 private:
     Ui::mainWindowTabbed *ui;

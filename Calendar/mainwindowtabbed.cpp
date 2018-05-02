@@ -189,8 +189,8 @@ void mainWindowTabbed::RefreshUpcomingEventList(int days)
        k = 0;
        QTableWidgetItem *name =new QTableWidgetItem (events[i].getName()),
                *category = new QTableWidgetItem(events[i].getCategory()),
-               *startDate = new QTableWidgetItem(events[i].getStartDate().toString()),
-               *startTime = new QTableWidgetItem(events[i].getTimeStart().toString());
+               *startDate = new QTableWidgetItem(events[i].getStartDate().toString("MM/dd/yyyy")),
+               *startTime = new QTableWidgetItem(events[i].getTimeStart().toString("HH:mm"));
        ui->UpcomingEventsTable->insertRow(i);
        ui->UpcomingEventsTable->setItem(i, k++, name);
        ui->UpcomingEventsTable->setItem(i, k++, category);
@@ -466,5 +466,23 @@ void mainWindowTabbed::populateLocations(int theUsrID)
         currentLoc = locs[y].getLocationName();
             ui->AddEvent_LoadSavedLocationComboBox->addItem(currentLoc);
     }
+
+}
+
+void mainWindowTabbed::on_UpcomingEventsTable_itemDoubleClicked(QTableWidgetItem *item)
+{
+    //qDebug() << row << " " << column << endl;
+    //const QTime time(row, 0, 0);
+    int row = item->row();
+    QDate date = QDate::fromString(ui->UpcomingEventsTable->item(row, 2)->text(), "MM/dd/yyyy");
+    QTime time = QTime::fromString(ui->UpcomingEventsTable->item(row, 3)->text(), "HH:mm");
+    qDebug() << date;
+    qDebug() << time;
+    QDateTime dateTime(date, time);
+    qDebug() << dateTime;
+    AddEventButton _event(dateTime, &userEvents, AddEventButton::Mode::Read, this);
+    _event.setModal(true);
+    _event.populateLocations();
+    _event.exec();
 
 }
