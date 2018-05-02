@@ -38,11 +38,14 @@ DayView::DayView(DayCalendar *dayCalendar, QDate date, QWidget *parent) :
 
 void DayView::RefreshDayView()
 {
+    colorIndex = 0;
     qDebug() << "Refreshing Day View";
+    ui->TimeTable->clearContents();
     Events = UserEvents->GetEvents(Date);
-    qDebug() << "Got Events";
+    qDebug() << "Got Events, the size is " << Events.size();
     for(int i = 0; i < Events.size(); i++)
     {
+        qDebug() << "Getting event " << Events[i].getName();
         QTime startTime = Events[i].getTimeStart(),
                 endTime = Events[i].getTimeEnd();
         int StartRow = startTime.hour(),

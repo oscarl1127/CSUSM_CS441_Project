@@ -76,20 +76,20 @@ bool DayCalendar::AddEvent(Event e)
 
 }
 
-void DayCalendar::ReplaceEvent(QDateTime datetime)
+void DayCalendar::ReplaceEvent(Event newEvent)
 {
-    QDate date = datetime.date();
+    QDate date = newEvent.getStartDate();
     if(EventOnDayExists(date))
     {
         vector<Event> &event = this->userEvents[date];
         for (vector<Event>::iterator it = event.begin() ; it != event.end(); ++it)
            {
-            if(it->getTimeStart() == datetime.time())
+            if(it->getTimeStart() == newEvent.getTimeStart())
             {
-                event.erase(it);
-                event.insert(it, event.begin(), event.end());
+                *it = newEvent;
             }
           }
+        //this->userEvents[date] = event;
     }
     else
     {
@@ -120,6 +120,7 @@ vector<Event> DayCalendar::GetEvents(QDate q)
 void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
 {
     vector<Event> events = GetEvents(q.date());
+    qDebug() << "events size " << events.size();
     for(int i = 0; i < events.size(); ++i)
     {
         if(events[i].getTimeStart() == q.time())
@@ -127,13 +128,12 @@ void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
             qDebug() << "Found event to remove";
             removedEvent = events[i];
             qDebug() << "got removed event: " << removedEvent.getName();
-            vector<Event>::const_iterator it = events.begin()+i;
-            events.erase(it);
-            //qDebug() << "Removed " << it->getName();
+
+            events.erase(events.begin()+i);
             break;
         }
     }
-    userEvents[q.date()] = events;
+    this->userEvents[q.date()] = events;
 
 }
 
@@ -208,6 +208,11 @@ bool DayCalendar::AddToDatabase(Event newEvent,int theID)
     msgBox.setText("Event added sucessfully.");
     msgBox.exec();
     return x;
+}
+
+bool DayCalendar::SyncDatabase()
+{
+    return true;
 }
 
 vector<QDate> DayCalendar::GetAllEventDates()

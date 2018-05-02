@@ -33,6 +33,7 @@ private slots:
     void AddEventClicked();
     void DeleteEventClicked();
     void ApplyEventClicked();
+    void CancelEventClicked();
     //void on_buttonBox_clicked(QAbstractButton *button);
     void on_comboBox_currentIndexChanged(const QString &arg1);
 

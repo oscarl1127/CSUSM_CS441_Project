@@ -56,6 +56,8 @@ public:
 
     QTime getTimeStart(){return this->timeStart;}
     QTime getTimeEnd(){return this->timeEnd;}
+    bool operator ==(Event &b);
+
 
 };
 

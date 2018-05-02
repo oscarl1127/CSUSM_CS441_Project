@@ -23,6 +23,7 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
     connect(ui->buttonBox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), SLOT(AddEventClicked()));
     connect(ui->buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), SLOT(ApplyEventClicked()));
     connect(ui->buttonBox->button(QDialogButtonBox::Discard), SIGNAL(clicked()), SLOT(DeleteEventClicked()));
+    connect(ui->buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(CancelEventClicked()));
     userEvents = _userEvents;
     father = (mainWindowTabbed*) main;
     dayView = (DayView*) parent;
@@ -30,6 +31,8 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
     switch(CurrentMode)
     {
         case Mode::Write:
+        this->setWindowTitle("Add Event");
+        ui->label->setText("Add Event");
         ui->StartDate_Box->setDate(dateTime.date());
         ui->EndDate_Box->setDate(dateTime.date());
         ui->StartTime_Box->setTime(dateTime.time());
@@ -42,7 +45,9 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
         case Mode::Read:
         Event theEvent;
         FocusedDateTime = dateTime;
+        this->setWindowTitle("Edit Event");
         userEvents->GetEvent(dateTime, theEvent);
+        ui->label->setText("Edit Event");
         ui->StartDate_Box->setDate(dateTime.date());
         ui->EndDate_Box->setDate(dateTime.date());
         ui->StartTime_Box->setTime(dateTime.time());
@@ -126,10 +131,7 @@ void AddEventButton::AddEventClicked()
         reply = QMessageBox::question(this, "Same Date Collision", "Event with same Date and Time found! Replace?",
                                    QMessageBox::Yes|QMessageBox::No);
         if(reply == QMessageBox::Yes)
-        {
-            QDateTime dateTime(newEvent.getStartDate(), newEvent.getTimeStart());
-            userEvents->ReplaceEvent(dateTime);
-        }
+            userEvents->ReplaceEvent(newEvent);
         else return;
     }
     if(dayView != NULL)
@@ -153,12 +155,50 @@ void AddEventButton::DeleteEventClicked()
 }
 void AddEventButton::ApplyEventClicked()
 {
-    userEvents->ReplaceEvent(FocusedDateTime);
+    Event newEvent = Event();
+    //Event attributes
+    QString eventName = ui->Title_Box->toPlainText();
+    QString category = ui->Category_Box->currentText();
+    QDate startDate = ui->StartDate_Box->date();
+    QDate endDate = ui->EndDate_Box->date();
+    QTime startTime = ui->StartTime_Box->time();
+    QTime endTime = ui->EndTime_Box->time();
+    QString note = ui->Note_Box->toPlainText();
+
+    //Store loation attributes
+    QString locationName = ui->Location_Box->toPlainText();
+    QString streetName = ui->Street_Box->toPlainText();
+    QString cityName = ui->City_Box->toPlainText();
+    QString stateName = ui->Stste_Box->toPlainText();
+    QString zip = ui->Zip_Box->toPlainText();
+    //Set location attributes
+    newEvent.eventLoc.setLocationName(locationName);
+    newEvent.eventLoc.setStreet(streetName);
+    newEvent.eventLoc.setCity(cityName);
+    newEvent.eventLoc.setZipCode(zip);
+    newEvent.eventLoc.setState(stateName);
+    newEvent.eventLoc.setSavedLocation(1);
+
+    //Set event attributes
+    newEvent.setName(eventName);
+    newEvent.setNote(note);
+    newEvent.setCategory(category);
+    newEvent.setStartDate(startDate);
+    newEvent.setEndDate(endDate);
+    newEvent.setTimeStart(startTime);
+    newEvent.setTimeEnd(endTime);
+
+    userEvents->ReplaceEvent(newEvent);
     qDebug() << "Replaced on the time " << FocusedDateTime;
     if(dayView != NULL)
         dayView->RefreshDayView();
     if(father != NULL)
          father->RefreshCalendarView();
+}
+
+void AddEventButton::CancelEventClicked()
+{
+    this->close();
 }
 
 void AddEventButton::EnableAll(bool enable)

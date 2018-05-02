@@ -22,14 +22,17 @@ public:
     vector<Event> orderEvents(vector<Event> origEvents);
     theDB calenderdb;
     int userID;
+
     void setUserID(int id);
+
     void FillFromDatabase();
+
+    bool SyncDatabase();
+
     int getUserID()
     {
         return userID;
     }
-
-    //vector<Event> events;
 
     ///Constructor
     DayCalendar();
@@ -38,7 +41,7 @@ public:
     /// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
     bool AddEvent(Event e);
 
-    void ReplaceEvent(QDateTime datetime);
+    void ReplaceEvent(Event newEvent);
 
     vector<Event> GetEvents(QDate q);
 
