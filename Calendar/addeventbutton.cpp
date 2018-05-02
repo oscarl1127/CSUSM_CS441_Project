@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <mainwindowtabbed.h>
+#include <QPushButton>
 
 using namespace std;
 enum Mode
@@ -29,6 +30,7 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
         ui->EndDate_Box->setDate(dateTime.date());
         ui->StartTime_Box->setTime(dateTime.time());
         ui->EndTime_Box->setTime(dateTime.time().addSecs(60));
+        ui->buttonBox->button(QDialogButtonBox::Discard)->hide();
         break;
 
         case Mode::Read:
@@ -37,7 +39,7 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
         ui->StartDate_Box->setDate(dateTime.date());
         ui->EndDate_Box->setDate(dateTime.date());
         ui->StartTime_Box->setTime(dateTime.time());
-        ui->EndTime_Box->setTime(dateTime.time().addSecs(60));
+        ui->EndTime_Box->setTime(theEvent.getTimeEnd());
         ui->Title_Box->setText(theEvent.getName());
         ui->Category_Box->setCurrentText(theEvent.getCategory());
         ui->City_Box->setText(theEvent.getLocation().getCity());
@@ -45,6 +47,8 @@ AddEventButton::AddEventButton(QDateTime dateTime, DayCalendar *_userEvents, Mod
         ui->Stste_Box->setText(theEvent.getLocation().getState());
         ui->Zip_Box->setText(theEvent.getLocation().getZipcode());
         ui->Note_Box->setText(theEvent.getNote());
+        ui->buttonBox->button(QDialogButtonBox::Discard)->show();
+        ui->buttonBox->button(QDialogButtonBox::Discard)->setText("Delete Event");
         break;
     }
 
