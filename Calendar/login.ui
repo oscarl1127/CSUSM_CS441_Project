@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>540</width>
-    <height>320</height>
+    <height>288</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -60,14 +60,14 @@ color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0.985222, y2:1, stop:1 rgb
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>312</y>
+      <y>313</y>
       <width>131</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -86,19 +86,19 @@ color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0.985222, y2:1, stop:1 rgb
       <x>200</x>
       <y>180</y>
       <width>411</width>
-      <height>101</height>
+      <height>97</height>
      </rect>
     </property>
     <property name="maximumSize">
      <size>
       <width>411</width>
-      <height>101</height>
+      <height>100</height>
      </size>
     </property>
     <property name="font">
      <font>
       <family>Papyrus</family>
-      <pointsize>80</pointsize>
+      <pointsize>46</pointsize>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
@@ -107,7 +107,6 @@ color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0.985222, y2:1, stop:1 rgb
     <property name="styleSheet">
      <string notr="true">
 background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.458128 rgba(32, 131, 174, 0));
-font:80pt &quot;Papyrus&quot;;
 </string>
     </property>
     <property name="text">
@@ -128,7 +127,7 @@ font:80pt &quot;Papyrus&quot;;
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <pointsize>11</pointsize>
       <weight>75</weight>
       <italic>false</italic>
       <bold>true</bold>
@@ -160,8 +159,16 @@ font: bold;
      <x>270</x>
      <y>260</y>
      <width>271</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <italic>true</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: black;
@@ -180,8 +187,16 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
      <x>0</x>
      <y>260</y>
      <width>281</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <italic>true</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: black;
