@@ -14,6 +14,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Calendar
 TEMPLATE = app
+RC_FILE = MyTime.rc
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -64,3 +65,9 @@ FORMS += \
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    images.png \
+    images.png \
+    MyTime.rc \
+    time_and_date.ico
