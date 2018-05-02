@@ -38,8 +38,12 @@ void DayCalendar::FillFromDatabase()
     {
         QDate date = events[i].getStartDate();
         if(!EventOnDayExists(date))
+          {
+            vector<Event> nVector;
+            nVector.push_back(events[i]);
             this->userEvents.insert(pair<QDate, vector<Event>>
-                                    (date, events));
+                                    (date, nVector));
+        }
         else
         {
             vector<Event> nestedEvents = GetEvents(date);
@@ -174,7 +178,8 @@ bool DayCalendar::EventExists(Event e)
 
 bool DayCalendar::EventOnDayExists(QDate q)
 {
-    if(userEvents.find(q) != userEvents.end())
+    map<QDate, vector<Event>>::const_iterator it = userEvents.find(q);
+    if(it != userEvents.end())
     {
         qDebug() << "Event on day " << q << "exists!";
         vector<Event> events = GetEvents(q);
