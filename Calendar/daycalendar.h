@@ -41,7 +41,7 @@ public:
     /// Returns true, if add was succesful, else if event already exists at specified time of new event, return false
     bool AddEvent(Event e);
 
-    void ReplaceEvent(Event newEvent);
+    void ReplaceEvent(Event oldEvent, Event newEvent);
 
     vector<Event> GetEvents(QDate q);
 

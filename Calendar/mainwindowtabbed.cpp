@@ -141,7 +141,12 @@ void mainWindowTabbed::on_AddEvent_AcceptDeclineButton_accepted()
         reply = QMessageBox::question(this, "Same Date Collision", "Event with same Date and Time found! Replace?",
                                    QMessageBox::Yes|QMessageBox::No);
         if(reply == QMessageBox::Yes)
-            userEvents.ReplaceEvent(newEvent);
+        {
+            QDateTime dateTime(newEvent.getStartDate(), newEvent.getTimeStart());
+            Event oldEvent;
+            userEvents.GetEvent(dateTime, oldEvent);
+            userEvents.ReplaceEvent(oldEvent, newEvent);
+        }
         else return;
     }
     RefreshCalendarView();

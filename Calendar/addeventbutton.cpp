@@ -131,7 +131,12 @@ void AddEventButton::AddEventClicked()
         reply = QMessageBox::question(this, "Same Date Collision", "Event with same Date and Time found! Replace?",
                                    QMessageBox::Yes|QMessageBox::No);
         if(reply == QMessageBox::Yes)
-            userEvents->ReplaceEvent(newEvent);
+        {
+            QDateTime dateTime(newEvent.getStartDate(), newEvent.getTimeStart());
+            Event oldEvent;
+            userEvents->GetEvent(dateTime, oldEvent);
+            userEvents->ReplaceEvent(oldEvent, newEvent);
+        }
         else return;
     }
     if(dayView != NULL)
@@ -188,12 +193,15 @@ void AddEventButton::ApplyEventClicked()
     newEvent.setTimeStart(startTime);
     newEvent.setTimeEnd(endTime);
 
-    userEvents->ReplaceEvent(newEvent);
-    qDebug() << "Replaced on the time " << FocusedDateTime;
+    Event oldEvent;
+    userEvents->GetEvent(FocusedDateTime, oldEvent);
+    userEvents->ReplaceEvent(oldEvent, newEvent);
+    qDebug() << "Replaced the time " << FocusedDateTime << " with " << newEvent.getTimeStart();
     if(dayView != NULL)
         dayView->RefreshDayView();
     if(father != NULL)
          father->RefreshCalendarView();
+    this->close();
 }
 
 void AddEventButton::CancelEventClicked()

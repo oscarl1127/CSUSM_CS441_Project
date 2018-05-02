@@ -30,6 +30,8 @@ public:
 private slots:
     void on_TimeTable_cellClicked(int row, int column);
 
+    void on_TimeTable_cellDoubleClicked(int row, int column);
+
 private:
     Ui::DayView *ui;
 };

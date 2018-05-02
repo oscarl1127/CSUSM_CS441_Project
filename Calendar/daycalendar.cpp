@@ -76,25 +76,12 @@ bool DayCalendar::AddEvent(Event e)
 
 }
 
-void DayCalendar::ReplaceEvent(Event newEvent)
+void DayCalendar::ReplaceEvent(Event oldEvent, Event newEvent)
 {
-    QDate date = newEvent.getStartDate();
-    if(EventOnDayExists(date))
-    {
-        vector<Event> &event = this->userEvents[date];
-        for (vector<Event>::iterator it = event.begin() ; it != event.end(); ++it)
-           {
-            if(it->getTimeStart() == newEvent.getTimeStart())
-            {
-                *it = newEvent;
-            }
-          }
-        //this->userEvents[date] = event;
-    }
-    else
-    {
-        qDebug() << "Event does not exist";
-    }
+    Event oldEventSaved;
+    QDateTime oldDate(oldEvent.getStartDate(), oldEvent.getTimeStart());
+    RemoveEvent(oldDate, oldEventSaved);
+    AddEvent(newEvent);
 }
 
 bool DayCalendar::GetEvent(QDateTime q, Event &event)

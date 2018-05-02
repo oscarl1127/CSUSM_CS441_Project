@@ -74,6 +74,31 @@ DayView::~DayView()
 
 void DayView::on_TimeTable_cellClicked(int row, int column)
 {
+//    qDebug() << row << " " << column << endl;
+//    const QTime time(row, 0, 0);
+//    QDateTime dateTime(Date, time);
+//    QTableWidgetItem* item = ui->TimeTable->item(row,column);
+//    if (!item || item->text().isEmpty())
+//    {
+//        qDebug() << "no text found";
+//        AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Write, Parent, this);
+//        //_event.setModal(true);
+//          _event.populateLocations();
+//        _event.exec();
+//    }
+//    else
+//    {
+//        qDebug() << "text found";
+//        AddEventButton _event(dateTime, UserEvents, AddEventButton::Mode::Read, Parent, this);
+//        _event.setModal(true);
+//        _event.populateLocations();
+//        _event.exec();
+//    }
+
+}
+
+void DayView::on_TimeTable_cellDoubleClicked(int row, int column)
+{
     qDebug() << row << " " << column << endl;
     const QTime time(row, 0, 0);
     QDateTime dateTime(Date, time);
@@ -94,5 +119,4 @@ void DayView::on_TimeTable_cellClicked(int row, int column)
         _event.populateLocations();
         _event.exec();
     }
-
 }
