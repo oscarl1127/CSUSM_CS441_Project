@@ -24,14 +24,16 @@ public:
     DayCalendar *userEvents;
     mainWindowTabbed *father;
     DayView *dayView;
+    Mode CurrentMode;
+    QDateTime FocusedDateTime;
     void EnableAll(bool enable);
     ~AddEventButton();
 
 private slots:
-
-    void on_buttonBox_clicked(QAbstractButton *button);
-
-
+    void AddEventClicked();
+    void DeleteEventClicked();
+    void ApplyEventClicked();
+    //void on_buttonBox_clicked(QAbstractButton *button);
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
 private:

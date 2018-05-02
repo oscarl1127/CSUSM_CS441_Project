@@ -293,7 +293,7 @@ padding: 0 20px;
 margin: 2px;</string>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Discard|QDialogButtonBox::Ok</set>
        </property>
        <property name="centerButtons">
         <bool>true</bool>

@@ -76,15 +76,15 @@ bool DayCalendar::AddEvent(Event e)
 
 }
 
-void DayCalendar::ReplaceEvent(Event e)
+void DayCalendar::ReplaceEvent(QDateTime datetime)
 {
-    QDate date = e.getStartDate();
+    QDate date = datetime.date();
     if(EventOnDayExists(date))
     {
         vector<Event> &event = this->userEvents[date];
         for (vector<Event>::iterator it = event.begin() ; it != event.end(); ++it)
            {
-            if(it->getTimeStart() == e.getTimeStart())
+            if(it->getTimeStart() == datetime.time())
             {
                 event.erase(it);
                 event.insert(it, event.begin(), event.end());
@@ -120,12 +120,19 @@ vector<Event> DayCalendar::GetEvents(QDate q)
 void DayCalendar::RemoveEvent(QDateTime q, Event &removedEvent)
 {
     vector<Event> events = GetEvents(q.date());
-    for(vector<Event>::iterator it = events.begin(); it != events.end(); ++it)
-        if(it->getTimeStart() == q.time())
+    for(int i = 0; i < events.size(); ++i)
+    {
+        if(events[i].getTimeStart() == q.time())
         {
-            removedEvent = (Event)*it;
+            qDebug() << "Found event to remove";
+            removedEvent = events[i];
+            qDebug() << "got removed event: " << removedEvent.getName();
+            vector<Event>::const_iterator it = events.begin()+i;
             events.erase(it);
+            //qDebug() << "Removed " << it->getName();
+            break;
         }
+    }
     userEvents[q.date()] = events;
 
 }
