@@ -216,7 +216,7 @@ public:
 "border: 1px solid black;\n"
 "padding: 0 20px;\n"
 "margin: 2px;"));
-        buttonBox->setStandardButtons(QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        buttonBox->setStandardButtons(QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Discard|QDialogButtonBox::Ok);
         buttonBox->setCenterButtons(true);
 
         gridLayout->addWidget(buttonBox, 7, 0, 1, 3);

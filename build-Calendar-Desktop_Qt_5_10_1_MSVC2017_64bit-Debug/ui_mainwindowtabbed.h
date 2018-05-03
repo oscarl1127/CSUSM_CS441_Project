@@ -111,7 +111,7 @@ public:
     {
         if (mainWindowTabbed->objectName().isEmpty())
             mainWindowTabbed->setObjectName(QStringLiteral("mainWindowTabbed"));
-        mainWindowTabbed->resize(1143, 735);
+        mainWindowTabbed->resize(1271, 735);
         mainWindowTabbed->setFocusPolicy(Qt::NoFocus);
         mainWindowTabbed->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:1 rgba(99, 197, 240, 255));"));
         mainWindowTabbed->setModal(false);
