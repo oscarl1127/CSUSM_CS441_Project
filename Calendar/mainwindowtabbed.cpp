@@ -3,15 +3,15 @@
 #include <QListWidgetItem>
 #include <QMessageBox>
 #include <QDate>
-#include "dayview.h"
+#include "TimeTable/dayview.h"
 #include "QDesktopWidget"
 #include "QDebug"
-#include "event.h"
-#include "daycalendar.h"
-#include "thedb.h"
-#include "addeventbutton.h"
-#include "activitystats.h"
-#include "addtodo.h"
+#include "EventObject/event.h"
+#include "DayCalendar/daycalendar.h"
+#include "Database/thedb.h"
+#include "AddEventForm/addeventbutton.h"
+#include "ActivityStats/activitystats.h"
+#include "Todo/addtodo.h"
 
 
 mainWindowTabbed::mainWindowTabbed(int UserID, QWidget *parent) :

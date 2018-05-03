@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QTableWidget>
 
@@ -23,7 +22,6 @@ QT_BEGIN_NAMESPACE
 class Ui_DayView
 {
 public:
-    QHBoxLayout *horizontalLayout;
     QTableWidget *TimeTable;
 
     void setupUi(QDialog *DayView)
@@ -31,8 +29,7 @@ public:
         if (DayView->objectName().isEmpty())
             DayView->setObjectName(QStringLiteral("DayView"));
         DayView->resize(456, 755);
-        horizontalLayout = new QHBoxLayout(DayView);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        DayView->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(86, 199, 255, 255), stop:1 rgba(65, 185, 245, 255))"));
         TimeTable = new QTableWidget(DayView);
         if (TimeTable->columnCount() < 1)
             TimeTable->setColumnCount(1);
@@ -89,12 +86,18 @@ public:
         QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
         TimeTable->setVerticalHeaderItem(23, __qtablewidgetitem24);
         TimeTable->setObjectName(QStringLiteral("TimeTable"));
-        TimeTable->setFrameShape(QFrame::Box);
-        TimeTable->setFrameShadow(QFrame::Sunken);
-        TimeTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        TimeTable->setGeometry(QRect(11, 11, 431, 741));
+        TimeTable->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.0170455, stop:0 rgba(224, 224, 224, 255), stop:1 rgba(255, 255, 255, 255));"));
+        TimeTable->setFrameShape(QFrame::StyledPanel);
+        TimeTable->setFrameShadow(QFrame::Plain);
+        TimeTable->setLineWidth(0);
+        TimeTable->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         TimeTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        TimeTable->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        TimeTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
         TimeTable->setDragEnabled(false);
-        TimeTable->setAlternatingRowColors(false);
+        TimeTable->setDragDropMode(QAbstractItemView::NoDragDrop);
+        TimeTable->setAlternatingRowColors(true);
         TimeTable->setSelectionBehavior(QAbstractItemView::SelectItems);
         TimeTable->setShowGrid(true);
         TimeTable->setRowCount(24);
@@ -104,9 +107,6 @@ public:
         TimeTable->horizontalHeader()->setStretchLastSection(true);
         TimeTable->verticalHeader()->setVisible(true);
 
-        horizontalLayout->addWidget(TimeTable);
-
-
         retranslateUi(DayView);
 
         QMetaObject::connectSlotsByName(DayView);
@@ -114,7 +114,7 @@ public:
 
     void retranslateUi(QDialog *DayView)
     {
-        DayView->setWindowTitle(QApplication::translate("DayView", "Dialog", nullptr));
+        DayView->setWindowTitle(QApplication::translate("DayView", "Time Table", nullptr));
         QTableWidgetItem *___qtablewidgetitem = TimeTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("DayView", "Events", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = TimeTable->verticalHeaderItem(0);
