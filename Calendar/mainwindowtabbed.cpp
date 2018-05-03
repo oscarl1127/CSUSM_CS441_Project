@@ -11,6 +11,7 @@
 #include "thedb.h"
 #include "addeventbutton.h"
 #include "activitystats.h"
+#include "addtodo.h"
 
 
 mainWindowTabbed::mainWindowTabbed(int UserID, QWidget *parent) :
@@ -485,4 +486,32 @@ void mainWindowTabbed::on_UpcomingEventsTable_itemDoubleClicked(QTableWidgetItem
     _event.populateLocations();
     _event.exec();
 
+}
+
+void mainWindowTabbed::on_Month_DeleteTask_pressed()
+{
+    QList<QListWidgetItem*> lista = ui->Month_TodoListViewWindow->selectedItems();
+    for(int k = 0; k < lista.count(); k++)
+    {
+        map<QString, QString>::iterator it = TodoList.find(lista[k]->text());
+        if(it != TodoList.end())
+            TodoList.erase(it);
+    }
+    RefreshTodoList();
+}
+
+void mainWindowTabbed::on_Month_AddTask_pressed()
+{
+    AddTodo addTodo(&TodoList, this);
+    addTodo.setModal(true);
+    addTodo.exec();
+}
+
+void mainWindowTabbed::RefreshTodoList()
+{
+    ui->Month_TodoListViewWindow->clear();
+    for (std::map<QString, QString>::iterator it=TodoList.begin(); it!=TodoList.end(); ++it)
+    {
+        ui->Month_TodoListViewWindow->addItem(it->first);
+    }
 }

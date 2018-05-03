@@ -22,8 +22,10 @@ public:
     void setUserID(int theUserID);
     int userID;
     int work=0,exercise=0,school=0,freeTime=0,appointment=0,meetings=0,study=0,vacation = 0;
+    map<QString, QString> TodoList;
     DayCalendar userEvents;
     void RefreshCalendarView();
+    void RefreshTodoList();
     //Creates the DB varible when the MainWindow tabbed is open (this is what occurs right after login.
     void RefreshUpcomingEventList(int days);
     ~mainWindowTabbed();
@@ -44,6 +46,11 @@ private slots:
     void on_AddEvent_LoadSavedLocationComboBox_currentIndexChanged(const QString &arg1);
 
     void on_UpcomingEventsTable_itemDoubleClicked(QTableWidgetItem *item);
+
+
+    void on_Month_DeleteTask_pressed();
+
+    void on_Month_AddTask_pressed();
 
 private:
     Ui::mainWindowTabbed *ui;

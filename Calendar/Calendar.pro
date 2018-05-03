@@ -40,7 +40,8 @@ SOURCES += \
     activitystats.cpp \
     location.cpp \
     forgotpassword.cpp \
-    register.cpp
+    register.cpp \
+    addtodo.cpp
 
 HEADERS += \
     mainwindowtabbed.h \
@@ -53,7 +54,8 @@ HEADERS += \
     activitystats.h \
     location.h \
     forgotpassword.h \
-    register.h
+    register.h \
+    addtodo.h
 
 FORMS += \
     mainwindowtabbed.ui \
@@ -61,7 +63,8 @@ FORMS += \
     login.ui \
     addeventbutton.ui \
     forgotpassword.ui \
-    register.ui
+    register.ui \
+    addtodo.ui
 
 RESOURCES += \
     resources.qrc
