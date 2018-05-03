@@ -18,6 +18,7 @@ public:
     theDB();
     bool connectToDb();
     int username;
+    int theUserID;
     bool addEventInDb(Event theEvent, int userId);
     bool addEventInDbNoLocation(Event theEvent, int userId);
     bool validateCredentials(QString uName, QString password);
@@ -30,6 +31,10 @@ public:
     vector <Location> getListOfLocationsForUSer(int theID);
     bool checkForUsedUsername(QString uName);
     void createUser(QString uName, QString pass);
+    void deleteEvent(int userID,QString eventName);
+    int getID(){
+        return theUserID;
+    }
 };
 
 #endif // THEDB_H

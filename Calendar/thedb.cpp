@@ -77,6 +77,19 @@ bool theDB::connectToDb()
     return retvalue;
 }
 
+void theDB::deleteEvent(int userID, QString eventName)
+{
+    QString query;
+    query="DELETE FROM Event WHERE userId=" + QString::number(userID)+ " and eventName='"+eventName+"';";
+
+    //Run the query
+    QSqlQuery theQuery;
+    theQuery.prepare(query);
+    theQuery.exec();
+
+    return;
+}
+
 
 vector <Event> theDB::getEventsForUser(int userID)
 {
@@ -101,7 +114,8 @@ vector <Event> theDB::getEventsForUser(int userID)
     Event currentEvent;
     Location currentLocation;
 
-    query = "SELECT eventName, eventTimeStart, eventTimeEnd, eventDateStart, eventDateEnd, eventNote,locationNum,categoryId FROM Event;";
+    query = "SELECT eventName, eventTimeStart, eventTimeEnd, eventDateStart, eventDateEnd, eventNote,locationNum,categoryId FROM Event WHERE userId="
+            + QString::number(userID)+";";
 
     //Run the query
     QSqlQuery theQuery;

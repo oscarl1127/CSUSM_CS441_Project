@@ -148,10 +148,20 @@ void AddEventButton::AddEventClicked()
 }
 void AddEventButton::DeleteEventClicked()
 {
+    //Get ID for the user
+    int userId = userEvents->getUserID();
+
     Event removedEvent;
     qDebug() << "Removing event";
     userEvents->RemoveEvent(FocusedDateTime, removedEvent);
     qDebug() << removedEvent.getName();
+
+    //We got the event. Store the event's name
+    QString eventName = removedEvent.getName();
+
+    calenderdb.deleteEvent(userId,eventName);
+
+
     if(dayView != NULL)
         dayView->RefreshDayView();
     if(father != NULL)
@@ -160,6 +170,9 @@ void AddEventButton::DeleteEventClicked()
 }
 void AddEventButton::ApplyEventClicked()
 {
+    //Get user's ID
+    int userID=userEvents->getUserID();
+
     Event newEvent = Event();
     //Event attributes
     QString eventName = ui->Title_Box->toPlainText();
@@ -196,6 +209,12 @@ void AddEventButton::ApplyEventClicked()
     Event oldEvent;
     userEvents->GetEvent(FocusedDateTime, oldEvent);
     userEvents->ReplaceEvent(oldEvent, newEvent);
+
+    //Delete Old Event from Database
+    calenderdb.deleteEvent(userID,oldEvent.getName());
+
+    //Event is added back into database
+
     qDebug() << "Replaced the time " << FocusedDateTime << " with " << newEvent.getTimeStart();
     if(dayView != NULL)
         dayView->RefreshDayView();
@@ -256,4 +275,9 @@ void AddEventButton::populateLocations()
         currentLoc=locs[y].getLocationName();
         ui->comboBox->addItem(currentLoc);
     }
+}
+
+void AddEventButton::on_buttonBox_accepted()
+{
+
 }
