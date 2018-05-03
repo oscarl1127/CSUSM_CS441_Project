@@ -29,56 +29,48 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    ActivityStats/activitystats.cpp \
-    AddEventForm/addeventbutton.cpp \
-    Database/thedb.cpp \
-    DayCalendar/daycalendar.cpp \
-    EventObject/event.cpp \
-    EventObject/location.cpp \
-    Login/forgotpassword.cpp \
-    Login/login.cpp \
-    Login/register.cpp \
-    TimeTable/dayview.cpp \
-    Todo/addtodo.cpp \
-    Todo/todoevent.cpp \
-    main.cpp \
-    mainwindowtabbed.cpp
+        main.cpp \
+    mainwindowtabbed.cpp \
+    event.cpp \
+    daycalendar.cpp \
+    dayview.cpp \
+    thedb.cpp \
+    login.cpp \
+    addeventbutton.cpp \
+    activitystats.cpp \
+    location.cpp \
+    forgotpassword.cpp \
+    register.cpp \
+    addtodo.cpp
 
 HEADERS += \
-    ActivityStats/activitystats.h \
-    AddEventForm/addeventbutton.h \
-    Database/thedb.h \
-    DayCalendar/daycalendar.h \
-    EventObject/event.h \
-    EventObject/location.h \
-    Login/forgotpassword.h \
-    Login/login.h \
-    Login/register.h \
-    TimeTable/dayview.h \
-    Todo/addtodo.h \
-    Todo/todoevent.h \
-    mainwindowtabbed.h
+    mainwindowtabbed.h \
+    event.h \
+    daycalendar.h \
+    dayview.h \
+    thedb.h \
+    login.h \
+    addeventbutton.h \
+    activitystats.h \
+    location.h \
+    forgotpassword.h \
+    register.h \
+    addtodo.h
 
 FORMS += \
     mainwindowtabbed.ui \
-    AddEventForm/addeventbutton.ui \
-    Login/forgotpassword.ui \
-    Login/login.ui \
-    Login/register.ui \
-    TimeTable/dayview.ui \
-    Todo/addtodo.ui
+    dayview.ui \
+    login.ui \
+    addeventbutton.ui \
+    forgotpassword.ui \
+    register.ui \
+    addtodo.ui
 
 RESOURCES += \
     resources.qrc
 
 DISTFILES += \
-    .gitattributes \
-    .gitignore \
+    images.png \
+    images.png \
     MyTime.rc \
-    Images/hourglass-background.jpeg \
-    Images/time-background-big.jpg \
-    Images/images.png \
-    Images/time_and_date.ico
-
-SUBDIRS += \
-    Calendar.pro
+    time_and_date.ico

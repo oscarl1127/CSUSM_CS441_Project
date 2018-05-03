@@ -3,8 +3,8 @@
 
 #include <QDialog>
 #include <QListWidgetItem>
-#include "DayCalendar/daycalendar.h"
-#include "Database/thedb.h"
+#include "daycalendar.h"
+#include "thedb.h"
 #include <QTableWidget>
 
 namespace Ui {
