@@ -214,25 +214,34 @@ vector<QDate> DayCalendar::GetAllEventDates()
 
 vector<Event> DayCalendar::orderEvents(vector<Event> origEvents)
 {
+    //Vector to return
     vector<Event> EventsOrdered;
+
+    //Dynam9ic vector that gets dates removed as sorting proccess runs
     vector<Event> runningList = origEvents;
-    //eventStartDate = QDate::fromString(dateStart);
 
     int idOfMinEvent;
-    QDate minDate;
+
+    //Minimum date/time
+    QDateTime minDateTime;
+
+    //Current date/time
+    QDateTime currDateTime;
 
     //Runs until the each event has been parsed through
     while(runningList.size()>0)
     {
         //Assume min date is first element of current vector
-        minDate= runningList[0].getStartDate();
+        minDateTime=QDateTime(runningList[0].getStartDate(),runningList[0].getTimeStart());
+        //minDate= runningList[0].getStartDate();
         idOfMinEvent=0;
         //Traverse and find closest date
         for(int x=0;x<runningList.size();x++)
         {
-            if(runningList[x].getStartDate()<minDate)
+            currDateTime=QDateTime(runningList[x].getStartDate(),runningList[x].getTimeStart());
+            if(currDateTime<minDateTime)
             {
-                minDate=runningList[x].getStartDate();
+                minDateTime=currDateTime;
                 idOfMinEvent=x;
             }
         }
